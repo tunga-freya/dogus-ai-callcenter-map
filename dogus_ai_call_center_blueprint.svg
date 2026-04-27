@@ -1,0 +1,481 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 3600 2700" font-family="Inter, 'Segoe UI', system-ui, -apple-system, sans-serif">
+<defs>
+<filter id="shadow" x="-2%" y="-2%" width="104%" height="108%">
+  <feGaussianBlur in="SourceAlpha" stdDeviation="3"/>
+  <feOffset dx="0" dy="2" result="offsetblur"/>
+  <feComponentTransfer><feFuncA type="linear" slope="0.10"/></feComponentTransfer>
+  <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
+</filter>
+<marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto" markerUnits="strokeWidth">
+  <path d="M0,0 L0,12 L10,6 z" fill="#0a2540"/>
+</marker>
+<marker id="arrow-blue" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto" markerUnits="strokeWidth">
+  <path d="M0,0 L0,12 L10,6 z" fill="#2563eb"/>
+</marker>
+<linearGradient id="header-grad" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#0a2540"/><stop offset="100%" stop-color="#143b66"/></linearGradient>
+</defs>
+<rect width="3600" height="2700" fill="#f8f9fc"/>
+<rect x="0" y="0" width="3600" height="200" fill="url(#header-grad)"/>
+<text x="72" y="86" fill="white" font-size="64" font-weight="800" letter-spacing="-1">Doğuş Otomotiv × Freya Labs</text>
+<text x="72" y="146" fill="#cbd5e1" font-size="36" font-weight="500">Call Center AI Transformation Blueprint, 12-Month Operating Model</text>
+<text x="72" y="184" fill="#94a3b8" font-size="22" font-weight="400">VW · Audi · Skoda · SEAT · Porsche · Bentley · Lamborghini   |   400+ dealers, ~3M active customers, 24/7 service line</text>
+<rect x="2840" y="40" width="700" height="120" fill="rgba(255,255,255,0.08)" rx="12"/>
+<text x="2864" y="74" fill="white" font-size="20" font-weight="600">Engagement Summary</text>
+<text x="2864" y="106" fill="#cbd5e1" font-size="18">Phase 1 PoC: Service Appointment Agent · 60-day pilot</text>
+<text x="2864" y="134" fill="#cbd5e1" font-size="18">Target: 70% containment, &lt;90s AHT, 24/7 coverage</text>
+<rect x="3380" y="170" width="180" height="28" fill="rgba(255,255,255,0.15)" rx="14"/>
+<text x="3470" y="190" fill="white" font-size="14" text-anchor="middle">Rev 1.0 · April 2026</text>
+<rect x="48" y="240" width="3504" height="6" fill="#2563eb" rx="3"/>
+<text x="48" y="284" fill="#1f2937" font-size="30" font-weight="800">01 · Inbound &amp; Outbound Channels</text>
+<text x="48" y="314" fill="#6b7280" font-size="18" font-weight="400">Where customers reach us, where we reach customers</text>
+<rect x="48.0" y="336" width="486.85714285714283" height="160" fill="#ffffff" stroke="#e5e7eb" rx="10" filter="url(#shadow)"/>
+<rect x="48.0" y="336" width="486.85714285714283" height="6" fill="#2563eb" rx="10"/>
+<text x="68.0" y="386" fill="#1f2937" font-size="22" font-weight="700">📞 Phone</text>
+<text x="68.0" y="418" fill="#1f2937" font-size="14">Cisco IVR</text>
+<text x="68.0" y="440" fill="#1f2937" font-size="14">444 0 X</text>
+<text x="68.0" y="474" fill="#6b7280" font-size="13">Main line, 24/7</text>
+<rect x="550.8571428571429" y="336" width="486.85714285714283" height="160" fill="#ffffff" stroke="#e5e7eb" rx="10" filter="url(#shadow)"/>
+<rect x="550.8571428571429" y="336" width="486.85714285714283" height="6" fill="#2563eb" rx="10"/>
+<text x="570.8571428571429" y="386" fill="#1f2937" font-size="22" font-weight="700">💬 WhatsApp</text>
+<text x="570.8571428571429" y="418" fill="#1f2937" font-size="14">Business API</text>
+<text x="570.8571428571429" y="474" fill="#6b7280" font-size="13">High-volume, async</text>
+<rect x="1053.7142857142858" y="336" width="486.85714285714283" height="160" fill="#ffffff" stroke="#e5e7eb" rx="10" filter="url(#shadow)"/>
+<rect x="1053.7142857142858" y="336" width="486.85714285714283" height="6" fill="#2563eb" rx="10"/>
+<text x="1073.7142857142858" y="386" fill="#1f2937" font-size="22" font-weight="700">🌐 Web Chat</text>
+<text x="1073.7142857142858" y="418" fill="#1f2937" font-size="14">dogusoto.com.tr</text>
+<text x="1073.7142857142858" y="474" fill="#6b7280" font-size="13">Pre-sale &amp; support</text>
+<rect x="1556.5714285714284" y="336" width="486.85714285714283" height="160" fill="#ffffff" stroke="#e5e7eb" rx="10" filter="url(#shadow)"/>
+<rect x="1556.5714285714284" y="336" width="486.85714285714283" height="6" fill="#2563eb" rx="10"/>
+<text x="1576.5714285714284" y="386" fill="#1f2937" font-size="22" font-weight="700">✉ Email</text>
+<text x="1576.5714285714284" y="418" fill="#1f2937" font-size="14">Service ticket</text>
+<text x="1576.5714285714284" y="474" fill="#6b7280" font-size="13">Lower priority</text>
+<rect x="2059.4285714285716" y="336" width="486.85714285714283" height="160" fill="#ffffff" stroke="#e5e7eb" rx="10" filter="url(#shadow)"/>
+<rect x="2059.4285714285716" y="336" width="486.85714285714283" height="6" fill="#2563eb" rx="10"/>
+<text x="2079.4285714285716" y="386" fill="#1f2937" font-size="22" font-weight="700">📱 App</text>
+<text x="2079.4285714285716" y="418" fill="#1f2937" font-size="14">DOD app</text>
+<text x="2079.4285714285716" y="474" fill="#6b7280" font-size="13">Authenticated users</text>
+<rect x="2562.285714285714" y="336" width="486.85714285714283" height="160" fill="#ffffff" stroke="#e5e7eb" rx="10" filter="url(#shadow)"/>
+<rect x="2562.285714285714" y="336" width="486.85714285714283" height="6" fill="#2563eb" rx="10"/>
+<text x="2582.285714285714" y="386" fill="#1f2937" font-size="22" font-weight="700">🚗 Roadside</text>
+<text x="2582.285714285714" y="418" fill="#1f2937" font-size="14">112-style</text>
+<text x="2582.285714285714" y="474" fill="#6b7280" font-size="13">Emergency triage</text>
+<rect x="3065.142857142857" y="336" width="486.85714285714283" height="160" fill="#ffffff" stroke="#e5e7eb" rx="10" filter="url(#shadow)"/>
+<rect x="3065.142857142857" y="336" width="486.85714285714283" height="6" fill="#2563eb" rx="10"/>
+<text x="3085.142857142857" y="386" fill="#1f2937" font-size="22" font-weight="700">🤖 Outbound</text>
+<text x="3085.142857142857" y="418" fill="#1f2937" font-size="14">AI-driven</text>
+<text x="3085.142857142857" y="474" fill="#6b7280" font-size="13">Reminders, NPS, recalls</text>
+<rect x="48" y="540" width="3504" height="6" fill="#0a2540" rx="3"/>
+<text x="48" y="584" fill="#1f2937" font-size="30" font-weight="800">02 · AI Agent Map</text>
+<text x="48" y="614" fill="#6b7280" font-size="18" font-weight="400">10 specialized voice agents grouped by intent. Each owns a use case end-to-end.</text>
+<rect x="48.0" y="650" width="686.4" height="280" fill="#ffffff" stroke="#e5e7eb" rx="12" filter="url(#shadow)"/>
+<rect x="48.0" y="650" width="686.4" height="56" fill="#2563eb" rx="12"/>
+<rect x="48.0" y="694" width="686.4" height="12" fill="#2563eb"/>
+<text x="68.0" y="686" fill="white" font-size="22" font-weight="800">Service Appointment</text>
+<rect x="68.0" y="722" width="180" height="26" fill="#dbeafe" rx="13"/>
+<text x="158.0" y="740" fill="#2563eb" font-size="13" font-weight="700" text-anchor="middle">Inbound · Phase 1</text>
+<text x="68.0" y="778" fill="#1f2937" font-size="14">• Vehicle plate lookup</text>
+<text x="68.0" y="804" fill="#1f2937" font-size="14">• Slot booking by dealer</text>
+<text x="68.0" y="830" fill="#1f2937" font-size="14">• Service type triage</text>
+<text x="68.0" y="856" fill="#1f2937" font-size="14">• SMS confirmation</text>
+<text x="68.0" y="882" fill="#1f2937" font-size="14">• Reschedule / cancel</text>
+<text x="68.0" y="908" fill="#2563eb" font-size="14" font-weight="700">→ ROI: ~40% containment</text>
+<rect x="752.4" y="650" width="686.4" height="280" fill="#ffffff" stroke="#e5e7eb" rx="12" filter="url(#shadow)"/>
+<rect x="752.4" y="650" width="686.4" height="56" fill="#2563eb" rx="12"/>
+<rect x="752.4" y="694" width="686.4" height="12" fill="#2563eb"/>
+<text x="772.4" y="686" fill="white" font-size="22" font-weight="800">Sales Lead Qualifier</text>
+<rect x="772.4" y="722" width="180" height="26" fill="#dbeafe" rx="13"/>
+<text x="862.4" y="740" fill="#2563eb" font-size="13" font-weight="700" text-anchor="middle">Inbound · Phase 2</text>
+<text x="772.4" y="778" fill="#1f2937" font-size="14">• Brand &amp; model interest</text>
+<text x="772.4" y="804" fill="#1f2937" font-size="14">• Budget + financing</text>
+<text x="772.4" y="830" fill="#1f2937" font-size="14">• Test-drive booking</text>
+<text x="772.4" y="856" fill="#1f2937" font-size="14">• Dealer routing</text>
+<text x="772.4" y="882" fill="#1f2937" font-size="14">• Lead scoring</text>
+<text x="772.4" y="908" fill="#2563eb" font-size="14" font-weight="700">→ ROI: faster handoff</text>
+<rect x="1456.8" y="650" width="686.4" height="280" fill="#ffffff" stroke="#e5e7eb" rx="12" filter="url(#shadow)"/>
+<rect x="1456.8" y="650" width="686.4" height="56" fill="#2563eb" rx="12"/>
+<rect x="1456.8" y="694" width="686.4" height="12" fill="#2563eb"/>
+<text x="1476.8" y="686" fill="white" font-size="22" font-weight="800">Parts Inquiry</text>
+<rect x="1476.8" y="722" width="180" height="26" fill="#dbeafe" rx="13"/>
+<text x="1566.8" y="740" fill="#2563eb" font-size="13" font-weight="700" text-anchor="middle">Inbound · Phase 3</text>
+<text x="1476.8" y="778" fill="#1f2937" font-size="14">• Part number lookup</text>
+<text x="1476.8" y="804" fill="#1f2937" font-size="14">• Stock check at dealer</text>
+<text x="1476.8" y="830" fill="#1f2937" font-size="14">• Price quote</text>
+<text x="1476.8" y="856" fill="#1f2937" font-size="14">• Order placement</text>
+<text x="1476.8" y="882" fill="#1f2937" font-size="14">• Pickup scheduling</text>
+<text x="1476.8" y="908" fill="#2563eb" font-size="14" font-weight="700">→ ROI: dealer staff offload</text>
+<rect x="2161.2" y="650" width="686.4" height="280" fill="#ffffff" stroke="#e5e7eb" rx="12" filter="url(#shadow)"/>
+<rect x="2161.2" y="650" width="686.4" height="56" fill="#f59e0b" rx="12"/>
+<rect x="2161.2" y="694" width="686.4" height="12" fill="#f59e0b"/>
+<text x="2181.2" y="686" fill="white" font-size="22" font-weight="800">Complaint Tier-1</text>
+<rect x="2181.2" y="722" width="180" height="26" fill="#fef3c7" rx="13"/>
+<text x="2271.2" y="740" fill="#f59e0b" font-size="13" font-weight="700" text-anchor="middle">Inbound · Phase 2</text>
+<text x="2181.2" y="778" fill="#1f2937" font-size="14">• Capture details</text>
+<text x="2181.2" y="804" fill="#1f2937" font-size="14">• Sentiment routing</text>
+<text x="2181.2" y="830" fill="#1f2937" font-size="14">• Acknowledgement</text>
+<text x="2181.2" y="856" fill="#1f2937" font-size="14">• Promise of callback</text>
+<text x="2181.2" y="882" fill="#1f2937" font-size="14">• Escalation flag</text>
+<text x="2181.2" y="908" fill="#f59e0b" font-size="14" font-weight="700">→ ROI: 100% logged</text>
+<rect x="2865.6" y="650" width="686.4" height="280" fill="#ffffff" stroke="#e5e7eb" rx="12" filter="url(#shadow)"/>
+<rect x="2865.6" y="650" width="686.4" height="56" fill="#ef4444" rx="12"/>
+<rect x="2865.6" y="694" width="686.4" height="12" fill="#ef4444"/>
+<text x="2885.6" y="686" fill="white" font-size="22" font-weight="800">Roadside Triage</text>
+<rect x="2885.6" y="722" width="180" height="26" fill="#fee2e2" rx="13"/>
+<text x="2975.6" y="740" fill="#ef4444" font-size="13" font-weight="700" text-anchor="middle">Inbound · Phase 4</text>
+<text x="2885.6" y="778" fill="#1f2937" font-size="14">• Location + situation</text>
+<text x="2885.6" y="804" fill="#1f2937" font-size="14">• Severity scoring</text>
+<text x="2885.6" y="830" fill="#1f2937" font-size="14">• Tow vs on-site</text>
+<text x="2885.6" y="856" fill="#1f2937" font-size="14">• Dispatch hand-off</text>
+<text x="2885.6" y="882" fill="#1f2937" font-size="14">• ETA tracking</text>
+<text x="2885.6" y="908" fill="#ef4444" font-size="14" font-weight="700">→ ROI: faster response</text>
+<rect x="48.0" y="948" width="686.4" height="280" fill="#ffffff" stroke="#e5e7eb" rx="12" filter="url(#shadow)"/>
+<rect x="48.0" y="948" width="686.4" height="56" fill="#10b981" rx="12"/>
+<rect x="48.0" y="992" width="686.4" height="12" fill="#10b981"/>
+<text x="68.0" y="984" fill="white" font-size="22" font-weight="800">Service Reminder</text>
+<rect x="68.0" y="1020" width="180" height="26" fill="#d1fae5" rx="13"/>
+<text x="158.0" y="1038" fill="#10b981" font-size="13" font-weight="700" text-anchor="middle">Outbound · Phase 1</text>
+<text x="68.0" y="1076" fill="#1f2937" font-size="14">• Mileage / time-based</text>
+<text x="68.0" y="1102" fill="#1f2937" font-size="14">• Personalized timing</text>
+<text x="68.0" y="1128" fill="#1f2937" font-size="14">• Slot offer</text>
+<text x="68.0" y="1154" fill="#1f2937" font-size="14">• Reschedule loop</text>
+<text x="68.0" y="1180" fill="#1f2937" font-size="14">• Multi-attempt</text>
+<text x="68.0" y="1206" fill="#10b981" font-size="14" font-weight="700">→ ROI: +20% service revenue</text>
+<rect x="752.4" y="948" width="686.4" height="280" fill="#ffffff" stroke="#e5e7eb" rx="12" filter="url(#shadow)"/>
+<rect x="752.4" y="948" width="686.4" height="56" fill="#7c3aed" rx="12"/>
+<rect x="752.4" y="992" width="686.4" height="12" fill="#7c3aed"/>
+<text x="772.4" y="984" fill="white" font-size="22" font-weight="800">Recall Campaign</text>
+<rect x="772.4" y="1020" width="180" height="26" fill="#ede9fe" rx="13"/>
+<text x="862.4" y="1038" fill="#7c3aed" font-size="13" font-weight="700" text-anchor="middle">Outbound · Phase 2</text>
+<text x="772.4" y="1076" fill="#1f2937" font-size="14">• Compliance-driven</text>
+<text x="772.4" y="1102" fill="#1f2937" font-size="14">• Bulk eligible list</text>
+<text x="772.4" y="1128" fill="#1f2937" font-size="14">• Booking with priority</text>
+<text x="772.4" y="1154" fill="#1f2937" font-size="14">• Audit trail</text>
+<text x="772.4" y="1180" fill="#1f2937" font-size="14">• Reporting to OEM</text>
+<text x="772.4" y="1206" fill="#7c3aed" font-size="14" font-weight="700">→ ROI: regulatory cover</text>
+<rect x="1456.8" y="948" width="686.4" height="280" fill="#ffffff" stroke="#e5e7eb" rx="12" filter="url(#shadow)"/>
+<rect x="1456.8" y="948" width="686.4" height="56" fill="#7c3aed" rx="12"/>
+<rect x="1456.8" y="992" width="686.4" height="12" fill="#7c3aed"/>
+<text x="1476.8" y="984" fill="white" font-size="22" font-weight="800">Warranty Renewal</text>
+<rect x="1476.8" y="1020" width="180" height="26" fill="#ede9fe" rx="13"/>
+<text x="1566.8" y="1038" fill="#7c3aed" font-size="13" font-weight="700" text-anchor="middle">Outbound · Phase 3</text>
+<text x="1476.8" y="1076" fill="#1f2937" font-size="14">• 60/30/15 day reminders</text>
+<text x="1476.8" y="1102" fill="#1f2937" font-size="14">• Quote on call</text>
+<text x="1476.8" y="1128" fill="#1f2937" font-size="14">• Upsell extended</text>
+<text x="1476.8" y="1154" fill="#1f2937" font-size="14">• Payment link</text>
+<text x="1476.8" y="1180" fill="#1f2937" font-size="14">• Cross-sell insurance</text>
+<text x="1476.8" y="1206" fill="#7c3aed" font-size="14" font-weight="700">→ ROI: renewal lift</text>
+<rect x="2161.2" y="948" width="686.4" height="280" fill="#ffffff" stroke="#e5e7eb" rx="12" filter="url(#shadow)"/>
+<rect x="2161.2" y="948" width="686.4" height="56" fill="#0d9488" rx="12"/>
+<rect x="2161.2" y="992" width="686.4" height="12" fill="#0d9488"/>
+<text x="2181.2" y="984" fill="white" font-size="22" font-weight="800">NPS / CX Survey</text>
+<rect x="2181.2" y="1020" width="180" height="26" fill="#ccfbf1" rx="13"/>
+<text x="2271.2" y="1038" fill="#0d9488" font-size="13" font-weight="700" text-anchor="middle">Outbound · Phase 1</text>
+<text x="2181.2" y="1076" fill="#1f2937" font-size="14">• Post-service callback</text>
+<text x="2181.2" y="1102" fill="#1f2937" font-size="14">• 3-question script</text>
+<text x="2181.2" y="1128" fill="#1f2937" font-size="14">• Open-text capture</text>
+<text x="2181.2" y="1154" fill="#1f2937" font-size="14">• Sentiment scored</text>
+<text x="2181.2" y="1180" fill="#1f2937" font-size="14">• Detractor escalation</text>
+<text x="2181.2" y="1206" fill="#0d9488" font-size="14" font-weight="700">→ ROI: closed-loop CX</text>
+<rect x="2865.6" y="948" width="686.4" height="280" fill="#ffffff" stroke="#e5e7eb" rx="12" filter="url(#shadow)"/>
+<rect x="2865.6" y="948" width="686.4" height="56" fill="#0d9488" rx="12"/>
+<rect x="2865.6" y="992" width="686.4" height="12" fill="#0d9488"/>
+<text x="2885.6" y="984" fill="white" font-size="22" font-weight="800">Insurance Cross-sell</text>
+<rect x="2885.6" y="1020" width="180" height="26" fill="#ccfbf1" rx="13"/>
+<text x="2975.6" y="1038" fill="#0d9488" font-size="13" font-weight="700" text-anchor="middle">Outbound · Phase 4</text>
+<text x="2885.6" y="1076" fill="#1f2937" font-size="14">• Telematics-triggered</text>
+<text x="2885.6" y="1102" fill="#1f2937" font-size="14">• Quote in conversation</text>
+<text x="2885.6" y="1128" fill="#1f2937" font-size="14">• Bind-on-call</text>
+<text x="2885.6" y="1154" fill="#1f2937" font-size="14">• Dealer commission</text>
+<text x="2885.6" y="1180" fill="#1f2937" font-size="14">• KVKK opt-in capture</text>
+<text x="2885.6" y="1206" fill="#0d9488" font-size="14" font-weight="700">→ ROI: new revenue line</text>
+<rect x="48" y="1308" width="3504" height="6" fill="#7c3aed" rx="3"/>
+<text x="48" y="1352" fill="#1f2937" font-size="30" font-weight="800">03 · Technology Stack</text>
+<text x="48" y="1382" fill="#6b7280" font-size="18" font-weight="400">Layered view from telephony to analytics. Freya owns voice + LLM + workflow; Doğuş owns CRM + DMS.</text>
+<rect x="48" y="1418" width="3504" height="64" fill="#ffffff" stroke="#e5e7eb" rx="8" filter="url(#shadow)"/>
+<rect x="48" y="1418" width="14" height="64" fill="#1e293b" rx="8"/>
+<text x="82" y="1446.0" fill="#1f2937" font-size="20" font-weight="700">Telephony</text>
+<text x="82" y="1472.0" fill="#6b7280" font-size="15">Cisco UCM · SIP trunk · 444-0-X</text>
+<rect x="3372" y="1434.0" width="160" height="32" fill="#1e293b" rx="16" opacity="0.15"/>
+<text x="3452" y="1455.0" fill="#1e293b" font-size="14" font-weight="700" text-anchor="middle">Owner: Doğuş incumbent</text>
+<rect x="48" y="1490" width="3504" height="64" fill="#ffffff" stroke="#e5e7eb" rx="8" filter="url(#shadow)"/>
+<rect x="48" y="1490" width="14" height="64" fill="#2563eb" rx="8"/>
+<text x="82" y="1518.0" fill="#1f2937" font-size="20" font-weight="700">Voice I/O</text>
+<text x="82" y="1544.0" fill="#6b7280" font-size="15">Freya STT (Qwen3-ASR-TR, 50ms p50) · Freya TTS (BiCodec)</text>
+<rect x="3372" y="1506.0" width="160" height="32" fill="#2563eb" rx="16" opacity="0.15"/>
+<text x="3452" y="1527.0" fill="#2563eb" font-size="14" font-weight="700" text-anchor="middle">Owner: Freya</text>
+<rect x="48" y="1562" width="3504" height="64" fill="#ffffff" stroke="#e5e7eb" rx="8" filter="url(#shadow)"/>
+<rect x="48" y="1562" width="14" height="64" fill="#7c3aed" rx="8"/>
+<text x="82" y="1590.0" fill="#1f2937" font-size="20" font-weight="700">LLM Routing</text>
+<text x="82" y="1616.0" fill="#6b7280" font-size="15">Gemma-Banking-3 (TR-tuned) · Gemini-3-Flash · Claude Haiku 4.5 fallback</text>
+<rect x="3372" y="1578.0" width="160" height="32" fill="#7c3aed" rx="16" opacity="0.15"/>
+<text x="3452" y="1599.0" fill="#7c3aed" font-size="14" font-weight="700" text-anchor="middle">Owner: Freya</text>
+<rect x="48" y="1634" width="3504" height="64" fill="#ffffff" stroke="#e5e7eb" rx="8" filter="url(#shadow)"/>
+<rect x="48" y="1634" width="14" height="64" fill="#7c3aed" rx="8"/>
+<text x="82" y="1662.0" fill="#1f2937" font-size="20" font-weight="700">Workflow Engine</text>
+<text x="82" y="1688.0" fill="#6b7280" font-size="15">Freya state machine · per-agent flows · API-call nodes</text>
+<rect x="3372" y="1650.0" width="160" height="32" fill="#7c3aed" rx="16" opacity="0.15"/>
+<text x="3452" y="1671.0" fill="#7c3aed" font-size="14" font-weight="700" text-anchor="middle">Owner: Freya</text>
+<rect x="48" y="1706" width="3504" height="64" fill="#ffffff" stroke="#e5e7eb" rx="8" filter="url(#shadow)"/>
+<rect x="48" y="1706" width="14" height="64" fill="#f59e0b" rx="8"/>
+<text x="82" y="1734.0" fill="#1f2937" font-size="20" font-weight="700">Knowledge &amp; Tools</text>
+<text x="82" y="1760.0" fill="#6b7280" font-size="15">Service catalog · Parts catalog · Recall list · Pricing API</text>
+<rect x="3372" y="1722.0" width="160" height="32" fill="#f59e0b" rx="16" opacity="0.15"/>
+<text x="3452" y="1743.0" fill="#f59e0b" font-size="14" font-weight="700" text-anchor="middle">Owner: Doğuş</text>
+<rect x="48" y="1778" width="3504" height="64" fill="#ffffff" stroke="#e5e7eb" rx="8" filter="url(#shadow)"/>
+<rect x="48" y="1778" width="14" height="64" fill="#f59e0b" rx="8"/>
+<text x="82" y="1806.0" fill="#1f2937" font-size="20" font-weight="700">CRM / DMS</text>
+<text x="82" y="1832.0" fill="#6b7280" font-size="15">SAP CRM · DOD app · Dealer DMS (heterogeneous)</text>
+<rect x="3372" y="1794.0" width="160" height="32" fill="#f59e0b" rx="16" opacity="0.15"/>
+<text x="3452" y="1815.0" fill="#f59e0b" font-size="14" font-weight="700" text-anchor="middle">Owner: Doğuş</text>
+<rect x="48" y="1850" width="3504" height="64" fill="#ffffff" stroke="#e5e7eb" rx="8" filter="url(#shadow)"/>
+<rect x="48" y="1850" width="14" height="64" fill="#10b981" rx="8"/>
+<text x="82" y="1878.0" fill="#1f2937" font-size="20" font-weight="700">Observability</text>
+<text x="82" y="1904.0" fill="#6b7280" font-size="15">Langfuse traces · Datadog · QA sample reviews · WER/CER monitoring</text>
+<rect x="3372" y="1866.0" width="160" height="32" fill="#10b981" rx="16" opacity="0.15"/>
+<text x="3452" y="1887.0" fill="#10b981" font-size="14" font-weight="700" text-anchor="middle">Owner: Freya</text>
+<rect x="48" y="1922" width="3504" height="64" fill="#ffffff" stroke="#e5e7eb" rx="8" filter="url(#shadow)"/>
+<rect x="48" y="1922" width="14" height="64" fill="#ef4444" rx="8"/>
+<text x="82" y="1950.0" fill="#1f2937" font-size="20" font-weight="700">Compliance</text>
+<text x="82" y="1976.0" fill="#6b7280" font-size="15">KVKK consent capture · voice biometrics · 90-day retention · SOC2</text>
+<rect x="3372" y="1938.0" width="160" height="32" fill="#ef4444" rx="16" opacity="0.15"/>
+<text x="3452" y="1959.0" fill="#ef4444" font-size="14" font-weight="700" text-anchor="middle">Owner: Joint</text>
+<rect x="48" y="2054" width="3504" height="6" fill="#f59e0b" rx="3"/>
+<text x="48" y="2098" fill="#1f2937" font-size="30" font-weight="800">04 · Phased Rollout · 12 Months</text>
+<text x="48" y="2128" fill="#6b7280" font-size="18" font-weight="400">From single-agent PoC to multi-brand premium scale, gated by KPIs.</text>
+<rect x="48.0" y="2164" width="688.0" height="380" fill="#ffffff" stroke="#e5e7eb" rx="12" filter="url(#shadow)"/>
+<rect x="48.0" y="2164" width="688.0" height="80" fill="#dbeafe" rx="12"/>
+<rect x="48.0" y="2232" width="688.0" height="12" fill="#dbeafe"/>
+<text x="68.0" y="2198" fill="#2563eb" font-size="14" font-weight="800" letter-spacing="1.5">PHASE 0</text>
+<text x="68.0" y="2226" fill="#1f2937" font-size="26" font-weight="800">Discover</text>
+<text x="716.0" y="2226" fill="#2563eb" font-size="14" font-weight="700" text-anchor="end">Week 0-4</text>
+<circle cx="72.0" cy="2282" r="3" fill="#2563eb"/>
+<text x="86.0" y="2287" fill="#1f2937" font-size="14">Volume audit, top-10 intents</text>
+<circle cx="72.0" cy="2322" r="3" fill="#2563eb"/>
+<text x="86.0" y="2327" fill="#1f2937" font-size="14">Existing IVR mining</text>
+<circle cx="72.0" cy="2362" r="3" fill="#2563eb"/>
+<text x="86.0" y="2367" fill="#1f2937" font-size="14">DMS API discovery</text>
+<circle cx="72.0" cy="2402" r="3" fill="#2563eb"/>
+<text x="86.0" y="2407" fill="#1f2937" font-size="14">Compliance &amp; KVKK sign-off</text>
+<circle cx="72.0" cy="2442" r="3" fill="#2563eb"/>
+<text x="86.0" y="2447" fill="#1f2937" font-size="14">PoC scope locked</text>
+<circle cx="72.0" cy="2482" r="3" fill="#2563eb"/>
+<text x="86.0" y="2487" fill="#1f2937" font-size="14">Baseline KPIs captured</text>
+<path d="M 737.0 2224 L 749.0 2224" stroke="#2563eb" stroke-width="2" marker-end="url(#arrow-blue)"/>
+<rect x="752.0" y="2164" width="688.0" height="380" fill="#ffffff" stroke="#e5e7eb" rx="12" filter="url(#shadow)"/>
+<rect x="752.0" y="2164" width="688.0" height="80" fill="#d1fae5" rx="12"/>
+<rect x="752.0" y="2232" width="688.0" height="12" fill="#d1fae5"/>
+<text x="772.0" y="2198" fill="#10b981" font-size="14" font-weight="800" letter-spacing="1.5">PHASE 1</text>
+<text x="772.0" y="2226" fill="#1f2937" font-size="26" font-weight="800">Pilot</text>
+<text x="1420.0" y="2226" fill="#10b981" font-size="14" font-weight="700" text-anchor="end">Month 1-3</text>
+<circle cx="776.0" cy="2282" r="3" fill="#10b981"/>
+<text x="790.0" y="2287" fill="#1f2937" font-size="14">Service Appointment Agent</text>
+<circle cx="776.0" cy="2322" r="3" fill="#10b981"/>
+<text x="790.0" y="2327" fill="#1f2937" font-size="14">Service Reminder (outbound)</text>
+<circle cx="776.0" cy="2362" r="3" fill="#10b981"/>
+<text x="790.0" y="2367" fill="#1f2937" font-size="14">NPS Survey</text>
+<circle cx="776.0" cy="2402" r="3" fill="#10b981"/>
+<text x="790.0" y="2407" fill="#1f2937" font-size="14">1 brand × 3 dealer pilots</text>
+<circle cx="776.0" cy="2442" r="3" fill="#10b981"/>
+<text x="790.0" y="2447" fill="#1f2937" font-size="14">Live monitoring + war room</text>
+<circle cx="776.0" cy="2482" r="3" fill="#10b981"/>
+<text x="790.0" y="2487" fill="#1f2937" font-size="14">Gate: 70% containment</text>
+<path d="M 1441.0 2224 L 1453.0 2224" stroke="#10b981" stroke-width="2" marker-end="url(#arrow-blue)"/>
+<rect x="1456.0" y="2164" width="688.0" height="380" fill="#ffffff" stroke="#e5e7eb" rx="12" filter="url(#shadow)"/>
+<rect x="1456.0" y="2164" width="688.0" height="80" fill="#fef3c7" rx="12"/>
+<rect x="1456.0" y="2232" width="688.0" height="12" fill="#fef3c7"/>
+<text x="1476.0" y="2198" fill="#f59e0b" font-size="14" font-weight="800" letter-spacing="1.5">PHASE 2</text>
+<text x="1476.0" y="2226" fill="#1f2937" font-size="26" font-weight="800">Expand</text>
+<text x="2124.0" y="2226" fill="#f59e0b" font-size="14" font-weight="700" text-anchor="end">Month 4-6</text>
+<circle cx="1480.0" cy="2282" r="3" fill="#f59e0b"/>
+<text x="1494.0" y="2287" fill="#1f2937" font-size="14">Sales Lead + Complaint</text>
+<circle cx="1480.0" cy="2322" r="3" fill="#f59e0b"/>
+<text x="1494.0" y="2327" fill="#1f2937" font-size="14">Recall Campaign</text>
+<circle cx="1480.0" cy="2362" r="3" fill="#f59e0b"/>
+<text x="1494.0" y="2367" fill="#1f2937" font-size="14">Multi-dealer routing</text>
+<circle cx="1480.0" cy="2402" r="3" fill="#f59e0b"/>
+<text x="1494.0" y="2407" fill="#1f2937" font-size="14">Brand 2 + Brand 3</text>
+<circle cx="1480.0" cy="2442" r="3" fill="#f59e0b"/>
+<text x="1494.0" y="2447" fill="#1f2937" font-size="14">Analytics dashboard live</text>
+<circle cx="1480.0" cy="2482" r="3" fill="#f59e0b"/>
+<text x="1494.0" y="2487" fill="#1f2937" font-size="14">Gate: stable WER &lt; 8%</text>
+<path d="M 2145.0 2224 L 2157.0 2224" stroke="#f59e0b" stroke-width="2" marker-end="url(#arrow-blue)"/>
+<rect x="2160.0" y="2164" width="688.0" height="380" fill="#ffffff" stroke="#e5e7eb" rx="12" filter="url(#shadow)"/>
+<rect x="2160.0" y="2164" width="688.0" height="80" fill="#ede9fe" rx="12"/>
+<rect x="2160.0" y="2232" width="688.0" height="12" fill="#ede9fe"/>
+<text x="2180.0" y="2198" fill="#7c3aed" font-size="14" font-weight="800" letter-spacing="1.5">PHASE 3</text>
+<text x="2180.0" y="2226" fill="#1f2937" font-size="26" font-weight="800">Deepen</text>
+<text x="2828.0" y="2226" fill="#7c3aed" font-size="14" font-weight="700" text-anchor="end">Month 7-9</text>
+<circle cx="2184.0" cy="2282" r="3" fill="#7c3aed"/>
+<text x="2198.0" y="2287" fill="#1f2937" font-size="14">Parts Inquiry</text>
+<circle cx="2184.0" cy="2322" r="3" fill="#7c3aed"/>
+<text x="2198.0" y="2327" fill="#1f2937" font-size="14">Warranty Renewal</text>
+<circle cx="2184.0" cy="2362" r="3" fill="#7c3aed"/>
+<text x="2198.0" y="2367" fill="#1f2937" font-size="14">Telematics integration</text>
+<circle cx="2184.0" cy="2402" r="3" fill="#7c3aed"/>
+<text x="2198.0" y="2407" fill="#1f2937" font-size="14">Premium brands (Porsche)</text>
+<circle cx="2184.0" cy="2442" r="3" fill="#7c3aed"/>
+<text x="2198.0" y="2447" fill="#1f2937" font-size="14">Cross-sell modules</text>
+<circle cx="2184.0" cy="2482" r="3" fill="#7c3aed"/>
+<text x="2198.0" y="2487" fill="#1f2937" font-size="14">Gate: NPS uplift +5</text>
+<path d="M 2849.0 2224 L 2861.0 2224" stroke="#7c3aed" stroke-width="2" marker-end="url(#arrow-blue)"/>
+<rect x="2864.0" y="2164" width="688.0" height="380" fill="#ffffff" stroke="#e5e7eb" rx="12" filter="url(#shadow)"/>
+<rect x="2864.0" y="2164" width="688.0" height="80" fill="#fee2e2" rx="12"/>
+<rect x="2864.0" y="2232" width="688.0" height="12" fill="#fee2e2"/>
+<text x="2884.0" y="2198" fill="#ef4444" font-size="14" font-weight="800" letter-spacing="1.5">PHASE 4</text>
+<text x="2884.0" y="2226" fill="#1f2937" font-size="26" font-weight="800">Scale</text>
+<text x="3532.0" y="2226" fill="#ef4444" font-size="14" font-weight="700" text-anchor="end">Month 10-12</text>
+<circle cx="2888.0" cy="2282" r="3" fill="#ef4444"/>
+<text x="2902.0" y="2287" fill="#1f2937" font-size="14">Roadside Triage</text>
+<circle cx="2888.0" cy="2322" r="3" fill="#ef4444"/>
+<text x="2902.0" y="2327" fill="#1f2937" font-size="14">Insurance Cross-sell</text>
+<circle cx="2888.0" cy="2362" r="3" fill="#ef4444"/>
+<text x="2902.0" y="2367" fill="#1f2937" font-size="14">Full multi-brand</text>
+<circle cx="2888.0" cy="2402" r="3" fill="#ef4444"/>
+<text x="2902.0" y="2407" fill="#1f2937" font-size="14">All channels integrated</text>
+<circle cx="2888.0" cy="2442" r="3" fill="#ef4444"/>
+<text x="2902.0" y="2447" fill="#1f2937" font-size="14">Self-service knowledge</text>
+<circle cx="2888.0" cy="2482" r="3" fill="#ef4444"/>
+<text x="2902.0" y="2487" fill="#1f2937" font-size="14">Gate: cost-to-serve -45%</text>
+<rect x="48" y="2614" width="3504" height="6" fill="#10b981" rx="3"/>
+<text x="48" y="2658" fill="#1f2937" font-size="30" font-weight="800">05 · KPI Targets &amp; Measurement</text>
+<text x="48" y="2688" fill="#6b7280" font-size="18" font-weight="400">What success looks like at month 12. Measured weekly, reported monthly.</text>
+<rect x="48.0" y="2724" width="424.0" height="160" fill="#ffffff" stroke="#e5e7eb" rx="12" filter="url(#shadow)"/>
+<rect x="48.0" y="2724" width="424.0" height="6" fill="#2563eb" rx="12"/>
+<text x="260.0" y="2802" fill="#2563eb" font-size="44" font-weight="800" text-anchor="middle">70%</text>
+<text x="260.0" y="2832" fill="#6b7280" font-size="14" text-anchor="middle">Containment</text>
+<text x="260.0" y="2854" fill="#6b7280" font-size="14" text-anchor="middle">(end-to-end AI)</text>
+<rect x="488.0" y="2724" width="424.0" height="160" fill="#ffffff" stroke="#e5e7eb" rx="12" filter="url(#shadow)"/>
+<rect x="488.0" y="2724" width="424.0" height="6" fill="#2563eb" rx="12"/>
+<text x="700.0" y="2802" fill="#2563eb" font-size="44" font-weight="800" text-anchor="middle">&lt; 90s</text>
+<text x="700.0" y="2832" fill="#6b7280" font-size="14" text-anchor="middle">Avg Handle Time</text>
+<text x="700.0" y="2854" fill="#6b7280" font-size="14" text-anchor="middle">(inbound)</text>
+<rect x="928.0" y="2724" width="424.0" height="160" fill="#ffffff" stroke="#e5e7eb" rx="12" filter="url(#shadow)"/>
+<rect x="928.0" y="2724" width="424.0" height="6" fill="#10b981" rx="12"/>
+<text x="1140.0" y="2802" fill="#10b981" font-size="44" font-weight="800" text-anchor="middle">≥ 4.3</text>
+<text x="1140.0" y="2832" fill="#6b7280" font-size="14" text-anchor="middle">CSAT</text>
+<text x="1140.0" y="2854" fill="#6b7280" font-size="14" text-anchor="middle">(post-call survey)</text>
+<rect x="1368.0" y="2724" width="424.0" height="160" fill="#ffffff" stroke="#e5e7eb" rx="12" filter="url(#shadow)"/>
+<rect x="1368.0" y="2724" width="424.0" height="6" fill="#10b981" rx="12"/>
+<text x="1580.0" y="2802" fill="#10b981" font-size="44" font-weight="800" text-anchor="middle">+15</text>
+<text x="1580.0" y="2832" fill="#6b7280" font-size="14" text-anchor="middle">NPS</text>
+<text x="1580.0" y="2854" fill="#6b7280" font-size="14" text-anchor="middle">(vs baseline)</text>
+<rect x="1808.0" y="2724" width="424.0" height="160" fill="#ffffff" stroke="#e5e7eb" rx="12" filter="url(#shadow)"/>
+<rect x="1808.0" y="2724" width="424.0" height="6" fill="#7c3aed" rx="12"/>
+<text x="2020.0" y="2802" fill="#7c3aed" font-size="44" font-weight="800" text-anchor="middle">99.5%</text>
+<text x="2020.0" y="2832" fill="#6b7280" font-size="14" text-anchor="middle">24/7 availability</text>
+<text x="2020.0" y="2854" fill="#6b7280" font-size="14" text-anchor="middle">(p50 SLA)</text>
+<rect x="2248.0" y="2724" width="424.0" height="160" fill="#ffffff" stroke="#e5e7eb" rx="12" filter="url(#shadow)"/>
+<rect x="2248.0" y="2724" width="424.0" height="6" fill="#f59e0b" rx="12"/>
+<text x="2460.0" y="2802" fill="#f59e0b" font-size="44" font-weight="800" text-anchor="middle">-45%</text>
+<text x="2460.0" y="2832" fill="#6b7280" font-size="14" text-anchor="middle">Cost-to-serve</text>
+<text x="2460.0" y="2854" fill="#6b7280" font-size="14" text-anchor="middle">(per resolved)</text>
+<rect x="2688.0" y="2724" width="424.0" height="160" fill="#ffffff" stroke="#e5e7eb" rx="12" filter="url(#shadow)"/>
+<rect x="2688.0" y="2724" width="424.0" height="6" fill="#f59e0b" rx="12"/>
+<text x="2900.0" y="2802" fill="#f59e0b" font-size="44" font-weight="800" text-anchor="middle">+22%</text>
+<text x="2900.0" y="2832" fill="#6b7280" font-size="14" text-anchor="middle">Service rev.</text>
+<text x="2900.0" y="2854" fill="#6b7280" font-size="14" text-anchor="middle">(reminder-driven)</text>
+<rect x="3128.0" y="2724" width="424.0" height="160" fill="#ffffff" stroke="#e5e7eb" rx="12" filter="url(#shadow)"/>
+<rect x="3128.0" y="2724" width="424.0" height="6" fill="#ef4444" rx="12"/>
+<text x="3340.0" y="2802" fill="#ef4444" font-size="44" font-weight="800" text-anchor="middle">100%</text>
+<text x="3340.0" y="2832" fill="#6b7280" font-size="14" text-anchor="middle">Recall coverage</text>
+<text x="3340.0" y="2854" fill="#6b7280" font-size="14" text-anchor="middle">(eligible base)</text>
+<rect x="48" y="2954" width="3504" height="6" fill="#0a2540" rx="3"/>
+<text x="48" y="2998" fill="#1f2937" font-size="30" font-weight="800">06 · Governance &amp; Operating Cadence</text>
+<text x="48" y="3028" fill="#6b7280" font-size="18" font-weight="400">Who decides what, on what cadence. Aligned with dealer network reality.</text>
+<rect x="48.0" y="3064" width="686.4" height="240" fill="#ffffff" stroke="#e5e7eb" rx="10" filter="url(#shadow)"/>
+<rect x="48.0" y="3064" width="686.4" height="6" fill="#0a2540" rx="10"/>
+<text x="68.0" y="3108" fill="#1f2937" font-size="20" font-weight="800">Steering Committee</text>
+<rect x="68.0" y="3122" width="120" height="26" fill="#0a2540" rx="13" opacity="0.15"/>
+<text x="128.0" y="3140" fill="#0a2540" font-size="13" font-weight="700" text-anchor="middle">Monthly</text>
+<circle cx="72.0" cy="3178" r="3" fill="#0a2540"/>
+<text x="86.0" y="3183" fill="#1f2937" font-size="14">Doğuş GM Müşteri Hiz.</text>
+<circle cx="72.0" cy="3208" r="3" fill="#0a2540"/>
+<text x="86.0" y="3213" fill="#1f2937" font-size="14">Doğuş CIO</text>
+<circle cx="72.0" cy="3238" r="3" fill="#0a2540"/>
+<text x="86.0" y="3243" fill="#1f2937" font-size="14">Freya CEO</text>
+<circle cx="72.0" cy="3268" r="3" fill="#0a2540"/>
+<text x="86.0" y="3273" fill="#1f2937" font-size="14">Freya VP Customer</text>
+<rect x="752.4" y="3064" width="686.4" height="240" fill="#ffffff" stroke="#e5e7eb" rx="10" filter="url(#shadow)"/>
+<rect x="752.4" y="3064" width="686.4" height="6" fill="#2563eb" rx="10"/>
+<text x="772.4" y="3108" fill="#1f2937" font-size="20" font-weight="800">War Room</text>
+<rect x="772.4" y="3122" width="120" height="26" fill="#2563eb" rx="13" opacity="0.15"/>
+<text x="832.4" y="3140" fill="#2563eb" font-size="13" font-weight="700" text-anchor="middle">Weekly</text>
+<circle cx="776.4" cy="3178" r="3" fill="#2563eb"/>
+<text x="790.4" y="3183" fill="#1f2937" font-size="14">Freya delivery lead</text>
+<circle cx="776.4" cy="3208" r="3" fill="#2563eb"/>
+<text x="790.4" y="3213" fill="#1f2937" font-size="14">Doğuş PM</text>
+<circle cx="776.4" cy="3238" r="3" fill="#2563eb"/>
+<text x="790.4" y="3243" fill="#1f2937" font-size="14">QA reviewer</text>
+<circle cx="776.4" cy="3268" r="3" fill="#2563eb"/>
+<text x="790.4" y="3273" fill="#1f2937" font-size="14">Dealer rep (rotating)</text>
+<rect x="1456.8" y="3064" width="686.4" height="240" fill="#ffffff" stroke="#e5e7eb" rx="10" filter="url(#shadow)"/>
+<rect x="1456.8" y="3064" width="686.4" height="6" fill="#10b981" rx="10"/>
+<text x="1476.8" y="3108" fill="#1f2937" font-size="20" font-weight="800">Quality Council</text>
+<rect x="1476.8" y="3122" width="120" height="26" fill="#10b981" rx="13" opacity="0.15"/>
+<text x="1536.8" y="3140" fill="#10b981" font-size="13" font-weight="700" text-anchor="middle">Bi-weekly</text>
+<circle cx="1480.8" cy="3178" r="3" fill="#10b981"/>
+<text x="1494.8" y="3183" fill="#1f2937" font-size="14">Sample 50 calls</text>
+<circle cx="1480.8" cy="3208" r="3" fill="#10b981"/>
+<text x="1494.8" y="3213" fill="#1f2937" font-size="14">Score WER, CSAT, intent</text>
+<circle cx="1480.8" cy="3238" r="3" fill="#10b981"/>
+<text x="1494.8" y="3243" fill="#1f2937" font-size="14">Update prompt library</text>
+<circle cx="1480.8" cy="3268" r="3" fill="#10b981"/>
+<text x="1494.8" y="3273" fill="#1f2937" font-size="14">Failure pattern review</text>
+<rect x="2161.2" y="3064" width="686.4" height="240" fill="#ffffff" stroke="#e5e7eb" rx="10" filter="url(#shadow)"/>
+<rect x="2161.2" y="3064" width="686.4" height="6" fill="#f59e0b" rx="10"/>
+<text x="2181.2" y="3108" fill="#1f2937" font-size="20" font-weight="800">Dealer Council</text>
+<rect x="2181.2" y="3122" width="120" height="26" fill="#f59e0b" rx="13" opacity="0.15"/>
+<text x="2241.2" y="3140" fill="#f59e0b" font-size="13" font-weight="700" text-anchor="middle">Monthly</text>
+<circle cx="2185.2" cy="3178" r="3" fill="#f59e0b"/>
+<text x="2199.2" y="3183" fill="#1f2937" font-size="14">10 pilot dealers</text>
+<circle cx="2185.2" cy="3208" r="3" fill="#f59e0b"/>
+<text x="2199.2" y="3213" fill="#1f2937" font-size="14">Friction reports</text>
+<circle cx="2185.2" cy="3238" r="3" fill="#f59e0b"/>
+<text x="2199.2" y="3243" fill="#1f2937" font-size="14">Process changes</text>
+<circle cx="2185.2" cy="3268" r="3" fill="#f59e0b"/>
+<text x="2199.2" y="3273" fill="#1f2937" font-size="14">Local language gotchas</text>
+<rect x="2865.6" y="3064" width="686.4" height="240" fill="#ffffff" stroke="#e5e7eb" rx="10" filter="url(#shadow)"/>
+<rect x="2865.6" y="3064" width="686.4" height="6" fill="#ef4444" rx="10"/>
+<text x="2885.6" y="3108" fill="#1f2937" font-size="20" font-weight="800">Compliance Officer</text>
+<rect x="2885.6" y="3122" width="120" height="26" fill="#ef4444" rx="13" opacity="0.15"/>
+<text x="2945.6" y="3140" fill="#ef4444" font-size="13" font-weight="700" text-anchor="middle">Continuous</text>
+<circle cx="2889.6" cy="3178" r="3" fill="#ef4444"/>
+<text x="2903.6" y="3183" fill="#1f2937" font-size="14">KVKK audit log</text>
+<circle cx="2889.6" cy="3208" r="3" fill="#ef4444"/>
+<text x="2903.6" y="3213" fill="#1f2937" font-size="14">Voice consent capture</text>
+<circle cx="2889.6" cy="3238" r="3" fill="#ef4444"/>
+<text x="2903.6" y="3243" fill="#1f2937" font-size="14">Data retention review</text>
+<circle cx="2889.6" cy="3268" r="3" fill="#ef4444"/>
+<text x="2903.6" y="3273" fill="#1f2937" font-size="14">Incident reporting</text>
+<rect x="48" y="3364" width="1740.0" height="6" fill="#10b981" rx="3"/>
+<text x="48" y="3408" fill="#1f2937" font-size="30" font-weight="800">07a · Quick Wins (≤ 60 days)</text>
+<text x="48" y="3438" fill="#6b7280" font-size="18" font-weight="400">Visible, low-risk, fast ROI</text>
+<rect x="48" y="3474" width="1740.0" height="280" fill="#ffffff" stroke="#e5e7eb" rx="10" filter="url(#shadow)"/>
+<rect x="48" y="3474" width="1740.0" height="8" fill="#10b981" rx="10"/>
+<text x="72" y="3532" fill="#1f2937" font-size="17" font-weight="500">✓ Service Appointment Agent in 1 brand × 3 dealers</text>
+<text x="72" y="3568" fill="#1f2937" font-size="17" font-weight="500">✓ Outbound NPS callback for last week's services</text>
+<text x="72" y="3604" fill="#1f2937" font-size="17" font-weight="500">✓ Inbound call-overflow handling (peak Mon 10-12)</text>
+<text x="72" y="3640" fill="#1f2937" font-size="17" font-weight="500">✓ Recall campaign call-out for one open campaign</text>
+<text x="72" y="3676" fill="#1f2937" font-size="17" font-weight="500">✓ Dashboard: real-time call volume + containment</text>
+<text x="72" y="3712" fill="#1f2937" font-size="17" font-weight="500">✓ Daily Slack digest of failed/escalated calls</text>
+<rect x="1812.0" y="3364" width="1740.0" height="6" fill="#ef4444" rx="3"/>
+<text x="1812.0" y="3408" fill="#1f2937" font-size="30" font-weight="800">07b · Risk Register</text>
+<text x="1812.0" y="3438" fill="#6b7280" font-size="18" font-weight="400">What can break, and how we de-risk</text>
+<rect x="1812.0" y="3474" width="1740.0" height="280" fill="#ffffff" stroke="#e5e7eb" rx="10" filter="url(#shadow)"/>
+<rect x="1812.0" y="3474" width="1740.0" height="8" fill="#ef4444" rx="10"/>
+<text x="1836.0" y="3524" fill="#1f2937" font-size="15" font-weight="700">⚠ Dealer DMS heterogeneity</text>
+<text x="1856.0" y="3544" fill="#6b7280" font-size="13">→ Standardize 3 most common, manual fallback for rest</text>
+<text x="1836.0" y="3562" fill="#1f2937" font-size="15" font-weight="700">⚠ Turkish language quality at edge</text>
+<text x="1856.0" y="3582" fill="#6b7280" font-size="13">→ Continuous fine-tune on collected calls</text>
+<text x="1836.0" y="3600" fill="#1f2937" font-size="15" font-weight="700">⚠ KVKK + voice biometrics</text>
+<text x="1856.0" y="3620" fill="#6b7280" font-size="13">→ Legal opinion in week 1, opt-in flow on call</text>
+<text x="1836.0" y="3638" fill="#1f2937" font-size="15" font-weight="700">⚠ Peak hour overflow</text>
+<text x="1856.0" y="3658" fill="#6b7280" font-size="13">→ Continuous batching + autoscale + queue with ETA</text>
+<text x="1836.0" y="3676" fill="#1f2937" font-size="15" font-weight="700">⚠ Dealer change-management</text>
+<text x="1856.0" y="3696" fill="#6b7280" font-size="13">→ Champion dealer council + pilot wins as proof</text>
+<text x="1836.0" y="3714" fill="#1f2937" font-size="15" font-weight="700">⚠ OEM compliance (recall)</text>
+<text x="1856.0" y="3734" fill="#6b7280" font-size="13">→ Audit trail per call, weekly OEM reporting</text>
+<line x1="48" y1="2608" x2="3552" y2="2608" stroke="#e5e7eb" stroke-width="1"/>
+<text x="48" y="2638" fill="#6b7280" font-size="14">Prepared by Freya Labs · Confidential, for Doğuş Otomotiv leadership review · Print at A0 (84cm × 119cm) for war-room wall</text>
+<text x="3552" y="2638" fill="#6b7280" font-size="14" text-anchor="end">freyavoice.ai · tunga@freyavoice.ai · +90 536 467 3603</text>
+</svg>
