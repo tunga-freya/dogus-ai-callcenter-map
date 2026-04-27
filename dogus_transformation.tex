@@ -7,6 +7,7 @@
 \usepackage{parskip}
 \usepackage{booktabs}
 \usepackage{tabularx}
+\usepackage{longtable}
 \usepackage{array}
 \usepackage{caption}
 \usepackage[table]{xcolor}
@@ -14,14 +15,10 @@
 \usepackage{titlesec}
 \usepackage{enumitem}
 \usepackage{fancyhdr}
-\usepackage{multicol}
 \usepackage[hidelinks,colorlinks=true,urlcolor=NavyDark,citecolor=NavyDark,linkcolor=black]{hyperref}
 \usepackage{xurl}
-\usepackage{tikz}
-\usetikzlibrary{positioning,arrows.meta,shapes,calc}
 
 \definecolor{NavyDark}{HTML}{1c2c4a}
-\definecolor{NavyLine}{HTML}{405578}
 \definecolor{Ink}{HTML}{111111}
 \definecolor{Gray}{HTML}{5a5a5a}
 \definecolor{Light}{HTML}{8f8f8f}
@@ -29,6 +26,7 @@
 \definecolor{SoftBg}{HTML}{f4f3ee}
 \definecolor{Paper}{HTML}{fbfbf7}
 \definecolor{Accent}{HTML}{7a1a1a}
+\definecolor{Done}{HTML}{2a5d3a}
 
 \setlength{\parindent}{0pt}
 \setlength{\parskip}{0.5em}
@@ -37,65 +35,56 @@
 \titleformat{\section}{\color{NavyDark}\fontsize{20}{24}\bfseries\sffamily}{\thesection.}{0.5em}{}[\vspace{2pt}\hrule height 0.6pt]
 \titleformat{\subsection}{\color{Ink}\fontsize{13}{15}\bfseries\sffamily}{\thesubsection}{0.4em}{}
 \titlespacing*{\section}{0pt}{1.4em}{0.6em}
-\titlespacing*{\subsection}{0pt}{1.0em}{0.3em}
+\titlespacing*{\subsection}{0pt}{0.9em}{0.3em}
 
 \renewcommand{\familydefault}{\sfdefault}
 
 \pagestyle{fancy}
 \fancyhf{}
-\fancyhead[L]{\small\color{Light}\sffamily Doğuş Otomotiv \textbar{} Call Center AI Transformation}
+\fancyhead[L]{\small\color{Light}\sffamily Doğuş Otomotiv \textbar{} Engagement State Memo}
 \fancyhead[R]{\small\color{Light}\sffamily Page \thepage{} of 10}
-\fancyfoot[L]{\small\color{Light}\sffamily Confidential, prepared by Freya Labs}
-\fancyfoot[R]{\small\color{Light}\sffamily April 2026 \textbar{} Rev 2.0}
+\fancyfoot[L]{\small\color{Light}\sffamily Confidential, internal Freya planning document}
+\fancyfoot[R]{\small\color{Light}\sffamily April 27, 2026 \textbar{} Rev 3.0}
 \renewcommand{\headrulewidth}{0.4pt}
 \renewcommand{\footrulewidth}{0.4pt}
 \renewcommand\headrule{\color{LineGray}\hrule height 0.4pt}
 \renewcommand\footrule{\color{LineGray}\hrule height 0.4pt}
 
-% Custom column for tables
 \newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
 \newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1}}
 \newcolumntype{R}[1]{>{\raggedleft\arraybackslash}p{#1}}
 
-% Sidebar callout
-\newcommand{\callout}[2]{%
-\par\medskip\noindent\begin{minipage}{\linewidth}\color{Ink}%
-\rule{2pt}{1.2em}\hspace{0.4em}\textbf{\sffamily #1}\\[0.2em]%
-\hspace{0pt}\color{Gray}\small #2%
-\end{minipage}\par\medskip%
-}
-
-% Datum line (key:value)
 \newcommand{\datum}[2]{\textbf{\color{NavyDark}\small #1.}~\color{Ink}\small #2\par\smallskip}
+\newcommand{\callout}[2]{\par\medskip\noindent\begin{minipage}{\linewidth}\color{Ink}\rule{2pt}{1.2em}\hspace{0.4em}\textbf{\sffamily #1}\\[0.2em]\hspace{0pt}\color{Gray}\small #2\end{minipage}\par\medskip}
 
 \begin{document}
 
-% ============================== COVER PAGE ==============================
+% ============================== COVER ==============================
 \thispagestyle{empty}
 
-\vspace*{2em}
-{\fontsize{12}{14}\selectfont\sffamily\color{Light}\textbf{CONFIDENTIAL · PREPARED FOR DOĞUŞ OTOMOTİV LEADERSHIP}\par}
+\vspace*{1.5em}
+{\fontsize{12}{14}\selectfont\sffamily\color{Light}\textbf{CONFIDENTIAL · INTERNAL FREYA PLANNING DOCUMENT}\par}
 \vspace{0.6em}
 {\color{NavyDark}\rule{\linewidth}{1.2pt}}
-\vspace{4em}
+\vspace{3em}
 
-{\fontsize{42}{48}\selectfont\bfseries\color{Ink}\sffamily Call Center AI \\[0.15em] Transformation Blueprint\par}
+{\fontsize{42}{48}\selectfont\bfseries\color{Ink}\sffamily Doğuş Otomotiv \\[0.15em] Engagement State Memo\par}
 \vspace{0.6em}
-{\fontsize{20}{24}\selectfont\itshape\color{NavyDark} A 12-month operating model for the multi-brand contact center.\par}
-\vspace{0.4em}
-{\fontsize{14}{18}\selectfont\color{Gray} VW · Audi · Škoda · SEAT · CUPRA · Porsche · Bentley · Lamborghini · Bugatti · DOD · Scania · Marine\par}
+{\fontsize{20}{24}\selectfont\itshape\color{NavyDark} Where we are, what is locked, what blocks go-live, what gets us to summer.\par}
 
-\vspace{6em}
+\vspace{4em}
 
 {\color{NavyDark}\rule{\linewidth}{0.4pt}}
 \vspace{1em}
 
 \begin{tabularx}{\linewidth}{@{}lX@{}}
-\textbf{\color{Light}\footnotesize CLIENT}              & \color{Ink} Doğuş Otomotiv Servis ve Ticaret A.Ş. (BIST: DOAS) \\[0.5em]
-\textbf{\color{Light}\footnotesize PREPARED BY}         & \color{Ink} Freya Labs, ML Performance \& Voice \\[0.5em]
-\textbf{\color{Light}\footnotesize ENGAGEMENT TYPE}     & \color{Ink} Strategic blueprint and 60-day Phase 1 pilot scope \\[0.5em]
-\textbf{\color{Light}\footnotesize REVISION}            & \color{Ink} 2.0, April 2026 \\[0.5em]
-\textbf{\color{Light}\footnotesize HORIZON}             & \color{Ink} 12 months from project start, 5 phases, gated by KPI \\
+\textbf{\color{Light}\footnotesize CLIENT}              & \color{Ink} Doğuş Otomotiv Servis ve Ticaret A.Ş. (DOAS)\\[0.4em]
+\textbf{\color{Light}\footnotesize ENGAGEMENT START}    & \color{Ink} 24 October 2025 (intro brokered by Domino VC + Invexen)\\[0.4em]
+\textbf{\color{Light}\footnotesize KICK-OFF}            & \color{Ink} 10 March 2026 (DİM Agentic AI project formally opened)\\[0.4em]
+\textbf{\color{Light}\footnotesize STATUS}              & \color{Ink} Pre-go-live, contract draft exchanged, pricing handshake at 1{,}000{,}000 TL / yıl\\[0.4em]
+\textbf{\color{Light}\footnotesize DRIVER}              & \color{Ink} Yaz (Tem-Ağu) çağrı hacmi +30 to 40\% spike, churn-driven; Doğuş wants pilot ahead of Bayram\\[0.4em]
+\textbf{\color{Light}\footnotesize PRIMARY SPONSOR}     & \color{Ink} İhsan Başdemir, DİM Veri Analitiği ve Planlama Yöneticisi\\[0.4em]
+\textbf{\color{Light}\footnotesize REVISION}            & \color{Ink} 3.0, 27 April 2026 (rewritten from internal sources: Fathom × 7 meetings, Gmail × 22 threads, Drive × 37 files, Slack \#int-dogusoto × 267 msgs, status files)\\
 \end{tabularx}
 
 \vspace{1em}
@@ -104,444 +93,398 @@
 \vfill
 
 \begin{minipage}[t]{0.6\linewidth}
-\textbf{\color{Light}\footnotesize THESIS}\par\medskip
-\itshape\color{Ink}\fontsize{14}{20}\selectfont
-A specialized voice agent layered on top of Doğuş Otomotiv's existing contact center can absorb 70\% of inbound volume in 12 months, lift service-channel revenue by 22\% via outbound automation, at a 45\% lower cost-to-serve and without dealer disruption.
+\textbf{\color{Light}\footnotesize WHAT THIS DOCUMENT IS}\par\medskip
+\itshape\color{Ink}\fontsize{13}{19}\selectfont
+A snapshot of where the engagement actually stands, written from internal sources only. Not a sales deck, not a generic AI proposal. Used to align the Freya team, prep for the Wed 10:00 strategy session İhsan was asked for, and identify the four blockers between us and a paid Phase 1 go-live.
 \end{minipage}\hfill
 \begin{minipage}[t]{0.35\linewidth}\raggedleft
-\textbf{\color{Light}\footnotesize CONTACT}\par\medskip
+\textbf{\color{Light}\footnotesize PREPARED BY}\par\medskip
 \color{Ink} Tunga Bayrak \\
-CEO and Co-Founder, Freya Labs \\
+CEO \& Co-Founder, Freya Labs \\
 \href{mailto:tunga@freyavoice.ai}{tunga@freyavoice.ai} \\
-+90 536 467 3603 \\
-\href{https://freyavoice.ai}{freyavoice.ai}
++90 536 467 3603
 \end{minipage}
 
 \vspace{2em}
-{\color{Light}\footnotesize\sffamily NOT FOR EXTERNAL DISTRIBUTION · DO NOT REPRODUCE WITHOUT WRITTEN CONSENT}
+{\color{Light}\footnotesize\sffamily NOT FOR EXTERNAL DISTRIBUTION}
 
 \newpage
 
-% ============================== PAGE 2 ,  EXECUTIVE SUMMARY ==============================
+% ============================== PAGE 2 — SNAPSHOT ==============================
 \setcounter{page}{2}
-\section{Executive Summary}
+\section{Engagement Snapshot}
 
-Doğuş Otomotiv handles roughly twelve million inbound calls per year across eighteen brands and more than five hundred service points. The Değer ve İlgi Merkezi (DİM), running on the proprietary Turkuaz CRM since 2014, is a multi-award-winning customer-relations operation. It is also approaching its capacity ceiling. Margins are compressing under Chinese-EV and Tesla-direct competition, retention has slipped from 72\% to 54\% on aftersales since 2018, and Şikayetvar.com shows no operator response on the Doğuş Oto profile in the last twelve months. The strategic question is no longer \textit{whether} to deploy AI in the contact center, but \textit{which agents to deploy, in what order, and on what risk envelope}.
+\subsection{Where we are in one paragraph}
 
-This blueprint argues for a four-phase, twelve-month deployment of ten specialized voice agents, sequenced by inbound volume value and outbound revenue lift. The scope is illustrated in section 5. The deliverable footprint is on-premises (per KVKK voice-biometrics regime under the 7499 amendment), Turkish-native (Freya's Qwen3-ASR-TR plus Bicodec TTS, 50\,ms STT first token), and integrated to OTOSOFT DMS plus Turkuaz CRM at the API layer.
+Doğuş Otomotiv has been an active engagement for six months. Free PoC was delivered November 12, 2025. Pricing handshake landed at \textbf{1{,}000{,}000 TL / yıl} (about \$22{,}900) for 300{,}000 dakika, plus \$0.10/min overage and \$1{,}200/man-day for engineering, in late January. Pen test ran in February, the manual report was eventually accepted on March 11 with three High findings (rate limit, secure cookie, refresh token via cookie) flagged for in-flight remediation. Project was formally kicked off on March 10. Workspace is provisioned on \texttt{tr-app.freyavoice.ai} (the same tenant that hosts Allianz and Garanti). Lead-Qualification workflow is in late development; AI Role Play (a parallel scope added by Billur Çağla Kaya on March 24) is the second deliverable. A 70-to-80-persona internal-test program is being prepared by Doğuş for the next sprint. Four blockers stand between us and a paid Phase 1 go-live, all listed in section 8.
 
-\subsection{The numbers we will move}
+\subsection{The numbers Doğuş gave us}
 
-\begin{tabularx}{\linewidth}{@{}L{4.6cm}L{2.4cm}L{2.4cm}L{2.4cm}@{}}
+\begin{tabularx}{\linewidth}{@{}L{6.0cm}L{4.5cm}L{4.0cm}@{}}
 \toprule
-\rowcolor{NavyDark}\textbf{\color{white}\footnotesize METRIC} & \textbf{\color{white}\footnotesize BASELINE} & \textbf{\color{white}\footnotesize MONTH 6} & \textbf{\color{white}\footnotesize MONTH 12} \\
+\rowcolor{NavyDark}\textbf{\color{white}\footnotesize METRIC} & \textbf{\color{white}\footnotesize VALUE} & \textbf{\color{white}\footnotesize SOURCE} \\
 \midrule
-Containment, end-to-end AI                       & 0\%        & 65\%       & 70\%       \\
-Average handle time, inbound                      & 252\,s     & 110\,s     & $<$90\,s     \\
-24/7 availability, p50 SLA                        & 92\%       & 99\%       & 99.5\%     \\
-Cost-to-serve per resolved interaction            & TRY\,38        & TRY\,22        & TRY\,21        \\
-Service revenue index (outbound-driven)           & 100        & 116        & 122        \\
-Recall coverage of eligible base                  & 62\%       & 95\%       & 100\%      \\
+Customer dial pool                          & 450K to 500K               & İhsan, 19 Jan 2026 \\
+Reached customers / year                    & 150K to 160K              & İhsan, 19 Jan 2026 \\
+Outbound lead calls / year (PoC scope)      & 150K                       & PoC scoping, 29 Jan 2026 \\
+Survey calls / year (later phase)           & 250K                       & PoC scoping, 29 Jan 2026 \\
+Long-term total customer contacts / year    & 1.5M                       & Jan 28 meeting tab \\
+Live agents per shift, max / typical        & 12 / 7-8                   & İhsan, 19 Jan 2026 \\
+Operating window                            & 7 days/week, 09:00 to 20:00 & İhsan, 19 Jan 2026 \\
+Records retention requirement               & 10 years                    & Jan 28 meeting tab \\
+Yetkili Satıcı (VW Binek), Phase 1 routing  & 130 to 150 dealers          & Apr 15 doc, list received Apr 16 \\
+Today's dealer-routing rate                 & 30\%                        & KPI Önerileri sheet, Doğuş baseline \\
 \bottomrule
 \end{tabularx}
 
-\subsection{What the deal looks like}
+\subsection{The three things going live}
 
-Phase 1 is a sixty-day pilot of the \textbf{Service Appointment Agent}, the \textbf{Service Reminder Agent}, and the \textbf{NPS Survey Agent}, run against a single brand (Volkswagen Binek, the largest by share) and three pilot dealers. Gate to Phase 2 is sustained 60\% containment with CSAT 4.0 or higher and zero P0 incidents. Phases 2 through 4 expand the agent portfolio and brand coverage, ending Phase 4 with the Roadside Triage and Insurance Cross-sell agents live across all brands. Detailed phase logic is in section 9.
-
-\subsection{Why Freya}
-
-The Turkish auto distributor segment has no public voice-AI deployment of scale today. Sestek (Knovvu) has a Doğuş analytics footprint and will counter-bid; PolyAI, Parloa, and AWS Connect cannot meet the on-premises and Turkish-native bar; Genesys Cloud is licensing infrastructure, not a voice agent. Freya's edge is single-vendor on-premises stack, native Turkish voice quality with measured 50\,ms STT latency, workflow tooling for KVKK multi-brand routing, and per-minute pricing that undercuts Parloa's TRY\,10\,M annual floor and PolyAI's TRY\,5\,M floor. Detail in section 4.
-
-\subsection{What we need from Doğuş}
-
-API access to Turkuaz CRM and the top three dealer DMS instances by week 2; SIP egress from Cisco UCM to a Freya endpoint without disrupting the legacy IVR; written compliance opinion on voice biometrics and KVKK consent before pilot launch; a pilot cohort of three dealers (one per VW, Audi, Škoda) committing to be primary references. The full assumption set is at the end of section 9.
-
-\newpage
-
-% ============================== PAGE 3 ,  DOĞUŞ AT A GLANCE ==============================
-\section{Doğuş Otomotiv at a Glance}
-
-\subsection{Corporate frame}
-
-\datum{Legal entity}{Doğuş Otomotiv Servis ve Ticaret A.Ş., founded 1994, BIST listing 2004, ticker DOAS, headquartered in Şekerpınar, Çayırova-Kocaeli, with administrative offices in Maslak, İstanbul.}
-\datum{Leadership}{Emir Ali Bilaloğlu, Chairman and CEO. Doğuş Holding majority shareholder, free float circa 35\%.}
-\datum{Workforce}{2{,}074 employees as of December 2023.}
-\datum{Financials, FY 2024}{Revenue TRY\,60.2B, EBITDA TRY\,2.8B, net profit TRY\,1.3B, EBITDA margin 8.9\%. Source: \href{https://arastirma.isyatirim.com.tr/2024/08/29/sirket-raporu-dogus-otomotiv-doas-is-2c24-sonuclari/}{İş Yatırım}.}
-\datum{Financials, FY 2025}{Consolidated revenue TRY\,255.8B, full-year EBITDA TRY\,14.7B (down 3\% YoY), EBITDA margin compressed to 5.8\%. Q4 2025 net loss TRY\,2.13B. Pricing pressure from Chinese EVs (BYD, Chery) and Tesla direct sales is the dominant cause.}
-\datum{Market position 2025}{Number one in passenger cars at 21.9\% share, number two in total light vehicles. Reference: \href{https://arastirma.isyatirim.com.tr/2026/03/02/sirket-raporu-dogus-otomotiv-doas-is-4c25-sonuclari/}{İş Yatırım Q4 2025 sector report}.}
-
-\subsection{Brand and network footprint}
-
-Doğuş Otomotiv distributes eighteen brands organized into nineteen product groups. The retail and service network spans approximately 570 to 740 customer touchpoints, depending on which year-end report is read. Investor materials cite \textbf{149 dealers and 510 authorized service points}. Doğuş Oto, the wholly-owned retail subsidiary, runs 37 sales and 34 service points across six regions. DOD, the certified used-car platform, runs 62 dealers in 29 cities with roughly 1{,}600 vehicles in stock at any time.
-
-\begin{tabularx}{\linewidth}{@{}L{2.6cm}L{1.8cm}L{1.6cm}L{2.6cm}X@{}}
+\begin{tabularx}{\linewidth}{@{}L{4.5cm}L{3.2cm}X@{}}
 \toprule
-\rowcolor{NavyDark}\textbf{\color{white}\footnotesize BRAND} & \textbf{\color{white}\footnotesize ROLE} & \textbf{\color{white}\footnotesize ROADSIDE} & \textbf{\color{white}\footnotesize SHARE 2025} & \textbf{\color{white}\footnotesize NOTES} \\
+\rowcolor{NavyDark}\textbf{\color{white}\footnotesize SCOPE} & \textbf{\color{white}\footnotesize TRACK} & \textbf{\color{white}\footnotesize STATE} \\
 \midrule
-Volkswagen Binek         & Volume     & 444\,8924 & 7.3 to 7.6\% PC      & Largest brand, ID-series EV launches  \\
-Volkswagen Ticari        & Volume     & 444\,8924 & n.a.                  & LCV segment, fleet-heavy              \\
-Audi                     & Premium    & 444\,28\,34 & 4.5\%                & Q-series, e-tron line                \\
-Škoda                    & Volume     & 444\,77\,80 & 4.5\%                & Family / fleet                        \\
-SEAT and CUPRA           & Niche      & 444\,73\,28 / 444\,07\,20 & 1.27\% & Sport-tilt sub-brand                  \\
-Porsche                  & Luxury     & dedicated & circa 450 units 2024  & Macan EV recall live                  \\
-Bentley, Lamborghini, Bugatti & Hyper & dedicated & circa 30 units / yr   & White-glove                           \\
-Scania                   & Heavy      & dedicated & n.a.                  & Trucks, buses, marine engines         \\
-DOD                      & Used       & central   & 1{,}600 vehicles      & 62 dealers, 29 cities, 1999          \\
+Lead Qualification, VW Binek (outbound) & Paid Phase 1     & Workflow in late dev, prompt outdated per Yalin (Apr 8), squads not yet built; Doğuş prepping 70-80 personas for internal test \\
+AI Role Play, agent training            & Parallel scope   & Surfaced by Billur Çağla Kaya (Eğitim ve Kalite Uzmanı), 24 Mar; demo'd via platform Apr 8; formal Freya deliverable still owed \\
+DİM Çağrı Merkezi AI Dönüşüm            & New, 27 Apr pitch & Tunga proactively expanded to whole-call-center AI in 27 Apr email; asked for Wed 10:00 strategy session \\
 \bottomrule
 \end{tabularx}
 
-\subsection{Current contact-center reality}
-
-The \textbf{Değer ve İlgi Merkezi} (DİM, established 2014) is the operational anchor. It runs the proprietary \href{https://www.dogusotomotiv.com.tr/tr/hakkimizda/dogus-otomotiv/deger-ve-ilgi-merkezi-dim}{Turkuaz CRM}, identifies callers by phone number on receipt, routes to the correct brand and region, and processes circa one million calls per year. Doğuş Oto's central service-appointment line is \textbf{444\,40\,05}; per-brand roadside lines are listed in the table above. Doğuş publicly states that "diyalog, yol yardım, çağrı merkezi (anket-randevu)" services are partly outsourced under its quality framework, but the BPO partner is not named publicly.
-
-\subsection{Where the customer experience hurts}
-
-Three observable signals are pertinent. First, the \href{https://www.sikayetvar.com/dogus-oto}{Şikayetvar profile for Doğuş Oto} is unclaimed and has not received a published response in the last twelve months, while complaints continue to accrue. Second, the most-cited service complaints, T-Cross airbag re-faults, T-Roc steering deformation, Audi A5 extended-warranty denials labelled "kullanıcı hatası," Passat şanzıman titreşim, are clustered in service-quality and warranty-decision categories that AI cannot fix on its own but can capture, log, and classify with discipline. Third, the Cox Automotive 2025 Service Industry Study cites a \textbf{12\% loss of service visits to independent service since 2018}, with retention falling from 72\% to 54\%; this is recoverable revenue if the outbound reminder programme can be automated and made consistent across all brands.
+\callout{Important context not in any single source}{Doğuş was lost once mid-cycle and came back after disliking a competing voice vendor (Tunga in \#freya-pete-founder-led-sales). The call-center manager (İhsan) was only authorized to sign at the \$22{,}900 amount without further approval; higher would have triggered a 2-month additional sign-off cycle. The deal is calibrated to that ceiling, not Freya's preferred floor.}
 
 \newpage
 
-% ============================== PAGE 4 ,  STRATEGIC CONTEXT ==============================
-\section{Strategic Context}
+% ============================== PAGE 3 — TIMELINE ==============================
+\section{Engagement Timeline}
 
-\subsection{Why now}
+Six months of activity, twenty-two substantive email threads, seven Fathom meetings, two-hundred-and-sixty-seven Slack messages in \#int-dogusoto. The summary below shows every major touchpoint, the two parties involved, and what changed.
 
-Three forces converge in 2026 to make a contact-center AI deployment economic and strategic for Doğuş Otomotiv.
-
-\textbf{Margin compression.} Q4 2025 net loss of TRY\,2.13B is the first material loss in the recent cycle. Chinese EV imports (BYD, Chery, MG) and Tesla direct sales bypass dealer infrastructure and erode VW Group price premium in Turkey. Operating-cost reduction has moved from background discipline to board-level priority.
-
-\textbf{EV product launches.} The 2024 declaration as "EV launch year" (ID.4, ID.5, ID.7, ID.3) front-loads customer-education volume into the service channel: range concerns, charging-network questions, software-update behaviour, all asked at high volume in early ownership. AI handles repetitive education well; humans handle exceptions. The product-launch curve is the single best window to deploy.
-
-\textbf{Public AI commitment.} Doğuş Otomotiv has publicly named \textit{call-center instant knowledge access} and \textit{predictive service maintenance} as AI priorities, joining a venture fund in mobility, AI, data, sustainability. The internal mandate exists; what is missing is an executable plan with vendor accountability.
-
-\subsection{Competitive landscape, contact-center voice AI in Turkish auto}
-
-\begin{tabularx}{\linewidth}{@{}L{3.2cm}L{1.8cm}L{2.2cm}X@{}}
+\setlength{\extrarowheight}{2pt}
+\begin{tabularx}{\linewidth}{@{}L{1.7cm}L{4.0cm}X@{}}
 \toprule
-\rowcolor{NavyDark}\textbf{\color{white}\footnotesize VENDOR} & \textbf{\color{white}\footnotesize TURKEY?} & \textbf{\color{white}\footnotesize AUTO?} & \textbf{\color{white}\footnotesize POSITION} \\
+\rowcolor{NavyDark}\textbf{\color{white}\footnotesize DATE} & \textbf{\color{white}\footnotesize EVENT} & \textbf{\color{white}\footnotesize WHAT CHANGED} \\
 \midrule
-Sestek (Knovvu)              & Yes, deep   & Limited      & Banking-heavy. \href{https://www.sestek.com/speech-recognition-knovvu}{Knovvu Analytics} already deployed at Doğuş with 97\% Turkish ASR on auto terms. Will counter-bid. \\
-PolyAI                       & No public   & No           & \href{https://www.cmswire.com/customer-experience/polyai-raises-86m-series-d-for-enterprise-voice-ai/}{\$86M Series D Dec 2025}. ARR floor circa \$150K. No on-prem story. \\
-Parloa                       & No public   & No           & ARR floor circa \$300K. No Turkish customer disclosed. \\
-Genesys Cloud CX             & Yes, broad  & No           & \href{https://www.genesys.com/pricing}{\$75 to \$240 per seat per month}. Voice minutes billed separately. Licensing infrastructure, not a voice agent. \\
-AWS Connect                  & Yes         & No           & \href{https://aws.amazon.com/connect/pricing/}{\$0.018 per minute} plus comms. Cloud-native, KVKK and on-prem unviable for OEM data. \\
-Cerence                      & In-vehicle  & Yes          & Powers Audi in-vehicle voice on MIB 3 / HCP3. Not a contact-center solution. \\
-Salesforce Agentforce        & Global      & VW Group   & VW Group HQ-level deployment. Text and CRM, not voice. Reference: \href{https://www.salesforce.com/customer-stories/volkswagen-group/}{Salesforce}. \\
+24 Oct 2025 & Tanışma                             & Intro brokered by Yağız Karadeniz (Domino VC) and Gamze Demir (Invexen). First Teams call. \\
+06 Nov 2025 & DİM PoC Talebi                     & İhsan formally requests free PoC for VW Binek outbound lead. Three sample lead forms provided. \\
+12 Nov 2025 & Free PoC delivered                  & Yusuf Danış sends demo agent +90 850 474 30 88, Loom video, dashboard creds for ibasdemir@. \\
+17 Nov 2025 & Scope drift flagged                 & Yusuf notes İhsan testing with Audi while PoC is VW-only. \\
+19 Jan 2026 & Pricing thread opens                & Tunga sends updated agent +90 850 242 9473, on-prem and cloud quotes. İhsan provides volumes. \\
+02 Feb 2026 & DİM Değerlendirme                   & Pricing meeting. \$1{,}500/15K-min plan rejected as insufficient. Doğuş demands TL contract. \\
+03 Feb 2026 & Contract date stamped               & DOGUS OTOMOTIV KONTRAT effective date logged. \\
+07 Feb 2026 & Pricing landed                       & Down to \$22{,}900/yıl + \$0.08/min overage + \$1{,}200 manhour, "Stratejik Ortak" framing. \\
+19 Feb 2026 & Senaryo Geliştirme                  & Hosting fight: Frankfurt rejected, Turkey-only required. Pricing impact \$0.08 to \$0.116/min accepted. \\
+23 Feb 2026 & KVKK + InfoSec questionnaires       & DT security team (Neslihan, Bora, Cesi, Büşra) initiate manual security review. \\
+06 Mar 2026 & Pentest plan internal               & Ezgi: "patch criticals only for Doğuş, plus suggested long-term items" \\
+09 Mar 2026 & Critical pentest items patched      & Retest scheduled for next day. \\
+10 Mar 2026 & DİM Agentic AI Kick-Off             & Project formally opens. Hande Toru (DT integration) joins. Summer spike named as driver. \\
+11 Mar 2026 & Pentest accepted with conditions    & Cesi De Taranto signs off; page 13 High findings (rate limit, secure cookie, refresh token cookie) flagged for in-flight remediation. \\
+17 Mar 2026 & AI Native Customer Service          & Teams meeting. \\
+18 Mar 2026 & Apostilled hukuki belgeler          & Tunga sends signature circular and activity certificate. \\
+18 Mar 2026 & Turkuaz integration thread          & Hande Toru, Mert Goren, Ece Arslan begin API design. \\
+24 Mar 2026 & AI Role Play surfaced               & Billur Çağla Kaya sends scope doc, sample personas (sinirli, talepkâr, sakin, aceleci). \\
+26 Mar 2026 & Technical lockdown                  & Duplicate handling, day-specific call windows, retry logic decided. \\
+08 Apr 2026 & Status taxonomy delivered           & İhsan sends status / alt-statü list (Onaylandı, İPTAL-Telefon Yanlış, etc.). \\
+15 Apr 2026 & VW Binek list locked                & Multi-brand KVKK split confirmed. KVKK consent via DTMF "1" agreed. \\
+17 Apr 2026 & API integration test fail           & Mert Goren hits "Phone number not found in workspace" error; Yusuf diagnoses formatting issue. \\
+20 Apr 2026 & Platform training                    & 1h 8min walkthrough. İhsan: "zihin açıcı". 70-80-persona test plan agreed. \\
+22 Apr 2026 & Vodafone trunking introduction      & İhsan loops Volkan Ertaş, Goncagül Azak (Vodafone), Önder Savkın (FGS) for SIP setup. \\
+26 Apr 2026 & Drive folder formalized              & Mısra creates Customers [INTERNAL] / Doğuş Oto folder, separating from Borusan-shared. \\
+27 Apr 2026 & DİM AI Dönüşüm pitch sent           & Tunga proactively expands scope to whole-call-center AI, requests Wed 10:00 strategy session. \\
 \bottomrule
 \end{tabularx}
 
-\subsection{Where Freya wins}
+\newpage
 
-The decision space narrows fast once the on-premises requirement and Turkish-native voice quality bar are applied. Cloud-only vendors are eliminated by the KVKK 7499 cross-border tightening (in force June 2024), which the Kurul has flagged in its \href{https://www.kvkk.gov.tr/Icerik/8683/etken-yapay-zeka-agentic-ai}{Agentic AI duyurusu} as exposing distributors who route prompts to non-Turkish LLM endpoints. That leaves Sestek and Freya as the credible field. The differentiation is operational, not slogan-level:
+% ============================== PAGE 4 — PEOPLE ==============================
+\section{People and Decision Map}
 
-\begin{description}[leftmargin=1em,labelindent=0pt,itemsep=0.2em]
-\item[Speed to production.] Freya's workflow engine compiles a new agent in days; Sestek's platform requires integration-heavy custom build per agent. The 60-day Phase 1 pilot is reachable on Freya, not Sestek.
-\item[Latency.] Freya's 50\,ms STT first-token measured on Qwen3-ASR-TR is materially below the 250 to 400\,ms band typical of competing pipelines. The difference is the line between conversational and transactional UX, which matters for the KVKK "1'e bas" consent gate that runs at the front of every call.
-\item[KVKK multi-brand controllability.] Eighteen brands, each with separate legal basis, separate roadside vendor, and separate marketing consent posture. Freya's per-node consent capture and routing rules express this without code; Sestek's stack treats it as integration work.
-\item[Single-vendor stack.] Freya owns STT, TTS, LLM routing, workflow engine, and analytics. The status-quo Genesys-plus-Sestek-plus-integrator stack-up costs Turkish enterprises TRY\,18\,M to TRY\,36\,M all-in. A consolidated Freya deployment compresses the contractual surface and the failure-mode surface.
-\item[Pricing.] Per-minute and per-resolution pricing options undercut Parloa's TRY\,10\,M and PolyAI's TRY\,5\,M annual floors, while delivering Turkish-native quality the cloud-only field cannot match without paid add-ons.
-\end{description}
+\subsection{Doğuş Otomotiv, DİM (Değer ve İlgi Merkezi)}
 
-\callout{Competitive watchpoint}{Sestek will counter-bid given their existing Doğuş Knovvu Analytics footprint. Defense is speed-to-production, KVKK multi-brand workflow controllability, and the Vodafone telephony integration already underway elsewhere in our portfolio.}
+\datum{İhsan Başdemir}{Veri Analitiği ve Planlama Yöneticisi. \textbf{Primary sponsor and economic buyer.} Most active counterparty. WhatsApp + email. ibasdemir@dogusotomotiv.com.tr, +90 531 731 4839.}
+\datum{Rasim Yiğit Bayrak}{DİM Data Analyst. Day-to-day on senaryo and edge cases. yibayrak@dogusotomotiv.com.tr.}
+\datum{Mehmet Yangın}{DİM team, present from PoC onward. myangin@dogusotomotiv.com.tr.}
+\datum{Billur Çağla Kaya}{DİM Eğitim ve Kalite Uzmanı. \textbf{AI Role Play project sponsor} (added scope March 24). cakaya@dogusotomotiv.com.tr, +90 537 317 4181.}
+\datum{dimraporlama@dogusotomotiv.com.tr}{Group inbox, used for distribution.}
+
+\subsection{Doğuş Otomotiv, DDKİ (Dijital Dönüşüm ve Kurumsal İletişim)}
+
+\datum{Uğur Beşer}{MİM ve Çağrı Merkezi Manager. KVKK and scenario lead. Tunga's note: \emph{"kral adam, zeki adam"}. ubeser@dogusotomotiv.com.tr.}
+\datum{Doruk Ülfer}{NBD Associate, scenario dev meetings (early). dulfer@dogusotomotiv.com.tr.}
+\datum{Dr. Irmak Mutlu}{New Business Development Manager. Brokered the original intro, less active now. imutlu@dogusotomotiv.com.tr.}
+\datum{Furkan Taşdemir}{Looped into security review, March. ftasdemir@dogusotomotiv.com.tr.}
+
+\subsection{Doğuş Teknoloji, integration team}
+
+\datum{Hande Toru}{Business Analysis Manager. \textbf{Owns all phone + API integration.} The single most important technical counterparty. hande.toru@d-teknoloji.com.tr.}
+\datum{Neslihan Çiçek Pekara}{Business Analyst Expert. Original Turkuaz contact, now in security review.}
+\datum{Mert Goren}{Built the Turkuaz Update endpoint (turkuazwebapitest.doas.com.tr / LeadAiIntegration / Update).}
+\datum{Ece Arslan, Tuğba Öner, Büşra Susan, Burakcan Timuçin}{Integration / network / cyber security supporting team.}
+
+\subsection{Doğuş Teknoloji, security review (manual pentest gatekeepers)}
+
+\datum{Cesi De Taranto}{Senior Offensive Security. \textbf{Pentest gatekeeper.} Signed off on March 11 with the page-13 High findings flagged.}
+\datum{Bora Sezgin}{Threat \& Vulnerability Management.}
+
+\subsection{External parties looped in}
+
+\datum{Vodafone}{Volkan Ertaş, Goncagül Azak. SIP trunking setup, introduced 22 Apr by İhsan. Tunga responded 27 Apr asking for meeting times this week.}
+\datum{FGS}{Önder Savkın (onder.savkin@fgs.com.tr). Telephony partner alongside Vodafone.}
+
+\subsection{Freya internal owners}
+
+\datum{Tunga Bayrak}{CEO, primary commercial owner.}
+\datum{Mısra Koşarsoy}{Delivery PM. Owns customer comms, drafts, deadlines, Drive folder structure.}
+\datum{Yusuf Danış}{Forward-deployed engineer. Workspace config, agent setup, customer issue reproduction.}
+\datum{Yalin}{FDE for squads and prompts. Flag (8 Apr): "Doğuş prompt is pretty outdated. If they're moving forward, I have to start building squads."}
+\datum{Pyae Sone Myo, Tomáš Sláma, Yavuz Bezir}{Platform engineering. Webhook transformation API, Ubicloud, telephony.}
+\datum{Ezgi}{Security and pentest coordination.}
+\datum{Çağla}{Customer Success, named for AI Role Play prompt refinement.}
 
 \newpage
 
-% ============================== PAGE 5 ,  OPERATING MODEL ==============================
-\section{Operating Model}
+% ============================== PAGE 5 — COMMERCIAL TERMS ==============================
+\section{Commercial Terms}
 
-The architecture is a single horizontal flow from the inbound caller to the action systems and the outcome record. The AI tier sits between the channel gateway and the dealer DMS, with explicit decision rules for escalation, premium routing, and consent capture. No path is silent on KVKK; every conversation either captures explicit consent or routes to the legacy operator-only path.
+The package on the table is a result of three pricing iterations from January 19 to February 7. This is what the contract draft (DOGUS OTOMOTIV KONTRAT, effective 03.02.2026) reflects. It is calibrated to İhsan's signing authority, not Freya's preferred floor.
 
-\vspace{0.6em}
+\subsection{Headline terms}
 
-\begin{center}
-\begin{tikzpicture}[
-  node distance = 6mm and 6mm,
-  every node/.style = {font=\footnotesize\sffamily, align=center},
-  block/.style = {rectangle, draw=NavyDark, line width=0.7pt, fill=Paper,
-                   minimum width=2.7cm, minimum height=2.0cm, inner sep=4pt},
-  banner/.style = {rectangle, fill=NavyDark, text=white,
-                   minimum width=2.7cm, minimum height=0.55cm, inner sep=2pt},
-  arrow/.style = {-Stealth, thick, NavyDark},
-  decision/.style = {font=\footnotesize\itshape\sffamily, color=Gray, align=center}
-]
-
-% Channel
-\node[block] (channel) {};
-\node[banner, anchor=north] at (channel.north) {\textbf{CHANNEL}};
-\node[below=0.55cm of channel.north, align=center] {Cisco UCM\\WhatsApp BSP\\App and Web};
-
-% Intent router
-\node[block, right=of channel] (intent) {};
-\node[banner, anchor=north] at (intent.north) {\textbf{INTENT ROUTER}};
-\node[below=0.55cm of intent.north, align=center] {Brand,\\use case,\\VIP, urgency};
-
-% AI agent
-\node[block, right=of intent] (ai) {};
-\node[banner, anchor=north] at (ai.north) {\textbf{AI VOICE AGENT}};
-\node[below=0.55cm of ai.north, align=center] {Freya STT/TTS\\LLM, tools,\\workflow};
-
-% Action systems
-\node[block, right=of ai] (action) {};
-\node[banner, anchor=north] at (action.north) {\textbf{ACTION SYSTEMS}};
-\node[below=0.55cm of action.north, align=center] {Turkuaz CRM\\Dealer DMS\\Parts API};
-
-% Outcome
-\node[block, right=of action] (out) {};
-\node[banner, anchor=north] at (out.north) {\textbf{OUTCOME}};
-\node[below=0.55cm of out.north, align=center] {Booking,\\lead,\\resolved or\\escalated};
-
-\draw[arrow] (channel) -- (intent);
-\draw[arrow] (intent) -- (ai);
-\draw[arrow] (ai) -- (action);
-\draw[arrow] (action) -- (out);
-
-% Decision rules below AI box
-\node[decision, below=1.3cm of ai] (rules) {%
-\textbf{If confidence $<$ 70\% or sentiment $<$ 0.2} → escalate to live agent. \\
-\textbf{If KVKK consent missing} → route to scripted IVR with operator-only path. \\
-\textbf{If brand $\in$ \{Porsche, Bentley, Lamborghini\}} → premium voice profile, dedicated queue.
-};
-\draw[dashed, NavyLine, line width=0.4pt] (ai.south) -- (rules.north);
-
-\end{tikzpicture}
-\end{center}
-
-\subsection{Decision rights at runtime}
-
-\datum{Confidence threshold}{Below 0.70 LLM confidence on intent classification or sub-task completion, the call escalates to a live agent with a structured handoff packet (caller identity, captured slots, transcript, last AI utterance).}
-\datum{Sentiment escalation}{Sentiment score below 0.2 on a rolling three-utterance window triggers a soft handoff. The agent does not announce escalation; it offers a callback or transfer.}
-\datum{Consent capture}{Every call begins with the KVKK consent gate. Explicit acceptance unlocks data-bearing nodes; rejection routes to the legacy IVR and disables outbound triggers for the line.}
-\datum{Brand-tier voice profile}{Premium brands (Porsche, Bentley, Lamborghini) use a dedicated voice profile, shorter scripts, and a separate outbound dialer pool. Brand owners review scripts pre-launch.}
-\datum{Recall override}{If the caller's plate or VIN matches an active recall campaign with the eligible-window open, the agent surfaces the recall before completing the original intent, even if the original intent was a service appointment for an unrelated complaint.}
-
-\subsection{Integration footprint}
-
-The AI tier connects to Turkuaz CRM at the customer-identity and case-creation layer, and to dealer DMS instances (predominantly OTOSOFT and SAP-based variants) at the appointment-slot, work-order, and parts-stock layers. Service catalogue, parts catalogue (Volkswagen Group ETKA / ELSA Pro), and the Sanayi Bakanlığı recall registry feed the agent at runtime via API and KB embeddings. Telephony egress runs over Cisco UCM SIP, with no change to the legacy IVR until the AI tier proves out.
-
-\newpage
-
-% ============================== PAGE 6 ,  USE CASE PORTFOLIO ==============================
-\section{Use Case Portfolio}
-
-Ten specialized agents are scoped, sequenced into four phases by inbound volume value, regulatory exposure, and integration complexity. Each agent owns one intent end to end. No agent shares prompts or extraction logic with another, which is critical for KVKK auditability and OEM compliance.
-
-\begin{tabularx}{\linewidth}{@{}L{3.4cm}L{1.5cm}L{1.5cm}L{1.4cm}L{1.5cm}L{1.5cm}X@{}}
+\begin{tabularx}{\linewidth}{@{}L{5.5cm}L{4.5cm}X@{}}
 \toprule
-\rowcolor{NavyDark}\textbf{\color{white}\footnotesize AGENT} & \textbf{\color{white}\footnotesize DIRECTION} & \textbf{\color{white}\footnotesize CHANNEL} & \textbf{\color{white}\footnotesize PHASE} & \textbf{\color{white}\footnotesize AHT TGT} & \textbf{\color{white}\footnotesize CONTAIN.} & \textbf{\color{white}\footnotesize PRIMARY KPI} \\
+\rowcolor{NavyDark}\textbf{\color{white}\footnotesize TERM} & \textbf{\color{white}\footnotesize VALUE} & \textbf{\color{white}\footnotesize NOTES} \\
 \midrule
-Service Appointment      & Inbound  & Phone, WA, App     & Phase 1 & 85\,s   & 70\%  & Booking conversion          \\
-Service Reminder         & Outbound & Phone, WA           & Phase 1 & 55\,s   & n/a   & Service revenue lift        \\
-NPS / CX Survey          & Outbound & Phone, WA           & Phase 1 & 70\,s   & n/a   & Closed-loop CX rate         \\
-Sales Lead Qualifier     & Inbound  & Phone, Web          & Phase 2 & 110\,s  & 55\%  & MQL to SQL conversion       \\
-Recall Campaign          & Outbound & Phone, SMS          & Phase 2 & 75\,s   & n/a   & Recall completion percent   \\
-Complaint Tier-1         & Inbound  & All                 & Phase 2 & 95\,s   & 60\%  & Complaints captured         \\
-Parts Inquiry            & Inbound  & Phone, WA           & Phase 3 & 90\,s   & 65\%  & Order conversion            \\
-Warranty Renewal         & Outbound & Phone, WA           & Phase 3 & 100\,s  & n/a   & Renewal rate                \\
-Roadside Triage          & Inbound  & Phone               & Phase 4 & 65\,s   & 40\%  & Time to dispatch            \\
-Insurance Cross-sell     & Outbound & Phone, WA           & Phase 4 & 120\,s  & n/a   & Bind rate                   \\
+Annual Platform Access (TL)        & 1{,}000{,}000 TL / yıl    & Daily FX rate, prepaid 12-month \\
+Annual Platform Access (USD eq.)   & approx  \$22{,}900             & Down from \$27{,}000 opening \\
+Included minutes                   & 300{,}000 dakika / yıl    & Unused minutes valid through contract year \\
+Overage rate                       & \$0.10 / dakika            & Up from the \$0.08 quote because hosting moved to Turkey \\
+Engineering manhour                & \$1{,}200 + KDV / Adam-Gün & Down from \$1{,}500 as concession \\
+Setup fee                          & Waived                     & "Stratejik Ortak" framing \\
+Termination during install         & 30 days, no cause          & Either side \\
+Liability cap                      & Lower of \$10K or last 3 months fees & Doğuş concession \\
+Indemnity cap                      & 10\% of annual fee         & Doğuş concession \\
+Auto-renewal                       & Yes, with 30 days written notice & Either side \\
+Damga vergisi                      & 50/50 split                & \\
 \bottomrule
 \end{tabularx}
 
-\subsection{Why this sequence}
+\subsection{Hosting and infrastructure commitments}
 
-Phase 1 picks the agents with the highest inbound volume (Service Appointment) and the highest outbound revenue lift per call (Service Reminder), with NPS riding alongside as a low-risk closed-loop instrument that demonstrates value to dealer councils early.
+These are not negotiation points anymore; they are signed-up commitments in \emph{What we legally promise to Doğuş}.
 
-Phase 2 adds Sales Lead Qualifier (visible to executive sponsors, easy to demo) and Complaint Tier-1 (which addresses the unclaimed Şikayetvar profile signal directly). Recall Campaign is added in Phase 2 because eleven active recalls in Q1 2026 (44K Audi virtual cockpit, 8{,}571 Porsche Macan EV rear-camera, residual Takata airbag exposure on VW 2005 to 2018, T-Cross / T-Roc airbag follow-ups) make this the highest-leverage compliance use case.
+\begin{itemize}[leftmargin=1em,itemsep=0.2em]
+\item All systems, primary plus DR, located in Türkiye. \texttt{tr-app.freyavoice.ai} is the live tenant (shared with Allianz and Garanti, currently on Ubicloud).
+\item Set up an ISMS, document it, train all staff yearly on infosec, retain training records for at least one year, share on request.
+\item Doğuş Etik Kod compliance, SPK-equivalent security level, allow Doğuş or its third parties to audit.
+\item 24-hour incident notification to \texttt{DOSBilgiGuvenligi@dogusotomotiv.com.tr}.
+\item Subcontractor use needs prior written approval; same security level required.
+\item Personnel substitution requires 10 days written notice with equivalent skill replacement.
+\end{itemize}
 
-Phase 3 takes the harder integrations: Parts Inquiry requires live ETKA / ELSA Pro bridge with VIN-first lookup; Warranty Renewal requires cross-entity consent flow between Doğuş Otomotiv and VDF (Volkswagen Doğuş Finans), since VDF is a separate legal entity under KVKK.
+\subsection{Security spec already accepted}
 
-Phase 4 closes the operating model with Roadside Triage (latency-critical, vendor handoff complexity) and Insurance Cross-sell (highest regulatory load: KVKK 2022/107 and 2022/768, plus İYS validation for every dial).
+The security requirements sheet (March 17, 2026) covers, in summary: VPN-only network access, two-factor via Doğuş corporate GSM, password policy of 8 characters with at least four classes, 60-day rotation, generic accounts at 16 characters, OAuth2 / SAML for app integrations, 5651 logging, SIEM in CEF or LEEF over syslog, DDL/DML/DCL/SELECT logging, OWASP Top 10 plus Mobile Top 10 compliance, annual pentest, four-week fix SLA for high-severity findings, encryption in transit and at rest, MDM for the cloud-on-prem tunnel.
 
-\subsection{Sourcing baseline}
+\subsection{Pen test status}
 
-Industry benchmarks underpinning the AHT and containment targets above:
+The Delve report (config-only) was rejected by Doğuş Teknoloji; they demanded a manual pentest including LLM-specific tests for prompt injection, data leakage, and AI agent risks. Tunga estimated 1.5 to 2 weeks for the manual report. Cesi De Taranto signed off on March 11, with three High findings on page 13 (rate limit, secure cookie, refresh token via cookie) flagged for in-flight remediation. \textbf{These three items remain on Freya's outstanding ledger as of today.}
 
-\begin{itemize}[leftmargin=1.2em,itemsep=0.2em]
-\item Phone-lead appointment-set rate at auto dealers: \textbf{74 to 75\%} (\href{https://traverconnect.com/blog/bdc-at-a-dealership}{TraverConnect BDC math}).
-\item AI voice deployments report 56\% appointment lift, with 70\% conversion peaks (\href{https://archizsolutions.com/ai-voicebot-boosts-dealership-appointments/}{Archiz case study}).
-\item Service-reminder programmes deliver +6.5\% show-rate, circa \$28{,}533 monthly per store (\href{https://text2drive.com/service-appointment-reminders-generate-28k-in-extra-revenue/}{TEXT2DRIVE}).
-\item Reactivating lapsed service customers delivers +15 to 30\% revenue lift, 5 to 7$\times$ ROI (\href{https://www.bettercarpeople.com/resources/industry-updates/8-keys-to-increasing-dealer-service-appointments-and-show-rates}{Better Car People}).
-\item NHTSA 2025 Annual Recall Completion shows newer vehicles average 87\% completion at 18 to 24 months (\href{https://www.nhtsa.gov/sites/nhtsa.gov/files/2026-01/2025-recall-completion-rates.pdf}{NHTSA}).
-\item Auto sector NPS sits at 41, the highest of seven sectors tracked, with phone surveys converting at 35 to 55\% versus email 15 to 25\% (\href{https://www.questionpro.com/blog/nps-in-the-automotive-industry/}{QuestionPro Q1 2025}).
+\newpage
+
+% ============================== PAGE 6 — TECHNICAL ARCHITECTURE ==============================
+\section{Technical Architecture, As Agreed}
+
+The architecture below is what was agreed across the 26 March technical lockdown, the 15 April scope confirmation, and the ongoing Turkuaz integration thread. Nothing in this section is hypothetical.
+
+\subsection{End-to-end flow}
+
+DİM (Doğuş side) initiates the outbound campaign by calling Freya's \texttt{/v2/campaign} endpoint with caller name, brand, model preference, and dealer reference. Freya's voice agent dials, runs the Lead Qualification workflow, and on completion calls Doğuş Teknoloji's webhook \texttt{/LeadAiIntegration/Update} on \texttt{turkuazwebapitest.doas.com.tr} with a result code per attempt. DİM (not Freya) manages retries: this is "Option 2" from the March 10 design, chosen for maximum control.
+
+\subsection{Component decisions, locked}
+
+\begin{tabularx}{\linewidth}{@{}L{3.2cm}L{3.4cm}X@{}}
+\toprule
+\rowcolor{NavyDark}\textbf{\color{white}\footnotesize COMPONENT} & \textbf{\color{white}\footnotesize DECISION} & \textbf{\color{white}\footnotesize RATIONALE} \\
+\midrule
+Hosting region          & Turkey only            & KVKK 7499 cross-border tightening; Doğuş demanded; cost moved \$0.08 to \$0.10/min \\
+Tenancy                 & Single-tenant on \texttt{tr-app.freyavoice.ai}  & Same Ubicloud as Allianz, Garanti; private VPN, encryption at rest and in transit, PII masking \\
+Multi-brand KVKK split  & One Agent per marka    & VW Binek first; Audi, Škoda, SEAT later; cross-brand info sharing forbidden \\
+Dealer routing          & JSON file, not real-time API & 130 to 150 VW Binek dealers; Apr 15 decision to reduce latency, periodic refresh \\
+KVKK consent            & DTMF "1" press, 2-paragraph aydınlatma & Locked Apr 15; agent reads on press \\
+Knowledge base          & Excel first, Markdown later & Static, periodic refresh; no live web crawls \\
+Retry strategy          & DİM-managed             & Doğuş Teknoloji controls retry windows; "Option 2" \\
+Day-specific call windows & Mon-Fri 09-21, Sun 11-20 & Configured in API per Mar 26 \\
+Retry logic             & 2-hour interval, max attempts then cancel & Unreachable: 3 retries, then "cancelled" \\
+Duplicate handling      & At Doğuş Teknoloji source & 1 lead per phone number per 1-hour window, filtered before Freya \\
+Non-sales request "Diğer Talep" & Email handoff for launch & Webhook for that field added later \\
+Identity \& workspace   & Workspace 61330039-..., agent ff687a47-... & Provisioned on \texttt{tr-app}, dashboard at \href{https://tr-app.freyavoice.ai}{tr-app.freyavoice.ai} \\
+\bottomrule
+\end{tabularx}
+
+\subsection{Status taxonomy from İhsan, 8 April}
+
+The result code Freya posts to Turkuaz must be one of:
+Onaylandı; İPTAL-Telefon Yanlış; Görüşmeyi Kabul Etmedi; Araç Almayı Düşünmüyor; YS'yi Kendi Aramak İstiyor; YS ile Görüştüm.
+
+\subsection{Open architectural items}
+
+\begin{itemize}[leftmargin=1em,itemsep=0.2em]
+\item \textbf{Webhook-driven outbound trigger.} Doğuş wants Freya to listen for events from their webhook (rather than be called by them). Pyae's plan is a transformation API. \emph{Blocked on Doğuş sending the webhook payload shape, requested 23 March, still unresolved.}
+\item \textbf{Vodafone Bulut Santral SIP trunk.} Not wired. Freya issued test numbers as an interim. İhsan introduced Volkan Ertaş and Goncagül Azak (Vodafone) plus Önder Savkın (FGS) on 22 April. Tunga emailed back 27 April requesting times.
+\item \textbf{Reschedule call tool.} Sold but not robustly tested end-to-end. Tomáš confirmed it works for campaign calls, not for web or inbound. Eng commitment needed before relying on it in customer-facing flows.
+\item \textbf{Campaign API workspace error (17 April).} Mert Goren hit "Phone number 5061443467 not found in workspace." Yusuf diagnosed phone-number formatting (full +90 country code on \texttt{customers.phoneNumber}); not yet confirmed resolved.
 \end{itemize}
 
 \newpage
 
-% ============================== PAGE 7 ,  SERVICE-SIDE USE CASES DEEP DIVE ==============================
-\section{Service-Side Use Cases}
+% ============================== PAGE 7 — IN-SCOPE USE CASES ==============================
+\section{In-Scope Use Cases}
 
-\subsection{Service Appointment Booking}
+Three workstreams are in scope. This is the actual, agreed-with-customer scope, not a generic ten-agent menu.
 
-A dealer running 500 monthly service jobs typically handles 2{,}500 inbound calls, 120 per day, with an AHT of three minutes and a baseline 20\% call-to-appointment conversion (BDC best practice 50\%). Doğuş centralizes this through DİM with phone callback within minutes of every web-form submission. Online booking exists per dealer (Kartal, Esenyurt, Maslak, Ankara), but the funnel always lands back on DİM.
+\subsection{Workstream A, Lead Qualification (paid Phase 1)}
 
-\textbf{Design implications.} Yetkili-satıcı routing logic (caller postal code or plaka to dealer code) is the harder problem, not the booking itself. Slot lookup must hit dealer-level calendars, not a single central system, with 130 to 150 schedulers. The KVKK consent gate runs as the first node, not an afterthought. The Volkswagenim app already supports online booking and live chat, which is the correct precedent for the voice channel.
+Outbound, VW Binek brand only at launch. Freya calls leads from a 450K to 500K customer dial pool, with about 150K-160K reached in a typical year. Driver: summer (Jul-Aug) +30 to 40\% volume spike that today saturates a 12-person peak shift.
 
-\subsection{Service Reminder, outbound}
+\textbf{Conversation logic, locked April 15.} Confirm form data → confirm or change model preference → assign nearest VW Binek dealer using the JSON file (city priority, with Anadolu / Avrupa side split for Istanbul) → set appointment. KVKK aydınlatma triggered by DTMF "1." Status code returned to Turkuaz \texttt{/LeadAiIntegration/Update}.
 
-Cox Automotive 2025 Service Industry Study cites a 12\% loss of service visits to independent service since 2018, with retention falling from 72\% to 54\%. Automated reminder programmes recover \$28{,}533 monthly per store on an industry blend; reactivating lapsed customers lifts service revenue 15 to 30\% with 5 to 7$\times$ ROI. There is no public evidence Doğuş runs an automated outbound reminder programme today.
+\textbf{Test data shape used in dev.} \texttt{turkuaz\_dosya\_no}, \texttt{musteri\_adi}, \texttt{musteri\_soyadi}, \texttt{marka\_tercihi} (Volkswagen Binek), \texttt{model\_tercihi} (Yeni Taigo, Passat, T-Roc, Tiguan, Taigo, Golf-R, GTI, Tayron, Sedan, Jetta), \texttt{servis\_tercihi} (DOĞUŞ OTO KARTAL, etc.).
 
-\textbf{Design implications.} Dual triggers, time-based (12-month service anniversary) and mileage-based (from connected-car telemetry where available, otherwise last-visit km plus monthly average). Voice plus SMS fallback: voice pickup typically 20\%, drop unanswered into SMS link to the booking page. Brand-config variables for tone, since VW, Audi, and Porsche customers tolerate very different scripts. Per Turkish Mesafeli Sözleşmeler Yönetmeliği, calling window is 09:00 to 20:00; service reminders are exempt from prior İYS approval as they are non-commercial under \href{https://iletiyonetimi.com/iysde-izinsiz-gonderilebilen-iletiler-ve-yasal-duzenlemeler}{İYS rules}.
+\textbf{Internal-test program agreed April 20.} Doğuş prepares 70 to 80 personas; tests via persona "İsmet Taşdemir" already logged 25+ adversarial flows including KVKK revocation, refusing dealer visit, competitor admission, off-topic Hitler/VW questions, profanity handling, unknown ID handoff. Agent passed most; documented failures: did not catch "babam değilim" handoff cleanly, said "yavrucak İhsan" inappropriately, mishears "Sedan" and "T-Roc" first time.
 
-\subsection{Parts Inquiry}
+\subsection{Workstream B, AI Role Play (parallel)}
 
-Stella Automotive reports approximately 33\% of dealer calls go missed or unanswered, and stock-on-hand answers are unreliable when staff manually check inventory. Volkswagen Group's standard parts catalogue is \href{https://en.wikipedia.org/wiki/ETKA}{ETKA}, with VIN input and central VW AG database, succeeded by ELSA Pro. No unified parts portal across all six Doğuş brands surfaces publicly.
+Surfaced by \textbf{Billur Çağla Kaya} (DİM Eğitim ve Kalite Uzmanı) on 24 March in a separate email thread. Goal: pre-call training simulator for newly-hired DİM agents, where the AI plays the customer with varied personas (sinirli, talepkâr, sakin, aceleci) and complex scenarios (e.g. roadside assistance). DİM hires roughly 25 to 30 new agents per year; manual roleplay is the current bottleneck.
 
-\textbf{Design implications.} VIN-first lookup, never accept a part name without VIN, hallucinated cross-brand part numbers are the fastest way to damage trust. Live ETKA / ELSA bridge required, no static KB, prices and stock change daily. Hard transfer when stock is zero or part is special-order, AI confirming "yok" without offering alternatives is worse than no AI at all.
+Sample personas and scenarios are in the AI Role Play.docx Billur sent. A demo via the Freya platform was shown 8 April. \textbf{Freya has acknowledged but not yet returned a formal deliverable.} Mısra and Çağla (Freya CS) are the named owners.
 
-\subsection{Warranty Renewal, outbound}
+\subsection{Workstream C, DİM Çağrı Merkezi AI Dönüşüm (just opened)}
 
-The US extended-warranty market is \$159B in 2025, with auto a 30 to 34\% share growing at 8.6\% CAGR (\href{https://www.imarcgroup.com/united-states-extended-warranty-market}{IMARC}). Renewal-rate benchmark for OEM-branded extended warranty when contacted proactively sits at 35 to 55\%. Doğuş sells \href{https://www.vdf.com.tr/urunlerimiz-ve-hizmetlerimiz/sigorta-urunleri/uzatilmis-garanti}{VDF Garanti Plus}, in +1-year increments up to five years, must be purchased within 24 months of first registration, transferable on resale.
+Tunga sent the email \emph{DİM Çağrı Merkezi AI Dönüşüm Projemiz} on 27 April, proactively expanding from Lead Qualification + AI Role Play to a whole-call-center AI roadmap. The email asked for a Wed 10:00 strategy session with İhsan and Uğur. \textbf{This is the upsell hook.} Anchor scenarios likely surfaced in that meeting: inbound switchboard (currently a 12-person peak shift), 250K-per-year survey calls (today driving operator bonus / penalty), and roadside / non-sales "Diğer Talep" handling.
 
-\textbf{Design implications.} Cross-entity data flow needs explicit consent, since VDF is a separate legal entity from Doğuş Otomotiv under KVKK. Eligibility gate first, vehicle under 24 months old, current warranty active, before any pitch. Cross-sell hook to Garanti Plus plus insurance, only if customer voluntarily extends conversation, no forced upsell.
+\subsection{What is explicitly out of scope today}
 
-\subsection{Roadside Triage}
-
-Agero serves 13M customers, peaking at 6{,}000 events per hour. Voice AI in roadside reduces AHT 20 to 40\%, with automated triage cutting initial handle time 30 to 60\%. Pure-triage AHT runs 60 to 90 seconds. Doğuş Çağrı 24 operates 24/7 with brand-specific lines (VW 444\,89\,24, Audi 444\,28\,34, Škoda 444\,77\,80, SEAT 444\,73\,28, CUPRA 444\,07\,20). Public docs do not name the assistance vendor; market patterns and brand presence point to Allianz Partners or Mapfre Assistance.
-
-\textbf{Design implications.} Location capture before everything else, GPS handoff via SMS link if voice description fails, every second matters. Severity-based dispatch tree, accident-with-injury routes to 112 transfer, breakdown to tow versus on-site repair, fuel/key/tire to light dispatch. Handoff to vendor must carry context, no caller should re-describe the situation to the tow company.
+Service appointment booking, parts inquiry, warranty renewal, recall campaigns, complaint handling, insurance cross-sell, roadside dispatch are \emph{not in the contracted Phase 1}. They appear as Phase 2+ concepts in earlier discussion but are not on the current commit. The 27 April email is the door-opener for staged expansion of these.
 
 \newpage
 
-% ============================== PAGE 8 ,  SALES & CX USE CASES DEEP DIVE ==============================
-\section{Sales and CX Use Cases}
+% ============================== PAGE 8 — OUTSTANDING LEDGER ==============================
+\section{Outstanding Ledger}
 
-\subsection{Sales Lead Qualifier, inbound}
+Eight items from Freya, four from Doğuş. Owners and ETAs as known.
 
-Inbound phone leads convert dramatically better than digital: 74 to 75\% appointment-set on phone versus 40\% on internet leads, with 61\% of buyers calling a dealer after online research (\href{https://www.coxautoinc.com/insights/the-high-cost-of-poor-quality-leads/}{Cox Automotive}). Speed dominates: dealers responding within five minutes are 21 to 100$\times$ more likely to convert, but only 61\% of 1{,}700 surveyed dealerships replied within 15 minutes.
+\subsection{Freya owes Doğuş}
 
-\textbf{Design implications.} DİM already centralizes routing to 130 to 150 yetkili satıcı with caller-ID auto-recognition on Turkuaz CRM, processing roughly one million calls per year. The agent inherits this routing infrastructure rather than rebuilding it. Lead-scoring prompts capture brand, model, budget band, financing intent, test-drive readiness, in that order; the handoff packet to the dealer BDC carries all five fields. BDC economics for context: in-house rep base salary \$45K, manager \$48K to 85K, cost-per-lead \$9 to 13.
+\begin{tabularx}{\linewidth}{@{}L{0.5cm}L{6.0cm}L{2.4cm}X@{}}
+\toprule
+\rowcolor{NavyDark}\textbf{\color{white}\footnotesize \#} & \textbf{\color{white}\footnotesize ITEM} & \textbf{\color{white}\footnotesize OWNER} & \textbf{\color{white}\footnotesize STATUS / ETA} \\
+\midrule
+F1 & Sign final commercial bundle: Lisans Sözleşmesi, Hizmet Sözleşmesi, Bilgi Güvenliği Ek Protokolü, KVKK / DPA & Tunga, Mısra & In legal review; Doğuş hukuk added 5-6 page DPA addendum; pending track-changes return \\
+F2 & Lead Qualification workflow ready for Doğuş internal test & Yalin, Yusuf & Promised "next week of Apr 20" (i.e. now). Yalin flagged Apr 8 prompt is outdated and squads not yet built. \\
+F3 & AI Role Play formal scope and platform configuration for Billur & Mısra, Çağla & Acknowledged Apr 15, no deliverable yet \\
+F4 & Close pen test page-13 High findings: rate limit, secure cookie, refresh token via cookie & Ezgi, Pyae & Promised in-flight; not closed as of today \\
+F5 & Run manual LLM-aware pentest in parallel with contract & Ezgi & Promised; Neslihan and Büşra demand it \\
+F6 & Configure agent to call \texttt{/LeadAiIntegration/Update} and validate end-to-end & Yusuf, Mısra & Endpoint exists; "phone not found" workspace error from 17 Apr unresolved \\
+F7 & Engage Vodafone (Volkan, Goncagül) and FGS (Önder) on SIP trunking & Tunga, Pyae & Tunga emailed 27 Apr, no slot confirmed yet; target meeting this week \\
+F8 & Wed 10:00 DİM AI Dönüşüm strategy session with İhsan + Uğur & Tunga & Sent 27 Apr, awaiting reply \\
+\bottomrule
+\end{tabularx}
 
-\subsection{Recall Campaign, outbound}
+\subsection{Doğuş owes Freya}
 
-Eleven active Doğuş-portfolio recalls in Q1 2026: ~44K Audi 2024 to 2025 vehicles for virtual-cockpit software fault, 8{,}571 Porsche Macan EVs for rear-view camera, residual Takata airbag exposure on VW 2005 to 2018 and Audi S/RS 2003 to 2011, plus T-Cross and T-Roc airbag service actions (visible on \href{https://www.sikayetvar.com/dogus-oto/dogus-oto-tekrarlayan-airbag-arizasi-nedeniyle-arac-degisimi-talebi-ve-magduriyet}{Şikayetvar}). NHTSA's 2025 Annual Report shows newer vehicles average 87\% completion at 18 to 24 months; 70 to 85\% in twelve months is the EU/Turkey "good" benchmark, with 60\% common.
+\begin{tabularx}{\linewidth}{@{}L{0.5cm}L{6.0cm}L{2.4cm}X@{}}
+\toprule
+\rowcolor{NavyDark}\textbf{\color{white}\footnotesize \#} & \textbf{\color{white}\footnotesize ITEM} & \textbf{\color{white}\footnotesize OWNER} & \textbf{\color{white}\footnotesize STATUS / ETA} \\
+\midrule
+D1 & Webhook payload shape for transformation API (Doğuş-side webhook to Freya outbound trigger) & Hande Toru, Mert Goren & Pending since 23 Mar \\
+D2 & Confirm UDP/Trunk audio integration after Friday Santral team meeting & İhsan, Santral team & Mentioned Apr 15, not yet scheduled \\
+D3 & Test data for Turkuaz Update endpoint (lead IDs, sample records) & Mert Goren & Yusuf requested Apr 14 \\
+D4 & Final commercial agreement signature: 1M TL / 300K dk / \$0.10 overflow & İhsan, Doğuş hukuk & Track-changes round in flight; gated by F1 above \\
+\bottomrule
+\end{tabularx}
 
-\textbf{Design implications.} Turkey's regulatory frame is the \href{https://www.sanayi.gov.tr/piyasa-gozetimi-ve-denetimleri/geri-cagirma-faaliyetleri}{Sanayi ve Teknoloji Bakanlığı PGD voluntary recall portal}; TÜVTÜRK validates closure during inspection. The agent must per-call audit-trail in a format the Bakanlık accepts, with weekly OEM reporting and 24-hour exception escalation. Recall calls are exempt from prior İYS approval as non-commercial.
+\subsection{Internal Freya issues that affect Doğuş}
 
-\subsection{NPS / CX Survey, outbound}
-
-Auto-sector NPS averages 41, the highest of seven tracked sectors (\href{https://www.questionpro.com/blog/nps-in-the-automotive-industry/}{QuestionPro Q1 2025}). Phone surveys convert at 35 to 55\%, SMS 40 to 50\%, email 15 to 25\%, in-app 20 to 35\%. Transactional NPS outperforms relational by 8 to 12 points. DİM already runs NPS surveys with multi-award operational dashboards. The opportunity is not invention, it is consistency at scale and closed-loop detractor follow-up within 48 hours.
-
-\textbf{Design implications.} NPS is treated as commercial under İYS rules and requires \href{https://iys.org.tr/iys/yonetmelik}{İYS-registered consent} before dial. The agent reads from the İYS roster at runtime; any contact not in the roster is skipped and logged. Detractor follow-up is automated as a closed loop: a low-NPS response triggers a same-day callback queue with a flagged ticket in Turkuaz CRM.
-
-\subsection{Complaint Tier-1, inbound}
-
-Auto-dealer call centres see complaints at 3 to 8\% of total inbound, with 65.2\% of inbound calls connecting to a human and 31.8\% suffering hold-abandonment (\href{https://www.callsource.com/blog/13-notable-inbound-phone-call-automotive-stats-for-dealers/}{CallSource, 3{,}000 dealerships}). Sector CSAT averages 77 to 78\%. Şikayetvar is the de-facto Turkish complaint signal, and the Doğuş Oto profile shows zero operator response in the last twelve months. Top categories: high service prices, Passat şanzıman titreşim, Audi A5 extended-warranty denials labelled "kullanıcı hatası," T-Roc steering deformation, T-Cross airbag re-faults.
-
-\textbf{Design implications.} Tier-1 capture pattern is greet, classify (sales / service / recall / warranty), capture VIN plus complaint code, give SLA, escalate to brand-specific tier-2 via Turkuaz. The agent must never promise compensation; it captures, logs, classifies. Integration to a Şikayetvar response queue is a Phase 2 nice-to-have that closes the public-reputation gap.
-
-\subsection{Insurance Cross-sell, outbound}
-
-Auto-insurance attach at the dealer point of contact reaches 15 to 30\% in mature markets when bundled with finance. \href{https://www.allianz.com.tr/tr_TR/anlasmali-kurumlar/anlasmali-oto-servisleri.html}{Allianz Türkiye} runs an anlaşmalı oto servis network. Telematics-triggered renewal calls (Tesla, Tofaş, Allianz Direct) convert 2 to 3$\times$ cold renewals. Doğuş distributes via VDF Sigorta Aracılık bundled with Eureko Sigorta for Audi; SEAT Kasko sells via an Allianz, Eureko, Mapfre tri-panel; Doğuş Oto Maslak lists Allianz, Anadolu, Mapfre, Eureko as anlaşmalı şirketler.
-
-\textbf{Design implications.} Outbound insurance cross-sell requires explicit, separate açık rıza per \href{https://www.kvkk.gov.tr/Icerik/7557/2022-107}{KVKK Kararı 2022/107} and \href{https://www.kvkk.gov.tr/Icerik/7570/2022-768}{2022/768}, plus İYS commercial-message consent. The advisor must not make coverage promises beyond broker authority; pricing comes from a tool call, never from the LLM.
+\begin{itemize}[leftmargin=1em,itemsep=0.2em]
+\item \textbf{Reschedule call tool} (Yusuf 28 Mar): tool fires but agent does not call back. Tomáš confirmed it works for campaigns, not for web or inbound. Sold to Doğuş, eng commitment needed before relying on it.
+\item \textbf{Workflow creation broken in Doğuş workspace} (Yusuf 31 Mar): blank page after create. Possibly fixed; not confirmed in this scan.
+\item \textbf{Campaign API min retry constraint} (Tomáš 17 Apr): \texttt{retryDelaySeconds: 30} returns "Internal server error" instead of validation error. Min is 60s. Fix queued.
+\item \textbf{Türkiye bulutunda Gemini constraint} (Mısra 20 Apr): the Doğuş demo runs on Gemini 2.5 Pro; if the "Turkey-only infra" clause is enforced strictly, the LLM choice has to move. Not in any external doc; resolve before go-live.
+\item \textbf{Ubicloud capacity and lifetime} (Yavuz 22 Mar): contract ends 15 April, multi-pod support not there. Affects Doğuş, Allianz, Garanti collectively.
+\end{itemize}
 
 \newpage
 
-% ============================== PAGE 9 ,  TECH ARCHITECTURE & REGULATION ==============================
-\section{Technology Architecture and Regulatory Compliance}
+% ============================== PAGE 9 — RISK REGISTER ==============================
+\section{Risk Register}
 
-\subsection{Architecture, layered view}
-
-\begin{tabularx}{\linewidth}{@{}L{2.6cm}L{1.5cm}X@{}}
-\toprule
-\rowcolor{NavyDark}\textbf{\color{white}\footnotesize LAYER} & \textbf{\color{white}\footnotesize OWNER} & \textbf{\color{white}\footnotesize STACK} \\
-\midrule
-Telephony            & Doğuş   & Cisco UCM, SIP trunk, brand-line numbers (444\,40\,05 plus per-brand roadside)             \\
-Voice I/O            & Freya   & Qwen3-ASR-TR, 50\,ms p50 first token. Bicodec TTS, brand voice profiles                   \\
-LLM Routing          & Freya   & Gemma-Banking-3 (TR-tuned), Gemini-3-Flash, Claude Haiku 4.5 fallback                      \\
-Workflow Engine      & Freya   & State machine, per-agent flows, tool-call nodes, runtime kill switches                     \\
-Knowledge and Tools  & Doğuş   & Service catalogue, ETKA / ELSA Pro parts, Sanayi Bakanlığı recall registry                 \\
-CRM and DMS          & Doğuş   & Turkuaz CRM, OTOSOFT DMS, Hitsoft on SAP B1, dealer-specific variants                      \\
-Observability        & Freya   & Langfuse traces, Datadog dashboards, weekly QA panel reviews, WER monitoring               \\
-Compliance           & Joint   & KVKK consent capture, voice biometrics opt-out, 24-month retention, ISO 27001              \\
-\bottomrule
-\end{tabularx}
-
-\subsection{KVKK and consent posture}
-
-Voice biometrics are classified as \textbf{özel nitelikli kişisel veri} under KVKK and require explicit consent (açık rıza), per the Kurul's \href{https://www.kvkk.gov.tr/Icerik/7047/Biyometrik-Verilerin-Islenmesinde-Dikkat-Edilmesi-Gereken-Hususlara-Iliskin-Rehber}{biyometrik veri rehberi}. A non-biometric alternative path with no extra cost must be offered. Routine voice recordings (not biometric templates) follow a 24-month standard retention, extendable to 36 with justification; dispute and warranty calls are retained until file closure plus six months.
-
-The 7499 sayılı Kanun (12 March 2024, in force 1 June 2024) replaced blanket consent for cross-border transfer with a three-tier regime: adequacy decisions, standard contractual clauses with five-day Kurul filing, or occasional transfers (\href{https://www.ey.com/tr_tr/insights/law/kvkk-degisikliginin-yurt-disi-veri-aktarimina-etkisi}{EY analysis}). The Kurul's \href{https://www.kvkk.gov.tr/Icerik/8683/etken-yapay-zeka-agentic-ai}{Agentic AI duyurusu} explicitly flags prompt-time data leakage to non-Turkish LLM endpoints, which is why this engagement is on-premises by design.
-
-\subsection{İYS and outbound compliance}
-
-Any commercial outbound voice / SMS / email requires prior İYS-registered approval. 2025 ETK penalties under m.12: up to TRY\,9{,}515 per recipient, 10$\times$ for batch, up to TRY\,28{,}546 for ret-bildirim ihlali. ETK m.6/2 plus the 2020 yönetmelik exempts service / maintenance reminders, recall notices, debt and payment reminders, and warranty / membership notifications from prior consent. NPS surveys and upsell offers are commercial and require İYS approval. Calling window 09:00 to 20:00 is set by the Mesafeli Sözleşmeler Yönetmeliği and Tüketicinin Korunması Hakkında Kanun 6502.
-
-\subsection{On-prem deployment footprint}
-
-Production hardware: 1$\times$ NVIDIA H100 NVL or H200 (80\,GB HBM3) for Turkish ASR plus a 70B-class LLM via vLLM / TensorRT-LLM, mirrored for HA. Hosted in a Tier-III Turkish data centre with KVKK / GDPR posture (GlassHouse, yapayzekaserver, Turkticaret are credible providers). Total VRAM footprint at concurrency 16: approximately 11\,GB out of 80\,GB, leaving substantial headroom for LLM and TTS co-location on the same card.
-
-\subsection{Service-quality regulatory frame}
-
-Aftersales is governed by the Ticaret Bakanlığı's Satış Sonrası Hizmetler Yönetmeliği. Authorized service stations must hold a TSE service-yeterlilik standard specific to the product group. The azami tamir süresi cannot be exceeded, with the clock starting at fault notification in-warranty, and zero transport / cargo charges in-warranty. Stations are listed in \href{https://www.servis.gov.tr/}{SERBİS}. TÜVTÜRK is the monopoly periodic vehicle inspection operator and inspects vehicles via VİA ONLİNE; it does not certify dealer service quality.
-
-\newpage
-
-% ============================== PAGE 10 ,  ROLLOUT, KPIs, RISK, COMMERCIAL ==============================
-\section{Phased Rollout, KPIs, and Commercial Path}
-
-\subsection{Twelve-month phased rollout}
-
-\begin{tabularx}{\linewidth}{@{}L{1.6cm}L{1.5cm}L{4.6cm}X@{}}
-\toprule
-\rowcolor{NavyDark}\textbf{\color{white}\footnotesize PHASE} & \textbf{\color{white}\footnotesize WINDOW} & \textbf{\color{white}\footnotesize SCOPE} & \textbf{\color{white}\footnotesize GATE TO NEXT PHASE} \\
-\midrule
-Phase 0     & Week 0 to 4   & Discovery, mock APIs, KVKK opinion, baseline KPIs        & Compliance sign-off, 100 reference calls captured \\
-Phase 1     & Month 1 to 3  & Service Appointment, Service Reminder, NPS              & Containment $\geq$ 60\%, CSAT $\geq$ 4.0, zero P0 \\
-Phase 2     & Month 4 to 6  & Sales Lead, Complaint Tier-1, Recall Campaign           & WER $<$ 8\% sustained, 4 brands live, dealer council unblocking \\
-Phase 3     & Month 7 to 9  & Parts Inquiry, Warranty Renewal                         & Cost-to-serve −30\%, NPS uplift +10, Porsche queue accepted \\
-Phase 4     & Month 10 to 12 & Roadside Triage, Insurance Cross-sell                  & Cost-to-serve −45\%, 70\% containment, 24/7 SLA 99.5\% \\
-\bottomrule
-\end{tabularx}
-
-\subsection{KPI scorecard}
-
-\begin{tabularx}{\linewidth}{@{}L{2.8cm}L{4.0cm}L{1.5cm}L{1.3cm}L{1.3cm}L{1.3cm}X@{}}
-\toprule
-\rowcolor{NavyDark}\textbf{\color{white}\footnotesize METRIC} & \textbf{\color{white}\footnotesize DEFINITION} & \textbf{\color{white}\footnotesize BASELINE} & \textbf{\color{white}\footnotesize M3} & \textbf{\color{white}\footnotesize M6} & \textbf{\color{white}\footnotesize M12} & \textbf{\color{white}\footnotesize OWNER} \\
-\midrule
-Containment              & End-to-end AI resolution                     & 0\%       & 60\%   & 65\%   & 70\%    & Freya    \\
-AHT                      & Inbound mean duration, all intents           & 252\,s    & 150\,s & 110\,s & $<$90\,s & Doğuş Ops \\
-CSAT                     & Post-call survey, 1 to 5                     & 3.6       & 4.0    & 4.2    & 4.3+    & Doğuş CX  \\
-NPS                      & 0 to 10, calculated quarterly                & +24       & +30    & +35    & +39     & Doğuş CX  \\
-24/7 Availability        & p50 service availability                     & 92\%      & 97\%   & 99\%   & 99.5\%  & Freya SRE \\
-Cost-to-serve            & Fully-loaded cost per resolved interaction   & TRY\,38       & TRY\,26    & TRY\,22    & TRY\,21     & Doğuş Fin \\
-Service Revenue          & Index, baseline 100                          & 100       & 108    & 116    & 122     & Doğuş Svc \\
-Recall Coverage          & Eligible base contacted in window            & 62\%      & 85\%   & 95\%   & 100\%   & Compliance \\
-\bottomrule
-\end{tabularx}
-
-\subsection{Risk register, top eight}
-
-\begin{tabularx}{\linewidth}{@{}L{0.5cm}L{4.4cm}L{1.4cm}L{1.4cm}X@{}}
+\begin{tabularx}{\linewidth}{@{}L{0.5cm}L{4.6cm}L{1.4cm}L{1.4cm}X@{}}
 \toprule
 \rowcolor{NavyDark}\textbf{\color{white}\footnotesize \#} & \textbf{\color{white}\footnotesize RISK} & \textbf{\color{white}\footnotesize LIKELIHOOD} & \textbf{\color{white}\footnotesize IMPACT} & \textbf{\color{white}\footnotesize MITIGATION} \\
 \midrule
-1 & Dealer DMS heterogeneity blocks integration   & High   & High   & Standardize on top three DMS profiles, build adapters, manual fallback for tail \\
-2 & Sestek counter-bid using Doğuş footprint      & High   & High   & Speed-to-production demo in week 4, KVKK multi-brand workflow proof, single-vendor TCO case \\
-3 & Turkish-language quality drifts at the edge   & Medium & High   & Continuous fine-tune on captured calls, weekly WER monitoring with alerts \\
-4 & KVKK voice biometrics challenge               & Medium & High   & Legal opinion week 1, opt-in capture in IVR, data residency in Turkey region \\
-5 & Peak-hour overflow exceeds capacity           & Medium & Medium & Continuous batching, autoscale on H100/H200, queue with broadcasted ETA \\
-6 & Dealer change-management resistance           & High   & Medium & Champion dealers in council, monthly wins published, opt-in per dealer \\
-7 & OEM compliance gap on recall execution        & Low    & High   & Per-call audit trail, weekly OEM reporting, 24-hour exception escalation \\
-8 & Hallucination on price or availability        & Low    & High   & Tool-calling for any quote, LLM reads from system, never composes numerals \\
+R1 & Vodafone SIP trunking slips beyond Bayram                & High   & High   & Tunga email out 27 Apr; push for meeting Tue/Wed this week; in the interim continue with Freya test numbers, accept that "real customer calls" are gated on this \\
+R2 & Doğuş hukuk 5-6 page DPA addendum delays signature        & Medium & High   & Fast-track legal review at Freya; prepare to accept commercial substance but push back on liability cap stretches \\
+R3 & Lead Qualification workflow not actually ready next week  & High   & High   & Yalin's Apr 8 flag; squads not built, prompt outdated; raise internally Tue, deliver minimum-viable workflow Wed-Thu, run smoke test before Doğuş hand-off \\
+R4 & Pen test High findings remain open at sign                 & Medium & High   & Schedule Ezgi + Pyae focused sprint; rate limit + secure cookie + refresh token via cookie; report back to Cesi within two weeks \\
+R5 & Reschedule call tool fails in customer-facing flow        & Medium & Medium & Mark as known issue, do not surface in 70-80-persona test set, raise eng ticket for proper coverage \\
+R6 & "Phone number not found in workspace" Mert error         & Low    & High   & Yusuf's Apr 17 diagnosis stands; confirm fix on \texttt{tr-app}, run paired test with Mert before workflow handoff \\
+R7 & Türkiye-only infra clause forces LLM swap (away from Gemini 2.5 Pro) & Medium & High   & Validate which Doğuş data actually leaves country; if it does, stage swap to Turkey-resident inference (Qwen3-class plus self-hosted) before sign \\
+R8 & Ubicloud renewal lapses, multi-pod limits hit at scale   & Medium & High   & Yavuz raised 22 Mar; engagement plan for the three TR tenants (Doğuş, Allianz, Garanti) jointly before hitting peak \\
+R9 & Webhook payload shape from Doğuş never arrives           & Medium & Medium & Default to Freya-initiated campaign mode for go-live; webhook-driven mode as Phase 1.5 follow-up \\
+R10 & İhsan signing authority limit (\$22{,}900) becomes binding constraint as scope grows & Low & High & Track in Workstream C upsell; route any new scope through Uğur Beşer (manager-level approval) \\
 \bottomrule
 \end{tabularx}
 
-\subsection{Governance cadence}
+\subsection{Note on competitive position}
 
-Steering committee monthly: Doğuş executive sponsor, Doğuş CIO, Freya CEO, Freya VP Customer. War room weekly: Freya delivery lead, Doğuş PM, QA reviewer, rotating dealer rep. Quality council bi-weekly: 50-call sample review, WER and CSAT scoring, prompt-library updates. Dealer council monthly: ten pilot dealers, friction reports, process changes. Compliance officer continuous: KVKK audit log, voice consent capture, retention review, incident reporting.
+Doğuş was lost once mid-cycle and came back after disliking a competing voice vendor (Tunga in \#freya-pete-founder-led-sales). The competitive proposition is no longer "should they choose Freya"; it is "do they finish go-live on Freya without churn." The risk register above is what would cause that.
 
-\subsection{Commercial path}
+\newpage
 
-A 60-day Phase 1 pilot is scoped at fixed price with success-based extension. Pilot covers Service Appointment, Service Reminder, and NPS for one brand and three dealers. Gate criteria are listed above. Phase 2 onwards is per-minute consumption pricing with annual minimum commit, structured to undercut the Genesys-plus-Sestek-plus-integrator stack-up while keeping margin to invest in Turkish-language model improvements.
+% ============================== PAGE 10 — NEXT 14 DAYS ==============================
+\section{Next 14 Days}
 
-\callout{What we need to start}{API access to Turkuaz CRM and the top three dealer DMS instances by week 2, SIP egress from Cisco UCM by week 1, written compliance opinion on voice biometrics and KVKK consent before pilot launch, three pilot dealers committed by week 3.}
+The next two weeks are the difference between a Phase 1 go-live before Bayram and a slip into May or later. Bayram is the natural pause; if we slip past it, the summer call-volume spike (the original driver of this engagement) starts hitting Doğuş before our agent is live.
+
+\subsection{This week, 28 April to 3 May}
+
+\begin{itemize}[leftmargin=1em,itemsep=0.2em]
+\item \textbf{Mon 28 Apr.} Internal Freya war room on Doğuş. Confirm Wed 10:00 strategy session with İhsan + Uğur (F8). Yalin and Yusuf confirm Lead Qualification workflow status, agree on a minimum-viable workflow target for Thursday. Mısra returns track changes on the four legal documents (F1).
+\item \textbf{Tue 29 Apr.} Vodafone meeting (Volkan, Goncagül, Önder). Set the SIP integration timeline (R1, F7). Pyae + Yusuf paired smoke-test on \texttt{tr-app} for the "phone not found in workspace" issue (R6). Ezgi closes one of the three pen test High findings (R4 / F4).
+\item \textbf{Wed 30 Apr.} Strategy session at 10:00 with İhsan and Uğur. Tunga walks the DİM AI Dönüşüm scope (Workstream C) and gets verbal alignment on next-tier scope. Mısra tests AI Role Play sample with Çağla in parallel (F3).
+\item \textbf{Thu 01 May.} Lead Qualification workflow handoff to Doğuş (F2). Doğuş begins 70-to-80-persona internal test sprint. Ezgi closes second pen test High finding.
+\item \textbf{Fri 02 May.} Santral team meeting on UDP/trunk audio integration (D2). End-of-week status sync: Hande Toru on integration, İhsan on legal, Mısra on the joint go-live checklist.
+\end{itemize}
+
+\subsection{Pre-Bayram, 4 May to 9 May}
+
+\begin{itemize}[leftmargin=1em,itemsep=0.2em]
+\item Doğuş 70-80-persona test results returned. Pass-rate gate: $\geq 90\%$ on critical paths (KVKK consent, dealer routing, status code mapping).
+\item Final pen test High finding closed. Manual LLM-aware pentest report submitted to Cesi (F5).
+\item Webhook payload shape received from Doğuş Teknoloji (D1). Pyae implements transformation API.
+\item Final commercial bundle countersigned (F1, D4). Workflow Phase 1 enters paid Phase status.
+\item Soft launch: real customer calls under controlled volume on VW Binek pilot dealers.
+\end{itemize}
+
+\subsection{Bayram window onwards}
+
+Bayram (May 12-15 region) is a natural soft pause. Use it to harden the deployment, fix any persona-test failure modes, prepare for full ramp the week after. Workstream C (DİM AI Dönüşüm) becomes the active commercial conversation post-Bayram.
+
+\subsection{Sign-off block}
 
 \vspace{0.6em}
 \hrule
 \vspace{0.6em}
 
-{\footnotesize\color{Light}This document represents the views of Freya Labs based on publicly available information as of April 2026. Figures and benchmarks are sourced where shown. Doğuş-specific operational data should be validated jointly during Phase 0 discovery. No part of this document constitutes a binding commercial offer until a Master Services Agreement is executed.}
+\begin{tabularx}{\linewidth}{@{}XXX@{}}
+\textbf{\color{Light}\footnotesize FREYA, COMMERCIAL OWNER} & \textbf{\color{Light}\footnotesize FREYA, DELIVERY OWNER} & \textbf{\color{Light}\footnotesize DOĞUŞ, PRIMARY SPONSOR} \\[0.3em]
+\rule{4cm}{0.4pt} & \rule{4cm}{0.4pt} & \rule{4cm}{0.4pt} \\[0.2em]
+Tunga Bayrak & Mısra Koşarsoy & İhsan Başdemir \\
+CEO and Co-Founder & Delivery Program Manager & DİM Veri Analitiği ve Planlama Yöneticisi \\
+\end{tabularx}
+
+\vspace{1.5em}
+\hrule
+\vspace{0.6em}
+
+{\footnotesize\color{Light}This memo is internal Freya planning material. Sources: 7 Fathom meetings (Jan 29 to Apr 20), 22 substantive Gmail threads, 37 Doğuş-related Drive files, 267 messages in \#int-dogusoto, plus DOGUS\_STATUS.md and SESSION\_LOG.md. Numbers and dates are taken from primary sources, not modeled. Where a fact came from a single source, the memo flags it. Where commitments are open, owners and ETAs are tracked in section 8.}
 
 \end{document}
