@@ -1,41 +1,49 @@
-# Doğuş Otomotiv × Freya Labs
+# Doğuş Otomotiv x Freya Labs
 
 ## Call Center AI Transformation Blueprint
 
-A comprehensive, single-page operating model for transforming the Doğuş Otomotiv multi-brand contact center into a 24/7 AI-augmented operation. Designed as a war-room wall poster, zoomable on screen.
+A 10-page consulting deliverable for the Doğuş Otomotiv multi-brand contact center transformation.
 
 ### View
 
-- **SVG (zoom forever in browser)**: [`dogus_ai_call_center_blueprint.svg`](./dogus_ai_call_center_blueprint.svg)
-- **PNG (3600px)**: [`dogus_ai_call_center_blueprint.png`](./dogus_ai_call_center_blueprint.png)
-- **PDF (print-ready)**: [`dogus_ai_call_center_blueprint.pdf`](./dogus_ai_call_center_blueprint.pdf)
+- **PDF (10 pages)**: [`dogus_transformation.pdf`](./dogus_transformation.pdf)
+- **LaTeX source**: [`dogus_transformation.tex`](./dogus_transformation.tex)
 
-### What it covers
+### Structure
 
-1. **Inbound & Outbound Channels** — phone, WhatsApp, web chat, email, app, roadside, outbound dialer
-2. **AI Agent Map** — 10 specialized voice agents (5 inbound, 5 outbound) covering the full customer lifecycle
-3. **Technology Stack** — 8-layer model from telephony up to compliance, with clear ownership (Doğuş vs Freya)
-4. **Phased Rollout** — 12-month plan with 5 phases and KPI gates
-5. **KPI Targets** — 8 measurable outcomes (containment, AHT, CSAT, NPS, availability, cost-to-serve, revenue, recall coverage)
-6. **Governance** — 5 standing forums with cadence and members
-7. **Quick Wins + Risk Register** — 60-day deliverables and de-risking plan
+| Page | Section |
+|---|---|
+| 1  | Cover, thesis, contact |
+| 2  | Executive Summary |
+| 3  | Doğuş Otomotiv at a Glance |
+| 4  | Strategic Context, Why Now, Competitive Landscape |
+| 5  | Operating Model and Decision Rules |
+| 6  | Use Case Portfolio (10 agents) |
+| 7  | Service-Side Use Cases (deep dive) |
+| 8  | Sales and CX Use Cases (deep dive) |
+| 9  | Technology Architecture and Regulatory Compliance |
+| 10 | Phased Rollout, KPIs, Risk Register, Commercial Path |
 
-### How it was made
+### Research basis
 
-Single Python script (`generate.py`) writes a self-contained SVG. No external dependencies, no JS, no fonts to load. Renders identically in browsers, Figma, and as a print artifact.
+Each section is sourced from primary research conducted via parallel sub-agents covering:
 
-### Regenerate
+1. Doğuş Otomotiv corporate, network, financials, contact-center reality
+2. Service-side use case benchmarks (Service Appointment, Reminder, Parts, Warranty, Roadside)
+3. Sales / CX use case benchmarks (Lead Qualifier, Recall, NPS, Complaint, Insurance)
+4. Turkish auto regulatory landscape (KVKK, İYS, OSD, on-prem deployment)
+5. Competitor and pricing landscape (Sestek, PolyAI, Parloa, Genesys, AWS)
+
+All citations are inline as markdown hyperlinks in the PDF.
+
+### Compile
 
 ```bash
-python3 generate.py
-rsvg-convert -f png -w 3600 -o dogus_ai_call_center_blueprint.png dogus_ai_call_center_blueprint.svg
-rsvg-convert -f pdf -o dogus_ai_call_center_blueprint.pdf dogus_ai_call_center_blueprint.svg
+tectonic dogus_transformation.tex
 ```
 
-### Print
+Requires Tectonic (`brew install tectonic`).
 
-A0 (84 × 119 cm) for war-room wall display. Source SVG is vector — scales to any size.
+### Archive
 
----
-
-Prepared by Freya Labs · Confidential, for Doğuş Otomotiv leadership review
+Earlier single-page SVG poster versions (Rev 1.0 and 1.1) are in `./archive/`.
