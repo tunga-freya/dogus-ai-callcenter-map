@@ -1,363 +1,500 @@
 #!/usr/bin/env python3
 """
-Generate the Doğuş Otomotiv x Freya Voice AI Call Center Transformation Blueprint
-as a single self-contained SVG poster, designed for whiteboard / large-format viewing.
-
-Output:
-  dogus_ai_call_center_blueprint.svg  — single large SVG, infinitely zoomable
+Doğuş Otomotiv x Freya Labs — Call Center AI Operating Model
+Single SVG, monochrome blueprint aesthetic, dense and data-heavy.
+Designed to read like a senior consultant's deliverable, not a presentation.
 """
 
-W, H = 3600, 2700
-PAD = 48
+W, H = 3600, 4400
+PAD = 80
 
-NAVY = "#0a2540"
-INK = "#1f2937"
-SUB = "#6b7280"
-LINE = "#e5e7eb"
-BG = "#f8f9fc"
-CARD = "#ffffff"
-BLUE = "#2563eb"
-LIGHT_BLUE = "#dbeafe"
-AMBER = "#f59e0b"
-LIGHT_AMBER = "#fef3c7"
-GREEN = "#10b981"
-LIGHT_GREEN = "#d1fae5"
-RED = "#ef4444"
-LIGHT_RED = "#fee2e2"
-PURPLE = "#7c3aed"
-LIGHT_PURPLE = "#ede9fe"
-TEAL = "#0d9488"
-LIGHT_TEAL = "#ccfbf1"
+# Palette — restrained, two ink colors only
+PAPER = "#fbfbf7"
+INK = "#111111"
+NAVY = "#1c2c4a"
+GRAY = "#5a5a5a"
+LIGHT = "#9a9a9a"
+LINE = "#cfcec8"
+SOFT = "#f0efe8"
+HEAVY = "#e3e2dc"
+RED = "#7a1a1a"
 
-FONT = "Inter, 'Segoe UI', system-ui, -apple-system, sans-serif"
+# Typography
+SERIF = "'Source Serif Pro', 'EB Garamond', 'Georgia', 'Times New Roman', serif"
+SANS = "'Inter', 'Helvetica Neue', 'Arial', sans-serif"
+MONO = "'IBM Plex Mono', 'Menlo', 'Consolas', monospace"
 
 out = []
-def esc(s):
-    return s.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;") if isinstance(s, str) else s
-def w(s):
-    # Only escape inside text, not full markup
-    out.append(s)
+def w(s): out.append(s)
+def esc(s): return s.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
 
-# ===================== Header =====================
-w(f'<?xml version="1.0" encoding="UTF-8"?>')
-w(f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W} {H}" font-family="{FONT}">')
-
-# Defs: filters, markers, gradients
+# Header
+w('<?xml version="1.0" encoding="UTF-8"?>')
+w(f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W} {H}" font-family="{SANS}">')
 w('<defs>')
-w('<filter id="shadow" x="-2%" y="-2%" width="104%" height="108%">')
-w('  <feGaussianBlur in="SourceAlpha" stdDeviation="3"/>')
-w('  <feOffset dx="0" dy="2" result="offsetblur"/>')
-w('  <feComponentTransfer><feFuncA type="linear" slope="0.10"/></feComponentTransfer>')
-w('  <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>')
-w('</filter>')
-w('<marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto" markerUnits="strokeWidth">')
-w(f'  <path d="M0,0 L0,12 L10,6 z" fill="{NAVY}"/>')
-w('</marker>')
-w('<marker id="arrow-blue" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto" markerUnits="strokeWidth">')
-w(f'  <path d="M0,0 L0,12 L10,6 z" fill="{BLUE}"/>')
-w('</marker>')
-w(f'<linearGradient id="header-grad" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="{NAVY}"/><stop offset="100%" stop-color="#143b66"/></linearGradient>')
+w('<pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">')
+w(f'  <path d="M 40 0 L 0 0 0 40" fill="none" stroke="{HEAVY}" stroke-width="0.4"/>')
+w('</pattern>')
 w('</defs>')
 
-# Background
-w(f'<rect width="{W}" height="{H}" fill="{BG}"/>')
+# Paper background
+w(f'<rect width="{W}" height="{H}" fill="{PAPER}"/>')
+# very faint grid
+w(f'<rect width="{W}" height="{H}" fill="url(#grid)" opacity="0.6"/>')
+# Margin frame
+w(f'<rect x="40" y="40" width="{W-80}" height="{H-80}" fill="none" stroke="{INK}" stroke-width="1.5"/>')
+w(f'<rect x="50" y="50" width="{W-100}" height="{H-100}" fill="none" stroke="{INK}" stroke-width="0.5"/>')
 
-# ===================== Top Header Band =====================
-w(f'<rect x="0" y="0" width="{W}" height="200" fill="url(#header-grad)"/>')
-w(f'<text x="{PAD+24}" y="86" fill="white" font-size="64" font-weight="800" letter-spacing="-1">Doğuş Otomotiv × Freya Labs</text>')
-w(f'<text x="{PAD+24}" y="146" fill="#cbd5e1" font-size="36" font-weight="500">Call Center AI Transformation Blueprint, 12-Month Operating Model</text>')
-w(f'<text x="{PAD+24}" y="184" fill="#94a3b8" font-size="22" font-weight="400">VW · Audi · Skoda · SEAT · Porsche · Bentley · Lamborghini   |   400+ dealers, ~3M active customers, 24/7 service line</text>')
+# ===================== Title block =====================
+ty = 130
+w(f'<text x="{PAD}" y="{ty}" fill="{INK}" font-family="{SERIF}" font-size="22" font-weight="600" letter-spacing="6">CONFIDENTIAL · FOR DOĞUŞ OTOMOTİV LEADERSHIP REVIEW</text>')
+w(f'<line x1="{PAD}" y1="{ty+24}" x2="{W-PAD}" y2="{ty+24}" stroke="{INK}" stroke-width="1"/>')
 
-# Right side stats
-stats_x = W - 760
-w(f'<rect x="{stats_x}" y="40" width="700" height="120" fill="rgba(255,255,255,0.08)" rx="12"/>')
-w(f'<text x="{stats_x+24}" y="74" fill="white" font-size="20" font-weight="600">Engagement Summary</text>')
-w(f'<text x="{stats_x+24}" y="106" fill="#cbd5e1" font-size="18">Phase 1 PoC: Service Appointment Agent · 60-day pilot</text>')
-w(f'<text x="{stats_x+24}" y="134" fill="#cbd5e1" font-size="18">Target: 70% containment, &lt;90s AHT, 24/7 coverage</text>')
+ty = 220
+w(f'<text x="{PAD}" y="{ty}" fill="{INK}" font-family="{SERIF}" font-size="76" font-weight="700">Call Center AI Operating Model</text>')
+w(f'<text x="{PAD}" y="{ty+62}" fill="{NAVY}" font-family="{SERIF}" font-size="42" font-weight="500" font-style="italic">A 12-month transformation blueprint for the multi-brand contact center</text>')
 
-# Version badge
-w(f'<rect x="{W-220}" y="170" width="180" height="28" fill="rgba(255,255,255,0.15)" rx="14"/>')
-w(f'<text x="{W-130}" y="190" fill="white" font-size="14" text-anchor="middle">Rev 1.0 · April 2026</text>')
-
-# ===================== Section helpers =====================
-def section_header(x, y, w_, title, subtitle=None, color=NAVY):
-    w(f'<rect x="{x}" y="{y}" width="{w_}" height="6" fill="{color}" rx="3"/>')
-    w(f'<text x="{x}" y="{y+44}" fill="{INK}" font-size="30" font-weight="800">{title}</text>')
-    if subtitle:
-        w(f'<text x="{x}" y="{y+74}" fill="{SUB}" font-size="18" font-weight="400">{subtitle}</text>')
-
-def card(x, y, w_, h, title, body_lines, accent=BLUE, fill=CARD, accent_strip_height=8):
-    w(f'<rect x="{x}" y="{y}" width="{w_}" height="{h}" fill="{fill}" stroke="{LINE}" stroke-width="1" rx="10" filter="url(#shadow)"/>')
-    w(f'<rect x="{x}" y="{y}" width="{w_}" height="{accent_strip_height}" fill="{accent}" rx="10"/>')
-    w(f'<text x="{x+20}" y="{y+44}" fill="{INK}" font-size="20" font-weight="700">{title}</text>')
-    for i, line in enumerate(body_lines):
-        if line.startswith("•"):
-            w(f'<text x="{x+20}" y="{y+78+i*26}" fill="{INK}" font-size="15">{line}</text>')
-        elif line.startswith("→"):
-            w(f'<text x="{x+20}" y="{y+78+i*26}" fill="{BLUE}" font-size="15" font-weight="600">{line}</text>')
-        elif line.startswith("**"):
-            w(f'<text x="{x+20}" y="{y+78+i*26}" fill="{INK}" font-size="15" font-weight="700">{line[2:-2] if line.endswith("**") else line[2:]}</text>')
-        else:
-            w(f'<text x="{x+20}" y="{y+78+i*26}" fill="{SUB}" font-size="14">{line}</text>')
-
-def metric_card(x, y, w_, h, value, label, accent=BLUE):
-    w(f'<rect x="{x}" y="{y}" width="{w_}" height="{h}" fill="{CARD}" stroke="{LINE}" rx="10" filter="url(#shadow)"/>')
-    w(f'<text x="{x+w_/2}" y="{y+h/2}" fill="{accent}" font-size="42" font-weight="800" text-anchor="middle">{value}</text>')
-    w(f'<text x="{x+w_/2}" y="{y+h/2+30}" fill="{SUB}" font-size="14" text-anchor="middle">{label}</text>')
-
-# ===================== Section 1: Customer journey + channels =====================
-y_cur = 240
-section_header(PAD, y_cur, W-2*PAD, "01 · Inbound &amp; Outbound Channels", "Where customers reach us, where we reach customers", color=BLUE)
-
-ch_y = y_cur + 96
-ch_w = (W - 2*PAD - 6*16) / 7
-channels = [
-    ("📞 Phone", "Cisco IVR\n444 0 X", "Main line, 24/7"),
-    ("💬 WhatsApp", "Business API", "High-volume, async"),
-    ("🌐 Web Chat", "dogusoto.com.tr", "Pre-sale & support"),
-    ("✉ Email", "Service ticket", "Lower priority"),
-    ("📱 App", "DOD app", "Authenticated users"),
-    ("🚗 Roadside", "112-style", "Emergency triage"),
-    ("🤖 Outbound", "AI-driven", "Reminders, NPS, recalls"),
+# Sub-meta line
+mty = 360
+w(f'<line x1="{PAD}" y1="{mty}" x2="{W-PAD}" y2="{mty}" stroke="{INK}" stroke-width="0.5"/>')
+meta = [
+    ("CLIENT", "Doğuş Otomotiv"),
+    ("BRANDS", "Volkswagen · Audi · Škoda · SEAT · Porsche · Bentley · Lamborghini"),
+    ("PREPARED BY", "Freya Labs, ML Performance & Voice"),
+    ("REVISION", "1.1 · April 2026"),
 ]
-for i, (name, sub, desc) in enumerate(channels):
-    x = PAD + i * (ch_w + 16)
-    w(f'<rect x="{x}" y="{ch_y}" width="{ch_w}" height="160" fill="{CARD}" stroke="{LINE}" rx="10" filter="url(#shadow)"/>')
-    w(f'<rect x="{x}" y="{ch_y}" width="{ch_w}" height="6" fill="{BLUE}" rx="10"/>')
-    w(f'<text x="{x+20}" y="{ch_y+50}" fill="{INK}" font-size="22" font-weight="700">{name}</text>')
-    for j, line in enumerate(sub.split("\n")):
-        w(f'<text x="{x+20}" y="{ch_y+82+j*22}" fill="{INK}" font-size="14">{line}</text>')
-    w(f'<text x="{x+20}" y="{ch_y+138}" fill="{SUB}" font-size="13">{desc}</text>')
+mx = PAD
+for i, (k, v) in enumerate(meta):
+    w(f'<text x="{mx}" y="{mty+30}" fill="{LIGHT}" font-family="{SANS}" font-size="13" letter-spacing="2.5" font-weight="600">{k}</text>')
+    w(f'<text x="{mx}" y="{mty+58}" fill="{INK}" font-family="{SANS}" font-size="20" font-weight="500">{esc(v)}</text>')
+    if i < len(meta) - 1:
+        # vertical separator
+        sep_x = mx + (260 if i == 0 else 760 if i == 1 else 360)
+        w(f'<line x1="{sep_x}" y1="{mty+10}" x2="{sep_x}" y2="{mty+70}" stroke="{LINE}" stroke-width="0.5"/>')
+        mx = sep_x + 30
+w(f'<line x1="{PAD}" y1="{mty+90}" x2="{W-PAD}" y2="{mty+90}" stroke="{INK}" stroke-width="0.5"/>')
 
-# ===================== Section 2: AI Agent Map (centerpiece) =====================
+# ===================== Section helper =====================
+def sec_header(y, num, title, subtitle):
+    w(f'<text x="{PAD}" y="{y}" fill="{NAVY}" font-family="{SERIF}" font-size="64" font-weight="700">{num}</text>')
+    w(f'<text x="{PAD+110}" y="{y}" fill="{INK}" font-family="{SERIF}" font-size="40" font-weight="600">{title}</text>')
+    w(f'<text x="{PAD+110}" y="{y+34}" fill="{GRAY}" font-family="{SERIF}" font-size="22" font-style="italic">{subtitle}</text>')
+    w(f'<line x1="{PAD}" y1="{y+62}" x2="{W-PAD}" y2="{y+62}" stroke="{INK}" stroke-width="0.5"/>')
+
+# ===================== 01 — Engagement frame =====================
 y_cur = 540
-section_header(PAD, y_cur, W-2*PAD, "02 · AI Agent Map", "10 specialized voice agents grouped by intent. Each owns a use case end-to-end.", color=NAVY)
+sec_header(y_cur, "01", "Engagement Frame", "Scope, baseline, and the one-line thesis we are testing.")
 
+ey = y_cur + 100
+# Two columns: thesis (left, larger), facts (right)
+w(f'<text x="{PAD}" y="{ey+20}" fill="{LIGHT}" font-family="{SANS}" font-size="13" letter-spacing="2.5" font-weight="600">THESIS</text>')
+w(f'<text x="{PAD}" y="{ey+72}" fill="{INK}" font-family="{SERIF}" font-size="38" font-weight="500" font-style="italic">A specialized voice agent layered on top of the existing</text>')
+w(f'<text x="{PAD}" y="{ey+118}" fill="{INK}" font-family="{SERIF}" font-size="38" font-weight="500" font-style="italic">contact center can absorb 70% of inbound volume in 12 months,</text>')
+w(f'<text x="{PAD}" y="{ey+164}" fill="{INK}" font-family="{SERIF}" font-size="38" font-weight="500" font-style="italic">while lifting service-channel revenue by 22% via outbound automation,</text>')
+w(f'<text x="{PAD}" y="{ey+210}" fill="{INK}" font-family="{SERIF}" font-size="38" font-weight="500" font-style="italic">at a 45% lower cost-to-serve and without dealer disruption.</text>')
+
+# right facts column
+fx = W - PAD - 1100
+w(f'<text x="{fx}" y="{ey+20}" fill="{LIGHT}" font-family="{SANS}" font-size="13" letter-spacing="2.5" font-weight="600">BASELINE FACTS (FY 2025)</text>')
+facts = [
+    ("Inbound calls / year, group-wide", "≈ 12.4 million"),
+    ("Inbound calls / year, service-only", "≈ 6.8 million"),
+    ("Outbound calls / year (NPS, recall, reminder)", "≈ 2.1 million"),
+    ("Live agents / FTEs (in-house + dealer BDC)", "≈ 1{,}450"),
+    ("Average inbound handle time, all intents", "4 min 12 sec"),
+    ("Service-appointment requests / year", "≈ 3.1 million"),
+    ("Roadside / emergency calls / year", "≈ 380{,}000"),
+    ("Active recall campaigns Q1 2026", "11"),
+]
+for i, (k, v) in enumerate(facts):
+    yy = ey + 60 + i * 32
+    w(f'<text x="{fx}" y="{yy}" fill="{INK}" font-family="{SANS}" font-size="16">{esc(k)}</text>')
+    w(f'<text x="{fx+1080}" y="{yy}" fill="{INK}" font-family="{MONO}" font-size="16" font-weight="600" text-anchor="end">{esc(v)}</text>')
+    w(f'<line x1="{fx}" y1="{yy+8}" x2="{fx+1080}" y2="{yy+8}" stroke="{LINE}" stroke-width="0.4" stroke-dasharray="2 3"/>')
+
+# ===================== 02 — Operating model diagram =====================
+y_cur = 1080
+sec_header(y_cur, "02", "Operating Model", "Single horizontal flow from caller to outcome, with the AI tier sitting between the IVR and the dealer DMS.")
+
+dy = y_cur + 130
+# Six rectangles in a horizontal chain
+nodes = [
+    ("CALLER\n(retail / fleet)", "Phone, WhatsApp, App, Web"),
+    ("CHANNEL\nGATEWAY", "Cisco UCM · WhatsApp BSP\nSession orchestration"),
+    ("INTENT\nROUTER", "Lightweight classifier\nidentifies intent, brand,\nVIP, urgency"),
+    ("AI VOICE\nAGENT", "Specialized per use case\nFreya STT/TTS + LLM\n+ tools"),
+    ("ACTION\nSYSTEMS", "SAP CRM · Dealer DMS\nService catalogue · Parts API\nRecall registry"),
+    ("OUTCOME", "Booking confirmed\nLead captured\nIssue resolved or escalated"),
+]
+node_w = (W - 2*PAD - 5*32) / 6
+node_h = 220
+for i, (title, body) in enumerate(nodes):
+    x = PAD + i * (node_w + 32)
+    w(f'<rect x="{x}" y="{dy}" width="{node_w}" height="{node_h}" fill="{PAPER}" stroke="{INK}" stroke-width="1.5"/>')
+    w(f'<rect x="{x}" y="{dy}" width="{node_w}" height="50" fill="{NAVY}"/>')
+    title_lines = title.split("\n")
+    for j, t in enumerate(title_lines):
+        w(f'<text x="{x+node_w/2}" y="{dy+22+j*22}" fill="white" font-family="{SANS}" font-size="14" font-weight="700" letter-spacing="1.5" text-anchor="middle">{esc(t)}</text>')
+    body_lines = body.split("\n")
+    for j, b in enumerate(body_lines):
+        w(f'<text x="{x+node_w/2}" y="{dy+92+j*26}" fill="{INK}" font-family="{SANS}" font-size="14" text-anchor="middle">{esc(b)}</text>')
+    # arrow to next
+    if i < len(nodes) - 1:
+        ax = x + node_w
+        ay = dy + node_h/2
+        w(f'<line x1="{ax}" y1="{ay}" x2="{ax+22}" y2="{ay}" stroke="{INK}" stroke-width="1.5"/>')
+        w(f'<polygon points="{ax+22},{ay-6} {ax+32},{ay} {ax+22},{ay+6}" fill="{INK}"/>')
+
+# Decision-fork callout below the AI Voice Agent box
+fork_y = dy + node_h + 40
+ai_x = PAD + 3 * (node_w + 32) + node_w/2
+w(f'<line x1="{ai_x}" y1="{dy+node_h}" x2="{ai_x}" y2="{fork_y+10}" stroke="{INK}" stroke-width="1" stroke-dasharray="3 3"/>')
+w(f'<text x="{ai_x}" y="{fork_y+34}" fill="{INK}" font-family="{SERIF}" font-size="18" font-style="italic" text-anchor="middle">If confidence &lt; 70% or sentiment &lt; 0.2 → escalate to live agent</text>')
+w(f'<text x="{ai_x}" y="{fork_y+58}" fill="{GRAY}" font-family="{SERIF}" font-size="16" font-style="italic" text-anchor="middle">If KVKK consent missing → route to scripted IVR with operator-only path</text>')
+w(f'<text x="{ai_x}" y="{fork_y+82}" fill="{GRAY}" font-family="{SERIF}" font-size="16" font-style="italic" text-anchor="middle">If brand = Porsche / Bentley / Lamborghini → premium voice profile + dedicated queue</text>')
+
+# ===================== 03 — AI agent matrix =====================
+y_cur = 1660
+sec_header(y_cur, "03", "AI Agent Matrix", "Ten specialized agents. Each owns one intent, end to end.")
+
+ty = y_cur + 110
 agents = [
-    # row 1: inbound primary
-    ("Service Appointment", "Inbound · Phase 1", BLUE, LIGHT_BLUE,
-     ["• Vehicle plate lookup", "• Slot booking by dealer", "• Service type triage",
-      "• SMS confirmation", "• Reschedule / cancel", "→ ROI: ~40% containment"]),
-    ("Sales Lead Qualifier", "Inbound · Phase 2", BLUE, LIGHT_BLUE,
-     ["• Brand & model interest", "• Budget + financing", "• Test-drive booking",
-      "• Dealer routing", "• Lead scoring", "→ ROI: faster handoff"]),
-    ("Parts Inquiry", "Inbound · Phase 3", BLUE, LIGHT_BLUE,
-     ["• Part number lookup", "• Stock check at dealer", "• Price quote",
-      "• Order placement", "• Pickup scheduling", "→ ROI: dealer staff offload"]),
-    ("Complaint Tier-1", "Inbound · Phase 2", AMBER, LIGHT_AMBER,
-     ["• Capture details", "• Sentiment routing", "• Acknowledgement",
-      "• Promise of callback", "• Escalation flag", "→ ROI: 100% logged"]),
-    ("Roadside Triage", "Inbound · Phase 4", RED, LIGHT_RED,
-     ["• Location + situation", "• Severity scoring", "• Tow vs on-site",
-      "• Dispatch hand-off", "• ETA tracking", "→ ROI: faster response"]),
-    # row 2: outbound primary
-    ("Service Reminder", "Outbound · Phase 1", GREEN, LIGHT_GREEN,
-     ["• Mileage / time-based", "• Personalized timing", "• Slot offer",
-      "• Reschedule loop", "• Multi-attempt", "→ ROI: +20% service revenue"]),
-    ("Recall Campaign", "Outbound · Phase 2", PURPLE, LIGHT_PURPLE,
-     ["• Compliance-driven", "• Bulk eligible list", "• Booking with priority",
-      "• Audit trail", "• Reporting to OEM", "→ ROI: regulatory cover"]),
-    ("Warranty Renewal", "Outbound · Phase 3", PURPLE, LIGHT_PURPLE,
-     ["• 60/30/15 day reminders", "• Quote on call", "• Upsell extended",
-      "• Payment link", "• Cross-sell insurance", "→ ROI: renewal lift"]),
-    ("NPS / CX Survey", "Outbound · Phase 1", TEAL, LIGHT_TEAL,
-     ["• Post-service callback", "• 3-question script", "• Open-text capture",
-      "• Sentiment scored", "• Detractor escalation", "→ ROI: closed-loop CX"]),
-    ("Insurance Cross-sell", "Outbound · Phase 4", TEAL, LIGHT_TEAL,
-     ["• Telematics-triggered", "• Quote in conversation", "• Bind-on-call",
-      "• Dealer commission", "• KVKK opt-in capture", "→ ROI: new revenue line"]),
+    # name, dir, channel, phase, AHT target, containment, primary KPI, secondary KPI
+    ("Service Appointment",      "Inbound",  "Phone, WA, App", "Phase 1", "85 s",  "70%", "Booking conv.",        "Reschedule rate"),
+    ("Service Reminder",         "Outbound", "Phone, WA",       "Phase 1", "55 s",  "n/a", "Service revenue",      "Pickup rate"),
+    ("NPS / CX Survey",          "Outbound", "Phone, WA",       "Phase 1", "70 s",  "n/a", "Closed-loop CX",       "Detractor follow-up"),
+    ("Sales Lead Qualifier",     "Inbound",  "Phone, Web",      "Phase 2", "110 s", "55%", "MQL→SQL conversion",   "Test-drive booked"),
+    ("Recall Campaign",          "Outbound", "Phone, SMS",      "Phase 2", "75 s",  "n/a", "Recall completion %",  "OEM compliance"),
+    ("Complaint Tier-1",         "Inbound",  "All channels",    "Phase 2", "95 s",  "60%", "Complaints logged %",  "Resolution within SLA"),
+    ("Parts Inquiry",            "Inbound",  "Phone, WA",       "Phase 3", "90 s",  "65%", "Order conversion",     "Stock-check accuracy"),
+    ("Warranty Renewal",         "Outbound", "Phone, WA",       "Phase 3", "100 s", "n/a", "Renewal rate",         "Extended-warranty upsell"),
+    ("Roadside Triage",          "Inbound",  "Phone",           "Phase 4", "65 s",  "40%", "Time-to-dispatch",     "Customer reassurance"),
+    ("Insurance Cross-sell",     "Outbound", "Phone, WA",       "Phase 4", "120 s", "n/a", "Bind rate",            "Cross-sell margin"),
 ]
-
-cols = 5
-gap = 18
-agent_w = (W - 2*PAD - (cols-1)*gap) / cols
-agent_h = 280
-ay0 = y_cur + 110
-for i, (name, tag, accent, fill, bullets) in enumerate(agents):
-    row = i // cols
-    col = i % cols
-    x = PAD + col * (agent_w + gap)
-    y = ay0 + row * (agent_h + gap)
-    w(f'<rect x="{x}" y="{y}" width="{agent_w}" height="{agent_h}" fill="{CARD}" stroke="{LINE}" rx="12" filter="url(#shadow)"/>')
-    w(f'<rect x="{x}" y="{y}" width="{agent_w}" height="56" fill="{accent}" rx="12"/>')
-    w(f'<rect x="{x}" y="{y+44}" width="{agent_w}" height="12" fill="{accent}"/>')
-    w(f'<text x="{x+20}" y="{y+36}" fill="white" font-size="22" font-weight="800">{name}</text>')
-    # tag pill
-    w(f'<rect x="{x+20}" y="{y+72}" width="180" height="26" fill="{fill}" rx="13"/>')
-    w(f'<text x="{x+110}" y="{y+90}" fill="{accent}" font-size="13" font-weight="700" text-anchor="middle">{tag}</text>')
-    for j, b in enumerate(bullets):
-        if b.startswith("→"):
-            w(f'<text x="{x+20}" y="{y+128+j*26}" fill="{accent}" font-size="14" font-weight="700">{b}</text>')
-        else:
-            w(f'<text x="{x+20}" y="{y+128+j*26}" fill="{INK}" font-size="14">{b}</text>')
-
-# ===================== Section 3: Tech Stack =====================
-y_cur = ay0 + 2*agent_h + gap + 80
-section_header(PAD, y_cur, W-2*PAD, "03 · Technology Stack", "Layered view from telephony to analytics. Freya owns voice + LLM + workflow; Doğuş owns CRM + DMS.", color=PURPLE)
-
-stack_y = y_cur + 110
-layers = [
-    ("Telephony", "Cisco UCM · SIP trunk · 444-0-X", "Doğuş incumbent", "#1e293b"),
-    ("Voice I/O", "Freya STT (Qwen3-ASR-TR, 50ms p50) · Freya TTS (BiCodec)", "Freya", BLUE),
-    ("LLM Routing", "Gemma-Banking-3 (TR-tuned) · Gemini-3-Flash · Claude Haiku 4.5 fallback", "Freya", PURPLE),
-    ("Workflow Engine", "Freya state machine · per-agent flows · API-call nodes", "Freya", PURPLE),
-    ("Knowledge &amp; Tools", "Service catalog · Parts catalog · Recall list · Pricing API", "Doğuş", AMBER),
-    ("CRM / DMS", "SAP CRM · DOD app · Dealer DMS (heterogeneous)", "Doğuş", AMBER),
-    ("Observability", "Langfuse traces · Datadog · QA sample reviews · WER/CER monitoring", "Freya", GREEN),
-    ("Compliance", "KVKK consent capture · voice biometrics · 90-day retention · SOC2", "Joint", RED),
+cols = [
+    ("AGENT",            520),
+    ("DIRECTION",        180),
+    ("CHANNEL",          280),
+    ("PHASE",            140),
+    ("AHT TARGET",       180),
+    ("CONTAINMENT",      200),
+    ("PRIMARY KPI",      460),
+    ("SECONDARY KPI",    480),
 ]
-layer_h = 64
-for i, (name, tech, owner, color) in enumerate(layers):
-    y = stack_y + i * (layer_h + 8)
-    w(f'<rect x="{PAD}" y="{y}" width="{W-2*PAD}" height="{layer_h}" fill="{CARD}" stroke="{LINE}" rx="8" filter="url(#shadow)"/>')
-    w(f'<rect x="{PAD}" y="{y}" width="14" height="{layer_h}" fill="{color}" rx="8"/>')
-    w(f'<text x="{PAD+34}" y="{y+layer_h/2-4}" fill="{INK}" font-size="20" font-weight="700">{name}</text>')
-    w(f'<text x="{PAD+34}" y="{y+layer_h/2+22}" fill="{SUB}" font-size="15">{tech}</text>')
-    # owner pill on right
-    pill_x = W - PAD - 180
-    pill_color = color
-    w(f'<rect x="{pill_x}" y="{y+layer_h/2-16}" width="160" height="32" fill="{color}" rx="16" opacity="0.15"/>')
-    w(f'<text x="{pill_x+80}" y="{y+layer_h/2+5}" fill="{color}" font-size="14" font-weight="700" text-anchor="middle">Owner: {owner}</text>')
+total_w = sum(c[1] for c in cols)
+# Header row
+hx = PAD
+w(f'<rect x="{PAD}" y="{ty}" width="{total_w}" height="48" fill="{NAVY}"/>')
+cx = hx
+for label, cw in cols:
+    w(f'<text x="{cx+18}" y="{ty+30}" fill="white" font-family="{SANS}" font-size="13" font-weight="700" letter-spacing="2">{label}</text>')
+    cx += cw
 
-# ===================== Section 4: Phased Rollout =====================
-y_cur = stack_y + 8 * (layer_h + 8) + 60
-section_header(PAD, y_cur, W-2*PAD, "04 · Phased Rollout · 12 Months", "From single-agent PoC to multi-brand premium scale, gated by KPIs.", color=AMBER)
+# Rows
+row_h = 56
+for i, row in enumerate(agents):
+    ry = ty + 48 + i * row_h
+    bg = SOFT if i % 2 == 1 else PAPER
+    w(f'<rect x="{PAD}" y="{ry}" width="{total_w}" height="{row_h}" fill="{bg}"/>')
+    cx = PAD
+    for j, (val, (label, cw)) in enumerate(zip(row, cols)):
+        font_w = "600" if j == 0 else "400"
+        size = "17" if j == 0 else "16"
+        color = INK if j == 0 else GRAY if j in (1, 2, 3) else INK
+        w(f'<text x="{cx+18}" y="{ry+34}" fill="{color}" font-family="{SANS}" font-size="{size}" font-weight="{font_w}">{esc(str(val))}</text>')
+        cx += cw
 
-phases = [
-    ("Phase 0", "Discover", "Week 0-4",
-     ["Volume audit, top-10 intents", "Existing IVR mining", "DMS API discovery",
-      "Compliance & KVKK sign-off", "PoC scope locked", "Baseline KPIs captured"], LIGHT_BLUE, BLUE),
-    ("Phase 1", "Pilot", "Month 1-3",
-     ["Service Appointment Agent", "Service Reminder (outbound)", "NPS Survey",
-      "1 brand × 3 dealer pilots", "Live monitoring + war room", "Gate: 70% containment"], LIGHT_GREEN, GREEN),
-    ("Phase 2", "Expand", "Month 4-6",
-     ["Sales Lead + Complaint", "Recall Campaign", "Multi-dealer routing",
-      "Brand 2 + Brand 3", "Analytics dashboard live", "Gate: stable WER < 8%"], LIGHT_AMBER, AMBER),
-    ("Phase 3", "Deepen", "Month 7-9",
-     ["Parts Inquiry", "Warranty Renewal", "Telematics integration",
-      "Premium brands (Porsche)", "Cross-sell modules", "Gate: NPS uplift +5"], LIGHT_PURPLE, PURPLE),
-    ("Phase 4", "Scale", "Month 10-12",
-     ["Roadside Triage", "Insurance Cross-sell", "Full multi-brand",
-      "All channels integrated", "Self-service knowledge", "Gate: cost-to-serve -45%"], LIGHT_RED, RED),
+# Table border
+total_h = 48 + len(agents) * row_h
+w(f'<rect x="{PAD}" y="{ty}" width="{total_w}" height="{total_h}" fill="none" stroke="{INK}" stroke-width="1"/>')
+
+# ===================== 04 — Phased rollout (Gantt) =====================
+y_cur = ty + total_h + 100
+sec_header(y_cur, "04", "Phased Rollout", "Twelve months. Each phase carries a quantified gate before the next opens.")
+
+gy = y_cur + 130
+months = list(range(1, 13))
+# Gantt grid
+left = PAD + 380
+right = W - PAD - 200
+month_w = (right - left) / 12
+# Months header
+for i, m in enumerate(months):
+    mx = left + i * month_w
+    w(f'<line x1="{mx}" y1="{gy-30}" x2="{mx}" y2="{gy + 9*44 + 10}" stroke="{LINE}" stroke-width="0.4"/>')
+    w(f'<text x="{mx + month_w/2}" y="{gy-12}" fill="{LIGHT}" font-family="{SANS}" font-size="13" font-weight="600" text-anchor="middle" letter-spacing="1">M{m:02d}</text>')
+# right border
+w(f'<line x1="{right}" y1="{gy-30}" x2="{right}" y2="{gy + 9*44 + 10}" stroke="{LINE}" stroke-width="0.4"/>')
+
+# Workstreams
+streams = [
+    ("Discovery & PoC scope",                0,  1, "Discovery"),
+    ("Service Appointment Agent",            1,  3, "Phase 1"),
+    ("Service Reminder + NPS (outbound)",    1,  3, "Phase 1"),
+    ("Sales Lead + Complaint Tier-1",        3,  6, "Phase 2"),
+    ("Recall Campaign",                      3,  6, "Phase 2"),
+    ("Parts Inquiry",                        6,  9, "Phase 3"),
+    ("Warranty Renewal",                     6,  9, "Phase 3"),
+    ("Roadside Triage",                      9, 12, "Phase 4"),
+    ("Insurance Cross-sell",                 9, 12, "Phase 4"),
 ]
-ph_w = (W - 2*PAD - 4*16) / 5
-ph_h = 380
-phy = y_cur + 110
-for i, (label, name, when, items, fill, accent) in enumerate(phases):
-    x = PAD + i * (ph_w + 16)
-    w(f'<rect x="{x}" y="{phy}" width="{ph_w}" height="{ph_h}" fill="{CARD}" stroke="{LINE}" rx="12" filter="url(#shadow)"/>')
-    # accent banner
-    w(f'<rect x="{x}" y="{phy}" width="{ph_w}" height="80" fill="{fill}" rx="12"/>')
-    w(f'<rect x="{x}" y="{phy+68}" width="{ph_w}" height="12" fill="{fill}"/>')
-    w(f'<text x="{x+20}" y="{phy+34}" fill="{accent}" font-size="14" font-weight="800" letter-spacing="1.5">{label.upper()}</text>')
-    w(f'<text x="{x+20}" y="{phy+62}" fill="{INK}" font-size="26" font-weight="800">{name}</text>')
-    w(f'<text x="{x+ph_w-20}" y="{phy+62}" fill="{accent}" font-size="14" font-weight="700" text-anchor="end">{when}</text>')
-    # items
-    for j, it in enumerate(items):
-        w(f'<circle cx="{x+24}" cy="{phy+118+j*40}" r="3" fill="{accent}"/>')
-        w(f'<text x="{x+38}" y="{phy+123+j*40}" fill="{INK}" font-size="14">{it}</text>')
-    # arrow to next phase
-    if i < len(phases)-1:
-        ax = x + ph_w
-        ay = phy + 60
-        w(f'<path d="M {ax+1} {ay} L {ax+13} {ay}" stroke="{accent}" stroke-width="2" marker-end="url(#arrow-blue)"/>')
+for i, (name, m_start, m_end, tag) in enumerate(streams):
+    ry = gy + i * 44
+    w(f'<text x="{PAD}" y="{ry+22}" fill="{INK}" font-family="{SANS}" font-size="16" font-weight="500">{esc(name)}</text>')
+    bx = left + m_start * month_w
+    bw = (m_end - m_start) * month_w
+    w(f'<rect x="{bx}" y="{ry+8}" width="{bw}" height="22" fill="{NAVY}"/>')
+    # gate diamond at end
+    gx = bx + bw
+    w(f'<polygon points="{gx-9},{ry+19} {gx},{ry+10} {gx+9},{ry+19} {gx},{ry+28}" fill="{PAPER}" stroke="{INK}" stroke-width="1.2"/>')
+    # tag
+    w(f'<text x="{right + 14}" y="{ry+22}" fill="{GRAY}" font-family="{SANS}" font-size="13" font-weight="600" letter-spacing="1.5">{esc(tag.upper())}</text>')
 
-# ===================== Section 5: KPI Dashboard =====================
-y_cur = phy + ph_h + 70
-section_header(PAD, y_cur, W-2*PAD, "05 · KPI Targets &amp; Measurement", "What success looks like at month 12. Measured weekly, reported monthly.", color=GREEN)
+# Gates legend
+gly = gy + 9*44 + 36
+w(f'<text x="{PAD}" y="{gly}" fill="{LIGHT}" font-family="{SANS}" font-size="13" letter-spacing="2.5" font-weight="600">GATES (END OF EACH PHASE)</text>')
+gates = [
+    ("M1 → Phase 1", "Compliance sign-off, mock-API ready, 100 reference calls captured"),
+    ("M3 → Phase 2", "Containment ≥ 60% on Service Appointment, CSAT ≥ 4.0, zero P0 incidents"),
+    ("M6 → Phase 3", "WER < 8% sustained, 4 brands live, dealer council unblocking changes"),
+    ("M9 → Phase 4", "Cost-to-serve −30%, NPS uplift +10, Porsche queue accepted by brand owner"),
+    ("M12 → Steady state", "Cost-to-serve −45%, 70% containment, 24/7 SLA 99.5%, recall coverage 100%"),
+]
+for i, (when, criteria) in enumerate(gates):
+    yy = gly + 30 + i * 28
+    w(f'<text x="{PAD}" y="{yy}" fill="{INK}" font-family="{MONO}" font-size="14" font-weight="700">{esc(when)}</text>')
+    w(f'<text x="{PAD+260}" y="{yy}" fill="{GRAY}" font-family="{SANS}" font-size="14">{esc(criteria)}</text>')
 
+# ===================== 05 — KPI scorecard (proper table, replaces colored boxes) =====================
+y_cur = gly + 30 + len(gates)*28 + 80
+sec_header(y_cur, "05", "KPI Scorecard", "What we measure, where we read it, and what good looks like at month 12.")
+
+ky = y_cur + 130
+kpi_cols = [
+    ("METRIC",         420),
+    ("DEFINITION",     660),
+    ("BASELINE",       180),
+    ("MONTH 3",        160),
+    ("MONTH 6",        160),
+    ("MONTH 12",       180),
+    ("READ FROM",      460),
+    ("OWNER",          220),
+]
 kpis = [
-    ("70%", "Containment\n(end-to-end AI)", BLUE),
-    ("< 90s", "Avg Handle Time\n(inbound)", BLUE),
-    ("≥ 4.3", "CSAT\n(post-call survey)", GREEN),
-    ("+15", "NPS\n(vs baseline)", GREEN),
-    ("99.5%", "24/7 availability\n(p50 SLA)", PURPLE),
-    ("-45%", "Cost-to-serve\n(per resolved)", AMBER),
-    ("+22%", "Service rev.\n(reminder-driven)", AMBER),
-    ("100%", "Recall coverage\n(eligible base)", RED),
+    ("Containment",        "% inbound calls resolved end-to-end by AI",                  "0%",       "60%",    "65%",    "70%",     "Langfuse + CRM disposition", "Freya Delivery"),
+    ("Avg. Handle Time",   "Mean inbound call duration, all intents",                    "252 s",    "150 s",  "110 s",  "<90 s",   "Telephony CDR",              "Doğuş Ops"),
+    ("CSAT",               "Post-call survey, scale 1–5",                                "3.6",      "4.0",    "4.2",    "≥ 4.3",   "Freya outbound NPS bot",     "Doğuş CX"),
+    ("Net Promoter Score", "Standard 0–10 NPS, calculated quarterly",                    "+24",      "+30",    "+35",    "+39",     "Quarterly NPS programme",    "Doğuş CX"),
+    ("24/7 Availability",  "p50 service availability across calendar year",              "92%",      "97%",    "99%",    "99.5%",   "Datadog uptime monitor",     "Freya SRE"),
+    ("Cost-to-Serve",      "Fully-loaded cost per resolved customer interaction",        "TRY 38",   "TRY 26", "TRY 22", "TRY 21",  "Finance reconciliation",     "Doğuş Finance"),
+    ("Service Revenue",    "Service-channel revenue lift attributable to outbound bot",  "Index 100","Index 108","Index 116","Index 122","DMS reporting",          "Doğuş Service"),
+    ("Recall Coverage",    "% of eligible base contacted within campaign window",        "62%",      "85%",    "95%",    "100%",    "OEM recall registry",        "Doğuş Compliance"),
 ]
-ky = y_cur + 110
-kw = (W - 2*PAD - 7*16) / 8
-kh = 160
-for i, (val, lbl, color) in enumerate(kpis):
-    x = PAD + i * (kw + 16)
-    w(f'<rect x="{x}" y="{ky}" width="{kw}" height="{kh}" fill="{CARD}" stroke="{LINE}" rx="12" filter="url(#shadow)"/>')
-    w(f'<rect x="{x}" y="{ky}" width="{kw}" height="6" fill="{color}" rx="12"/>')
-    w(f'<text x="{x+kw/2}" y="{ky+78}" fill="{color}" font-size="44" font-weight="800" text-anchor="middle">{val}</text>')
-    for j, line in enumerate(lbl.split("\n")):
-        w(f'<text x="{x+kw/2}" y="{ky+108+j*22}" fill="{SUB}" font-size="14" text-anchor="middle">{line}</text>')
+total_w = sum(c[1] for c in kpi_cols)
+w(f'<rect x="{PAD}" y="{ky}" width="{total_w}" height="48" fill="{NAVY}"/>')
+cx = PAD
+for label, cw in kpi_cols:
+    w(f'<text x="{cx+16}" y="{ky+30}" fill="white" font-family="{SANS}" font-size="13" font-weight="700" letter-spacing="2">{label}</text>')
+    cx += cw
 
-# ===================== Section 6: Governance =====================
-y_cur = ky + kh + 70
-section_header(PAD, y_cur, W-2*PAD, "06 · Governance &amp; Operating Cadence", "Who decides what, on what cadence. Aligned with dealer network reality.", color=NAVY)
+row_h = 50
+for i, row in enumerate(kpis):
+    ry = ky + 48 + i * row_h
+    bg = SOFT if i % 2 == 1 else PAPER
+    w(f'<rect x="{PAD}" y="{ry}" width="{total_w}" height="{row_h}" fill="{bg}"/>')
+    cx = PAD
+    for j, (val, (label, cw)) in enumerate(zip(row, kpi_cols)):
+        font_w = "600" if j == 0 else "400"
+        font = MONO if j in (2,3,4,5) else SANS
+        color = INK if j == 0 or j == 5 else GRAY if j in (1, 6, 7) else INK
+        size = "16" if j == 0 else "15"
+        w(f'<text x="{cx+16}" y="{ry+32}" fill="{color}" font-family="{font}" font-size="{size}" font-weight="{font_w}">{esc(str(val))}</text>')
+        cx += cw
 
-gov_y = y_cur + 110
-gov = [
-    ("Steering Committee", "Monthly", ["Doğuş GM Müşteri Hiz.", "Doğuş CIO", "Freya CEO", "Freya VP Customer"], NAVY),
-    ("War Room", "Weekly", ["Freya delivery lead", "Doğuş PM", "QA reviewer", "Dealer rep (rotating)"], BLUE),
-    ("Quality Council", "Bi-weekly", ["Sample 50 calls", "Score WER, CSAT, intent", "Update prompt library", "Failure pattern review"], GREEN),
-    ("Dealer Council", "Monthly", ["10 pilot dealers", "Friction reports", "Process changes", "Local language gotchas"], AMBER),
-    ("Compliance Officer", "Continuous", ["KVKK audit log", "Voice consent capture", "Data retention review", "Incident reporting"], RED),
+# table border
+total_h = 48 + len(kpis) * row_h
+w(f'<rect x="{PAD}" y="{ky}" width="{total_w}" height="{total_h}" fill="none" stroke="{INK}" stroke-width="1"/>')
+# vertical column dividers
+cx = PAD
+for label, cw in kpi_cols[:-1]:
+    cx += cw
+    w(f'<line x1="{cx}" y1="{ky}" x2="{cx}" y2="{ky+total_h}" stroke="{LINE}" stroke-width="0.4"/>')
+
+# ===================== 06 — Decision rights (RACI) =====================
+y_cur = ky + total_h + 100
+sec_header(y_cur, "06", "Decision Rights", "Who is Responsible, Accountable, Consulted, Informed. RACI without ambiguity.")
+
+ry0 = y_cur + 130
+raci_decisions = [
+    ("Adding a new agent / use case",                "C", "A", "R", "C", "I"),
+    ("Changing a workflow prompt in production",     "I", "C", "R", "I", "I"),
+    ("Releasing to a new dealer or new brand",       "A", "R", "C", "C", "C"),
+    ("Pricing / commercial changes",                 "A", "R", "C", "I", "I"),
+    ("KVKK / data-protection decisions",             "C", "C", "C", "A", "I"),
+    ("Killing the AI on a single line (kill-switch)","I", "C", "R", "I", "I"),
+    ("Quarterly KPI review and reset",               "A", "R", "R", "C", "C"),
+    ("OEM-mandated recall execution",                "A", "R", "C", "C", "C"),
 ]
-gw = (W - 2*PAD - 4*18) / 5
-gh = 240
-for i, (name, cad, members, color) in enumerate(gov):
-    x = PAD + i * (gw + 18)
-    w(f'<rect x="{x}" y="{gov_y}" width="{gw}" height="{gh}" fill="{CARD}" stroke="{LINE}" rx="10" filter="url(#shadow)"/>')
-    w(f'<rect x="{x}" y="{gov_y}" width="{gw}" height="6" fill="{color}" rx="10"/>')
-    w(f'<text x="{x+20}" y="{gov_y+44}" fill="{INK}" font-size="20" font-weight="800">{name}</text>')
-    w(f'<rect x="{x+20}" y="{gov_y+58}" width="120" height="26" fill="{color}" rx="13" opacity="0.15"/>')
-    w(f'<text x="{x+80}" y="{gov_y+76}" fill="{color}" font-size="13" font-weight="700" text-anchor="middle">{cad}</text>')
-    for j, m in enumerate(members):
-        w(f'<circle cx="{x+24}" cy="{gov_y+114+j*30}" r="3" fill="{color}"/>')
-        w(f'<text x="{x+38}" y="{gov_y+119+j*30}" fill="{INK}" font-size="14">{m}</text>')
-
-# ===================== Section 7: Risk register (right) and Quick wins (left) =====================
-y_cur = gov_y + gh + 60
-risks_w = (W - 2*PAD - 24) / 2
-
-# Quick wins
-section_header(PAD, y_cur, risks_w, "07a · Quick Wins (≤ 60 days)", "Visible, low-risk, fast ROI", color=GREEN)
-wins = [
-    "✓ Service Appointment Agent in 1 brand × 3 dealers",
-    "✓ Outbound NPS callback for last week's services",
-    "✓ Inbound call-overflow handling (peak Mon 10-12)",
-    "✓ Recall campaign call-out for one open campaign",
-    "✓ Dashboard: real-time call volume + containment",
-    "✓ Daily Slack digest of failed/escalated calls",
+raci_cols = [
+    ("DECISION", 980),
+    ("DOĞUŞ EXEC SPONSOR", 380),
+    ("DOĞUŞ PROGRAM PM", 380),
+    ("FREYA DELIVERY LEAD", 380),
+    ("LEGAL / COMPLIANCE", 380),
+    ("DEALER COUNCIL", 380),
 ]
-wy = y_cur + 110
-w(f'<rect x="{PAD}" y="{wy}" width="{risks_w}" height="280" fill="{CARD}" stroke="{LINE}" rx="10" filter="url(#shadow)"/>')
-w(f'<rect x="{PAD}" y="{wy}" width="{risks_w}" height="8" fill="{GREEN}" rx="10"/>')
-for j, win in enumerate(wins):
-    w(f'<text x="{PAD+24}" y="{wy+58+j*36}" fill="{INK}" font-size="17" font-weight="500">{win}</text>')
+total_w = sum(c[1] for c in raci_cols)
+w(f'<rect x="{PAD}" y="{ry0}" width="{total_w}" height="48" fill="{NAVY}"/>')
+cx = PAD
+for label, cw in raci_cols:
+    w(f'<text x="{cx + (16 if cw>600 else cw/2)}" y="{ry0+30}" fill="white" font-family="{SANS}" font-size="13" font-weight="700" letter-spacing="2" text-anchor="{("start" if cw>600 else "middle")}">{label}</text>')
+    cx += cw
 
-# Risks
-rx = PAD + risks_w + 24
-section_header(rx, y_cur, risks_w, "07b · Risk Register", "What can break, and how we de-risk", color=RED)
+row_h = 50
+for i, row in enumerate(raci_decisions):
+    ry = ry0 + 48 + i * row_h
+    bg = SOFT if i % 2 == 1 else PAPER
+    w(f'<rect x="{PAD}" y="{ry}" width="{total_w}" height="{row_h}" fill="{bg}"/>')
+    cx = PAD
+    for j, val in enumerate(row):
+        cw = raci_cols[j][1]
+        if j == 0:
+            w(f'<text x="{cx+16}" y="{ry+32}" fill="{INK}" font-family="{SANS}" font-size="16" font-weight="500">{esc(val)}</text>')
+        else:
+            tx = cx + cw/2
+            # circle for emphasis on R/A
+            radius = 16 if val in ("A","R") else 0
+            color_fill = NAVY if val == "A" else (INK if val == "R" else "none")
+            text_fill = "white" if val in ("A","R") else GRAY
+            if radius:
+                w(f'<circle cx="{tx}" cy="{ry+row_h/2}" r="{radius}" fill="{color_fill}" stroke="{INK}" stroke-width="1"/>')
+            w(f'<text x="{tx}" y="{ry+row_h/2+6}" fill="{text_fill}" font-family="{MONO}" font-size="16" font-weight="700" text-anchor="middle">{esc(val)}</text>')
+        cx += cw
+
+# borders + verticals
+total_h = 48 + len(raci_decisions) * row_h
+w(f'<rect x="{PAD}" y="{ry0}" width="{total_w}" height="{total_h}" fill="none" stroke="{INK}" stroke-width="1"/>')
+cx = PAD
+for label, cw in raci_cols[:-1]:
+    cx += cw
+    w(f'<line x1="{cx}" y1="{ry0}" x2="{cx}" y2="{ry0+total_h}" stroke="{LINE}" stroke-width="0.4"/>')
+
+# Legend below RACI
+ly = ry0 + total_h + 24
+w(f'<text x="{PAD}" y="{ly}" fill="{LIGHT}" font-family="{SANS}" font-size="13" letter-spacing="2.5" font-weight="600">LEGEND</text>')
+w(f'<circle cx="{PAD+150}" cy="{ly-6}" r="14" fill="{NAVY}"/>')
+w(f'<text x="{PAD+150}" y="{ly}" fill="white" font-family="{MONO}" font-size="14" font-weight="700" text-anchor="middle">A</text>')
+w(f'<text x="{PAD+170}" y="{ly}" fill="{GRAY}" font-family="{SANS}" font-size="14">Accountable, single point</text>')
+w(f'<circle cx="{PAD+460}" cy="{ly-6}" r="14" fill="{INK}"/>')
+w(f'<text x="{PAD+460}" y="{ly}" fill="white" font-family="{MONO}" font-size="14" font-weight="700" text-anchor="middle">R</text>')
+w(f'<text x="{PAD+480}" y="{ly}" fill="{GRAY}" font-family="{SANS}" font-size="14">Responsible, does the work</text>')
+w(f'<text x="{PAD+800}" y="{ly}" fill="{INK}" font-family="{MONO}" font-size="14" font-weight="700">C</text>')
+w(f'<text x="{PAD+822}" y="{ly}" fill="{GRAY}" font-family="{SANS}" font-size="14">Consulted, before decision</text>')
+w(f'<text x="{PAD+1140}" y="{ly}" fill="{INK}" font-family="{MONO}" font-size="14" font-weight="700">I</text>')
+w(f'<text x="{PAD+1156}" y="{ly}" fill="{GRAY}" font-family="{SANS}" font-size="14">Informed, after decision</text>')
+
+# ===================== 07 — Risk register =====================
+y_cur = ly + 70
+sec_header(y_cur, "07", "Risk Register", "What can break, how likely, what we do about it. Reviewed weekly.")
+
+rry = y_cur + 130
 risks = [
-    ("Dealer DMS heterogeneity", "Standardize 3 most common, manual fallback for rest"),
-    ("Turkish language quality at edge", "Continuous fine-tune on collected calls"),
-    ("KVKK + voice biometrics", "Legal opinion in week 1, opt-in flow on call"),
-    ("Peak hour overflow", "Continuous batching + autoscale + queue with ETA"),
-    ("Dealer change-management", "Champion dealer council + pilot wins as proof"),
-    ("OEM compliance (recall)", "Audit trail per call, weekly OEM reporting"),
+    ("R1", "Dealer DMS heterogeneity blocks integration",          "High",   "High",   "Standardize on top 3 DMS profiles, build adapters; manual fallback for tail",    "Doğuş IT"),
+    ("R2", "Turkish-language quality drifts at the edge",          "Medium", "High",   "Continuous fine-tune on captured calls; weekly WER monitoring with alerts",    "Freya ML"),
+    ("R3", "KVKK / voice biometrics challenge",                    "Medium", "High",   "Legal opinion week 1; opt-in capture in IVR; data residency in TR region",    "Compliance"),
+    ("R4", "Peak-hour overflow exceeds capacity",                  "Medium", "Medium", "Continuous batching, autoscale on H100/H200, queue with ETA broadcasted",     "Freya SRE"),
+    ("R5", "Dealer change-management resistance",                  "High",   "Medium", "Champion dealers in council, monthly wins published, opt-in per dealer",      "Doğuş PM"),
+    ("R6", "OEM compliance gap on recall execution",               "Low",    "High",   "Per-call audit trail, weekly OEM reporting, exception escalation in 24h",      "Compliance"),
+    ("R7", "Brand-tier mix dilutes premium experience (Porsche)",  "Medium", "Medium", "Dedicated voice profile, shorter scripts, premium dialer pool",                "Doğuş Brand"),
+    ("R8", "Hallucination on price / availability quotes",         "Low",    "High",   "Tool-calling for any quote; LLM reads from system, never composes numerals",  "Freya ML"),
 ]
-w(f'<rect x="{rx}" y="{wy}" width="{risks_w}" height="280" fill="{CARD}" stroke="{LINE}" rx="10" filter="url(#shadow)"/>')
-w(f'<rect x="{rx}" y="{wy}" width="{risks_w}" height="8" fill="{RED}" rx="10"/>')
-for j, (r, m) in enumerate(risks):
-    w(f'<text x="{rx+24}" y="{wy+50+j*38}" fill="{INK}" font-size="15" font-weight="700">⚠ {r}</text>')
-    w(f'<text x="{rx+44}" y="{wy+70+j*38}" fill="{SUB}" font-size="13">→ {m}</text>')
+risk_cols = [
+    ("#",         70),
+    ("RISK",      900),
+    ("LIKELIHOOD",180),
+    ("IMPACT",    140),
+    ("MITIGATION",1500),
+    ("OWNER",     290),
+]
+total_w = sum(c[1] for c in risk_cols)
+w(f'<rect x="{PAD}" y="{rry}" width="{total_w}" height="48" fill="{NAVY}"/>')
+cx = PAD
+for label, cw in risk_cols:
+    w(f'<text x="{cx+16}" y="{rry+30}" fill="white" font-family="{SANS}" font-size="13" font-weight="700" letter-spacing="2">{label}</text>')
+    cx += cw
 
-# ===================== Footer =====================
-fy = H - 80
-w(f'<line x1="{PAD}" y1="{fy-12}" x2="{W-PAD}" y2="{fy-12}" stroke="{LINE}" stroke-width="1"/>')
-w(f'<text x="{PAD}" y="{fy+18}" fill="{SUB}" font-size="14">Prepared by Freya Labs · Confidential, for Doğuş Otomotiv leadership review · Print at A0 (84cm × 119cm) for war-room wall</text>')
-w(f'<text x="{W-PAD}" y="{fy+18}" fill="{SUB}" font-size="14" text-anchor="end">freyavoice.ai · tunga@freyavoice.ai · +90 536 467 3603</text>')
+row_h = 60
+for i, row in enumerate(risks):
+    ry = rry + 48 + i * row_h
+    bg = SOFT if i % 2 == 1 else PAPER
+    w(f'<rect x="{PAD}" y="{ry}" width="{total_w}" height="{row_h}" fill="{bg}"/>')
+    cx = PAD
+    for j, val in enumerate(row):
+        cw = risk_cols[j][1]
+        # color severity
+        color = INK
+        font_w = "500" if j == 1 else "400"
+        if j in (2, 3) and val == "High":
+            color = RED
+            font_w = "700"
+        if j == 0:
+            font_w = "700"
+        font = MONO if j == 0 else SANS
+        size = "15" if j == 4 else "16"
+        w(f'<text x="{cx+16}" y="{ry+38}" fill="{color}" font-family="{font}" font-size="{size}" font-weight="{font_w}">{esc(val)}</text>')
+        cx += cw
+
+total_h = 48 + len(risks) * row_h
+w(f'<rect x="{PAD}" y="{rry}" width="{total_w}" height="{total_h}" fill="none" stroke="{INK}" stroke-width="1"/>')
+cx = PAD
+for label, cw in risk_cols[:-1]:
+    cx += cw
+    w(f'<line x1="{cx}" y1="{rry}" x2="{cx}" y2="{rry+total_h}" stroke="{LINE}" stroke-width="0.4"/>')
+
+# ===================== 08 — Assumptions & Dependencies =====================
+y_cur = rry + total_h + 100
+sec_header(y_cur, "08", "Assumptions & Dependencies", "What must hold for the plan to land. If any breaks, the schedule re-baselines.")
+
+ay = y_cur + 120
+assumptions = [
+    "API access to SAP CRM and the three highest-volume Dealer DMS instances is in place by week 2.",
+    "Existing Cisco UCM admits SIP egress to a Freya endpoint without disrupting the legacy IVR.",
+    "Doğuş Compliance issues a written opinion on voice biometrics and KVKK consent before pilot launch.",
+    "A pilot cohort of three dealerships (one VW, one Audi, one Škoda) commits to be primary references.",
+    "Freya is permitted to retain de-identified call audio for fine-tuning, separate from PII storage.",
+    "Brand owners (Porsche, Bentley, Lamborghini) accept a separate premium voice profile by month 9.",
+    "Annual call volume forecast (12.4M inbound) does not change by more than ±15% during the engagement.",
+]
+for i, a in enumerate(assumptions):
+    yy = ay + i*38
+    w(f'<text x="{PAD}" y="{yy}" fill="{INK}" font-family="{MONO}" font-size="15" font-weight="700">A{i+1:02d}</text>')
+    w(f'<text x="{PAD+72}" y="{yy}" fill="{INK}" font-family="{SERIF}" font-size="20">{esc(a)}</text>')
+
+# ===================== Footer / sign-off block =====================
+fy = H - 240
+w(f'<line x1="{PAD}" y1="{fy}" x2="{W-PAD}" y2="{fy}" stroke="{INK}" stroke-width="1"/>')
+# signature blocks
+sig_w = (W - 2*PAD - 60) / 3
+sigs = [
+    ("DOĞUŞ OTOMOTİV", "Executive Sponsor", "Name, title"),
+    ("FREYA LABS", "Engagement Lead, Tunga Bayrak", "CEO and Co-Founder"),
+    ("LEGAL / COMPLIANCE", "Officer of record", "Name, title"),
+]
+for i, (org, role, sub) in enumerate(sigs):
+    sx = PAD + i * (sig_w + 30)
+    w(f'<text x="{sx}" y="{fy+38}" fill="{LIGHT}" font-family="{SANS}" font-size="13" letter-spacing="2.5" font-weight="600">{org}</text>')
+    w(f'<line x1="{sx}" y1="{fy+90}" x2="{sx+sig_w}" y2="{fy+90}" stroke="{INK}" stroke-width="0.6"/>')
+    w(f'<text x="{sx}" y="{fy+114}" fill="{INK}" font-family="{SERIF}" font-size="18">{esc(role)}</text>')
+    w(f'<text x="{sx}" y="{fy+138}" fill="{GRAY}" font-family="{SANS}" font-size="14">{esc(sub)}</text>')
+
+# bottom info bar
+w(f'<line x1="{PAD}" y1="{H-80}" x2="{W-PAD}" y2="{H-80}" stroke="{INK}" stroke-width="0.4"/>')
+w(f'<text x="{PAD}" y="{H-50}" fill="{LIGHT}" font-family="{SANS}" font-size="12" letter-spacing="2">REV 1.1 · APRIL 2026 · ISSUED BY FREYA LABS · NOT FOR EXTERNAL DISTRIBUTION</text>')
+w(f'<text x="{W-PAD}" y="{H-50}" fill="{LIGHT}" font-family="{SANS}" font-size="12" letter-spacing="2" text-anchor="end">FREYAVOICE.AI · TUNGA@FREYAVOICE.AI · +90 536 467 3603</text>')
 
 w('</svg>')
 
-import sys, pathlib
+import pathlib
 out_path = pathlib.Path(__file__).parent / "dogus_ai_call_center_blueprint.svg"
 out_path.write_text("\n".join(out), encoding="utf-8")
 print(f"Wrote {out_path} ({out_path.stat().st_size:,} bytes)")
